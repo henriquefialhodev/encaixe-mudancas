@@ -1,0 +1,19 @@
+# Test output from the site-tester agent
+.qa/
+
+# Dependencies and local tooling
+node_modules/
+.netlify/
+
+# Secrets
+.env
+.env.*
+
+# Personal Claude Code files
+CLAUDE.local.md
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

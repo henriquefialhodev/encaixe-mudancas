@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "deny": [
+      "Edit(/public/**/*.html)",
+      "Edit(/public/**/*.css)",
+      "Edit(/public/**/*.js)"
+    ]
+  }
+}
