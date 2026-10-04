@@ -35,7 +35,7 @@ HTML, CSS and vanilla JavaScript (ES modules). No backend. Quote submission is s
 - Volume calculator: items generated from an array of objects, grouped by room, minus and plus buttons with full accessible names, quantity from 0 to 20, live total in m3 (aria-live polite), suggested vehicle from a config object, textarea fallback without JS
 - Price estimate: range rounded to 10 EUR, based on volume, distance band, floors without elevator and extras, all values in one config object, updates on every relevant change, always labelled as indicative and fictional
 - Simulated submit: only when all steps are valid, reference ENC-YYYY-NNNN, data saved to sessionStorage, obrigado.html shows the summary or a generic message with a link to the quote page if there is no data, no console errors
-- Technical: structured data MovingCompany, meta tags, Open Graph, sitemap.xml, robots.txt, favicon, manifest
+- Technical: meta tags, Open Graph, favicon, structured data MovingCompany (practice only, the site is noindex). The whole site is noindex through `public/_headers`. No sitemap, robots.txt or manifest.
 
 ## Brand
 The full visual system is in `docs/design-system.md`. It loads through `.claude/rules/design-system.md` when working on HTML, CSS or the icon sprite.

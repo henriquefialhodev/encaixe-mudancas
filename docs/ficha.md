@@ -118,7 +118,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 **F8. Técnico**
 - Aviso de projeto fictício visível em todas as páginas.
 - Emails com `@example.com` e telefone sem link para ligar.
-- Dados estruturados `MovingCompany`, meta tags, Open Graph, `sitemap.xml`, `robots.txt`, favicon e manifest.
+- Dados estruturados `MovingCompany` (só como prática, porque o site não é indexado), meta tags, Open Graph e favicon. O site inteiro fica com `noindex` através do `public/_headers`. Sem `sitemap.xml`, `robots.txt` nem manifest.
 
 ### Extras para depois
 
@@ -197,7 +197,7 @@ São só para inspiração, nunca para copiar.
 | 10 | `feat/quote-submit` | referência, `sessionStorage`, `obrigado.html` | 2h |
 | 11 | `feat/images` | gerar as imagens, converter para WebP, tamanhos, `alt` | 2h |
 | 12 | `feat/legal-404` | páginas legais, Livro de Reclamações, 404 | 2h |
-| 13 | `feat/seo` | meta tags, Open Graph, JSON-LD, sitemap, robots, favicon, manifest | 2h |
+| 13 | `feat/seo` | meta tags, Open Graph, JSON-LD (prática) | 2h |
 | 14 | `fix/a11y-audit` | testes em Chrome, WebKit e telemóvel, Lighthouse, leitor de ecrã, correções | 4h + 2h |
 | 15 | `feat/readme-deploy` | README, publicação, capturas e cartão do portefólio | 2h |
 
