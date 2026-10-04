@@ -36,10 +36,10 @@ Duas linhas dentro de um retângulo de borda 2px, como uma etiqueta de envio.
 
 | Linha | Texto | Fonte | Peso | Tamanho no cabeçalho | Espaçamento entre letras |
 |---|---|---|---|---|---|
-| 1 | ENCAIXE | Barlow Condensed | 700 | 1.75rem (28px) | 0.02em |
-| 2 | MUDANÇAS | IBM Plex Mono | 500 | 0.75rem (12px) | 0.2em |
+| 1 | ENCAIXE | Barlow Condensed | 700 | 2.8rem (28px) | 0.02em |
+| 2 | MUDANÇAS | IBM Plex Mono | 500 | 1.4rem (14px) | 0.2em |
 
-- As duas linhas ficam alinhadas à esquerda. O espaçamento largo da linha 2 faz com que "MUDANÇAS" ocupe mais ou menos a mesma largura que "ENCAIXE".
+- As duas linhas ficam alinhadas à esquerda. Com 14px e o espaçamento largo, "MUDANÇAS" ocupa 87px, praticamente a mesma largura que "ENCAIXE" (88,5px). As duas linhas formam um bloco.
 - Margem interna do retângulo: 4px em cima e em baixo, 8px dos lados (`--space-1` e `--space-2`).
 - As maiúsculas são feitas com `text-transform: uppercase`. No HTML o texto fica "Encaixe Mudanças", para o leitor de ecrã o ler como palavras e não letra a letra.
 - **No cabeçalho, o logótipo é texto HTML dentro do link para a página inicial, não uma imagem.** As fontes já estão carregadas, por isso não custa nenhum pedido extra, cresce com o zoom e o nome do link é o próprio texto.
@@ -62,7 +62,7 @@ Um quadrado em traço de 2px com o canto superior direito em falta. Nesse espaç
 - Nunca em laranja, porque o laranja está reservado às ações.
 - Nunca em kraft nem sobre fotografias.
 - Área de proteção à volta: no mínimo a altura da linha "MUDANÇAS".
-- Largura mínima do wordmark: 7rem (112px). Abaixo disso usa-se só o símbolo.
+- Tamanho no cabeçalho: 108,5 × 58,2px, com a borda incluída. É também o tamanho mínimo do wordmark. Abaixo disso usa-se só o símbolo.
 
 ---
 
@@ -183,21 +183,23 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 
 ### Escala
 
+**Unidades:** o `html` tem `font-size: 62.5%`. Com a letra do browser no tamanho normal (16px), 1rem passa a valer 10px, e as contas ficam simples: 1.6rem = 16px. Como é uma percentagem, continua a respeitar o tamanho de letra que a pessoa escolher nas definições do browser. Todos os tamanhos de letra são em rem. O `body` tem de definir o tamanho do texto com `--font-size-body`. Sem isso, todo o texto que não tenha um tamanho próprio fica com 10px.
+
 `clamp(mínimo, preferido, máximo)` escolhe um tamanho entre o mínimo e o máximo que cresce com a largura do ecrã. Os valores abaixo vão de 360px a 1280px de largura. O valor preferido junta `rem` e `vw` para que o texto continue a crescer com o zoom do browser (critério 1.4.4).
 
 | Elemento | Mobile | Desktop | Valor | Fonte e peso | Altura de linha | Espaçamento entre letras |
 |---|---|---|---|---|---|---|
-| h1 | 40px | 64px | `clamp(2.5rem, 1.913rem + 2.609vw, 4rem)` | Barlow Condensed 700 | 1.05 | 0 |
-| h2 | 30px | 44px | `clamp(1.875rem, 1.533rem + 1.522vw, 2.75rem)` | Barlow Condensed 700 | 1.15 | 0 |
-| h3 | 22px | 28px | `clamp(1.375rem, 1.228rem + 0.6522vw, 1.75rem)` | Barlow Condensed 700 | 1.15 | 0.01em |
-| Texto de entrada (hero) | 18px | 21px | `clamp(1.125rem, 1.052rem + 0.3261vw, 1.3125rem)` | Barlow 400 | 1.5 | 0 |
-| Texto | 16px | 18px | `clamp(1rem, 0.9511rem + 0.2174vw, 1.125rem)` | Barlow 400 | 1.6 | 0 |
+| h1 | 40px | 64px | `clamp(4rem, 3.061rem + 2.609vw, 6.4rem)` | Barlow Condensed 700 | 1.05 | 0 |
+| h2 | 30px | 44px | `clamp(3rem, 2.452rem + 1.522vw, 4.4rem)` | Barlow Condensed 700 | 1.15 | 0 |
+| h3 | 22px | 28px | `clamp(2.2rem, 1.965rem + 0.6522vw, 2.8rem)` | Barlow Condensed 700 | 1.15 | 0.01em |
+| Texto de entrada (hero) | 18px | 21px | `clamp(1.8rem, 1.683rem + 0.3261vw, 2.1rem)` | Barlow 400 | 1.5 | 0 |
+| Texto | 16px | 18px | `clamp(1.6rem, 1.522rem + 0.2174vw, 1.8rem)` | Barlow 400 | 1.6 | 0 |
 | Botões e links do menu | 16px | 18px | igual ao texto | Barlow 600 | 1.2 | 0.01em |
 | Etiqueta do campo (`<label>`) | 16px | 18px | igual ao texto | Barlow 600 | 1.2 | 0 |
-| Texto dentro dos campos | 16px | 16px | `1rem` | Barlow 400 | 1.2 | 0 |
-| Texto pequeno (ajudas, erros, avisos) | 14px | 14px | `0.875rem` | Barlow 400 (erros 600) | 1.5 | 0 |
-| Etiqueta mono ("PASSO 02 / 04") | 14px | 14px | `0.875rem` | IBM Plex Mono 500, maiúsculas | 1.2 | 0.08em |
-| Total em m³ | 28px | 36px | `clamp(1.75rem, 1.554rem + 0.8696vw, 2.25rem)` | IBM Plex Mono 500 | 1.2 | 0 |
+| Texto dentro dos campos | 16px | 16px | `1.6rem` | Barlow 400 | 1.2 | 0 |
+| Texto pequeno (ajudas, erros, avisos) | 14px | 14px | `1.4rem` | Barlow 400 (erros 600) | 1.5 | 0 |
+| Etiqueta mono ("PASSO 02 / 04") | 14px | 14px | `1.4rem` | IBM Plex Mono 500, maiúsculas | 1.2 | 0.08em |
+| Total em m³ | 28px | 36px | `clamp(2.8rem, 2.487rem + 0.8696vw, 3.6rem)` | IBM Plex Mono 500 | 1.2 | 0 |
 
 - **Os títulos não vão em maiúsculas.** As maiúsculas ficam só nas etiquetas mono, para serem o sinal visual de "etiqueta".
 - **O texto dentro dos campos fica sempre em 16px.** O Safari do iPhone faz zoom automático ao focar um campo com letra mais pequena, e a página fica desalinhada.
@@ -208,21 +210,21 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 
 ## 6. Espaçamento
 
-Escala com base de 4px. Todos os valores em `rem`, para acompanharem o tamanho de letra escolhido pelo utilizador.
+Escala com base de 4px. Todos os valores em px.
 
 | Token | Valor | Onde se usa |
 |---|---|---|
-| `--space-1` | 0.25rem (4px) | **Dentro de componentes:** margem interna do logótipo (vertical), espaço entre o ícone de erro e a mensagem |
-| `--space-2` | 0.5rem (8px) | **Dentro de componentes:** entre a etiqueta e o campo, entre o ícone e o texto num botão, margem do logótipo (horizontal) |
-| `--space-3` | 0.75rem (12px) | **Dentro de componentes:** margem interna dos campos, margem vertical dos botões, entre elementos de um cartão |
-| `--space-4` | 1rem (16px) | **Dentro de componentes:** entre os botões − e + e a quantidade, entre itens da calculadora. Margem lateral da página em mobile |
-| `--space-5` | 1.5rem (24px) | **Dentro e entre componentes:** margem interna dos cartões em mobile, margem horizontal dos botões, entre campos do mesmo passo |
-| `--space-6` | 2rem (32px) | **Entre componentes:** espaço entre cartões numa grelha, margem interna dos cartões a partir de 48em |
-| `--space-7` | 3rem (48px) | **Entre componentes:** entre o título de uma secção e o conteúdo, entre os passos quando aparecem seguidos (sem JavaScript) |
-| `--space-8` | 4rem (64px) | **Entre secções** em mobile |
-| `--space-9` | 6rem (96px) | **Entre secções** a partir de 64em |
+| `--space-1` | 4px | **Dentro de componentes:** margem interna do logótipo (vertical), espaço entre o ícone de erro e a mensagem |
+| `--space-2` | 8px | **Dentro de componentes:** entre a etiqueta e o campo, entre o ícone e o texto num botão, margem do logótipo (horizontal) |
+| `--space-3` | 12px | **Dentro de componentes:** margem interna dos campos, margem vertical dos botões, entre elementos de um cartão |
+| `--space-4` | 16px | **Dentro de componentes:** entre os botões − e + e a quantidade, entre itens da calculadora. Margem lateral da página em mobile |
+| `--space-5` | 24px | **Dentro e entre componentes:** margem interna dos cartões em mobile, margem horizontal dos botões, entre campos do mesmo passo |
+| `--space-6` | 32px | **Entre componentes:** espaço entre cartões numa grelha, margem interna dos cartões a partir de 768px |
+| `--space-7` | 48px | **Entre componentes:** entre o título de uma secção e o conteúdo, entre os passos quando aparecem seguidos (sem JavaScript) |
+| `--space-8` | 64px | **Entre secções** em mobile |
+| `--space-9` | 96px | **Entre secções** a partir de 1024px |
 
-- `--section-space` guarda o espaço entre secções: `--space-8` em mobile e `--space-9` a partir de 64em.
+- `--section-space` guarda o espaço entre secções: `--space-8` em mobile e `--space-9` a partir de 1024px.
 - Regra para decidir: quanto mais relacionados estão dois elementos, mais pequeno o espaço entre eles. Uma etiqueta fica a 8px do seu campo e a 24px do campo seguinte, e é isso que mostra a que campo pertence.
 
 ---
@@ -231,31 +233,30 @@ Escala com base de 4px. Todos os valores em `rem`, para acompanharem o tamanho d
 
 ### Larguras
 
-- **Largura máxima do conteúdo:** 72rem (1152px). Acima disto, as linhas e as grelhas ficam largas demais para ler de uma vez.
+- **Largura máxima do conteúdo:** 1152px. Acima disto, as linhas e as grelhas ficam largas demais para ler de uma vez.
 - **Largura máxima do texto corrido:** 65ch.
-- **Margem lateral (`--gutter`):** 1rem (16px) em mobile, 1.5rem (24px) a partir de 48em, 2rem (32px) a partir de 64em.
+- **Margem lateral (`--gutter`):** 16px em mobile, 24px a partir de 768px, 32px a partir de 1024px.
 
 ### Breakpoints
 
-Três breakpoints, em `em`. Com `em`, os breakpoints acompanham o tamanho de letra que o utilizador definiu no browser. Com letra maior, o layout passa mais cedo para a versão estreita, que é o que se quer.
+Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries são `min-width`: o CSS base é o de mobile e cada breakpoint acrescenta o que muda a partir dessa largura.
 
-| Breakpoint | Equivale a | O que muda | Motivo |
-|---|---|---|---|
-| até 40em | menos de 640px | Uma coluna. Menu atrás de um botão. Estimativa numa barra fixa no fundo | Num telemóvel só cabe uma coluna legível |
-| 40em | 640px | Serviços e divisões da calculadora em 2 colunas | Dois cartões lado a lado já têm pelo menos 18rem cada, que é o mínimo para um título e duas linhas sem cortes estranhos |
-| 48em | 768px | Menu sempre visível, o botão "Menu" desaparece (F1). Margem lateral 1.5rem | A ficha pede o menu sempre visível a partir da largura do tablet. Confirmar no browser que os links cabem numa linha ao lado do logótipo |
-| 64em | 1024px | Serviços em 3 colunas. "Como funciona" em linha horizontal. No orçamento, o painel da estimativa passa para o lado do formulário. Margem lateral 2rem | A 1024px, tirando as margens (64px), o painel (320px) e o espaço entre os dois (48px), o formulário fica com 592px (37rem). Abaixo disto, os campos e a calculadora ficavam apertados |
+| Breakpoint | O que muda | Motivo |
+|---|---|---|
+| até 767px | Uma coluna. Menu atrás de um botão. Estimativa numa barra fixa no fundo | Num telemóvel só cabe uma coluna legível |
+| 768px | Serviços e divisões da calculadora em 2 colunas. Menu sempre visível, o botão "Menu" desaparece (F1). Margem lateral 24px | É a largura de um tablet, onde a ficha pede o menu sempre visível. Dois cartões lado a lado ficam com 344px cada (768px menos as margens de 48px e o espaço de 32px entre eles, a dividir por dois). Confirmar no browser que os links do menu cabem numa linha ao lado do logótipo |
+| 1024px | Serviços em 3 colunas. "Como funciona" em linha horizontal. No orçamento, o painel da estimativa passa para o lado do formulário e a calculadora volta a uma coluna. Margem lateral 32px | A 1024px, tirando as margens (64px), o painel (320px) e o espaço entre os dois (48px), o formulário fica com 592px. Abaixo disto, os campos e a calculadora ficavam apertados. Com o painel ao lado, o formulário tem no máximo 640px: em duas colunas, nomes como "Cama de solteiro com colchão" ocupavam três linhas |
 
 **Atenção:** as custom properties não funcionam dentro da condição de um `@media`. Os breakpoints escrevem-se à mão em cada media query. Dentro do `@media` já se pode mudar o valor de uma custom property, por exemplo o `--gutter`.
 
 ### Grelhas
 
 - **Página inicial:** grelha de 1, 2 ou 3 colunas para os serviços, com `--space-6` entre cartões.
-- **"Como funciona":** lista vertical em mobile (linha temporal a descer). A partir de 64em, 4 colunas na horizontal.
+- **"Como funciona":** lista vertical em mobile (linha temporal a descer). A partir de 1024px, 4 colunas na horizontal.
 - **Orçamento em mobile:** uma coluna com o formulário e a barra fixa no fundo. A barra tapa o fim da página, por isso:
   - o `<body>` leva uma margem em baixo igual à altura da barra.
   - o `<html>` leva `scroll-padding-bottom` com essa mesma altura (conceito novo: diz ao browser quanto espaço deixar livre ao fazer scroll até um elemento). Assim, quando o foco passa para um campo junto ao fundo, o campo não fica escondido debaixo da barra.
-- **Orçamento a partir de 64em:** duas colunas. Formulário à esquerda (ocupa o espaço que sobra, até 40rem) e painel da estimativa à direita (20rem), com `--space-7` entre eles. O painel fica preso ao topo enquanto se faz scroll (`position: sticky`).
+- **Orçamento a partir de 1024px:** duas colunas. Formulário à esquerda (ocupa o espaço que sobra, até 640px) e painel da estimativa à direita (320px), com `--space-7` entre eles. O painel fica preso ao topo enquanto se faz scroll (`position: sticky`).
 
 ---
 
@@ -357,7 +358,7 @@ Inputs de texto, email, telefone, data, `<select>` e `<textarea>`.
 Serviços, passos do formulário, painel da estimativa.
 
 - Fundo surface, borda 2px ink, cantos retos, sem sombra.
-- Margem interna `--space-5` em mobile, `--space-6` a partir de 48em.
+- Margem interna `--space-5` em mobile, `--space-6` a partir de 768px.
 - Ordem interna: etiqueta mono ("SERVIÇO 01") → título h3 → texto → link opcional. `--space-3` entre elementos.
 
 | Estado | Aspeto |
@@ -382,7 +383,7 @@ Serviços, passos do formulário, painel da estimativa.
 | Página atual (`aria-current="page"`) | Sublinhado fixo de 3px. Não depende só da cor | 14,73 |
 | Desativado | Não existe | |
 
-**Botão "Menu" (abaixo de 48em):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
+**Botão "Menu" (abaixo de 768px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
 
 **Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, largura total, borda inferior 2px ink. Links um por linha, cada um com 44px de altura no mínimo. Abre e fecha sem animação.
 
@@ -394,6 +395,7 @@ Serviços, passos do formulário, painel da estimativa.
 - A quantidade fica entre os dois: IBM Plex Mono 500, 18px, centrada, com largura mínima de 2 caracteres (`2ch`), para a linha não mexer quando passa de 9 para 10.
 - Por cima, o nome do item em Barlow 400 e o volume unitário em mono muted ("0,8 M³").
 - Não são laranja. Há dezenas destes botões na página e o laranja deixava de distinguir o "Seguinte".
+- Colunas das divisões: uma em mobile, duas a partir de 768px, e outra vez uma a partir de 1024px, quando o painel da estimativa aparece ao lado do formulário (ver secção 7).
 
 | Estado | Aspeto | Contraste |
 |---|---|---|
@@ -407,7 +409,8 @@ Serviços, passos do formulário, painel da estimativa.
 
 - Lista ordenada (`<ol>`) com 4 itens em linha e `aria-label="Progresso do pedido"`.
 - Por cima, a etiqueta mono "PASSO 02 / 04" com `aria-hidden="true"`, e ao lado um texto só para leitores de ecrã: "Passo 2 de 4". Um leitor de ecrã leria "zero dois barra zero quatro".
-- Em mobile, cada item mostra só o número ("01") e por baixo da lista aparece o nome do passo atual. A partir de 48em, cada item mostra o número e o nome.
+- Em mobile, cada item mostra só o número ("01"). O nome do passo continua no HTML, escondido visualmente, para o leitor de ecrã ler "01, Origem e destino" e não só "01". Não se repete o nome do passo atual por baixo da lista, porque o título do cartão (h2) aparece logo a seguir e diz o mesmo.
+- A partir de 768px, cada item mostra o número e o nome.
 
 | Estado | Aspeto | Contraste |
 |---|---|---|
@@ -427,8 +430,8 @@ Serviços, passos do formulário, painel da estimativa.
 
 ### Painel da estimativa
 
-- **A partir de 64em:** cartão à direita do formulário, preso ao topo com `position: sticky`. Mostra a etiqueta "VOLUME", o total em m³, o veículo sugerido, o intervalo de preço em Barlow 600 e a frase "Estimativa indicativa de um negócio fictício" em texto pequeno muted.
-- **Abaixo de 64em:** barra fixa no fundo do ecrã, fundo surface, borda superior 2px ink. Mostra só o total em m³ e o intervalo de preço numa linha.
+- **A partir de 1024px:** cartão à direita do formulário, preso ao topo com `position: sticky`. Mostra a etiqueta "VOLUME", o total em m³, o veículo sugerido, o intervalo de preço em Barlow 600 e a frase "Estimativa indicativa de um negócio fictício" em texto pequeno muted.
+- **Abaixo de 1024px:** barra fixa no fundo do ecrã, fundo surface, borda superior 2px ink. Mostra só o total em m³ e o intervalo de preço numa linha.
 - **É o mesmo elemento HTML nos dois casos.** Só o CSS muda a posição. Se houvesse dois elementos, cada um com `aria-live`, o leitor de ecrã anunciava o total duas vezes.
 
 ---
@@ -495,6 +498,8 @@ Só há duas animações. Todas as outras mudanças de estado (hover, foco, menu
 
 Os nomes são as custom properties a criar no `tokens.css`. Os breakpoints vêm numa tabela à parte, porque não podem ser custom properties.
 
+Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10px). Espaçamento entre letras em em. Alturas de linha sem unidade. Largura do texto em ch. Tudo o resto em px.
+
 ### Cor
 
 | Custom property | Valor | Onde se usa |
@@ -522,17 +527,17 @@ Os nomes são as custom properties a criar no `tokens.css`. Os breakpoints vêm 
 | `--font-weight-medium` | `500` | Tudo em IBM Plex Mono |
 | `--font-weight-semibold` | `600` | Botões, etiquetas dos campos, menu, mensagens de erro |
 | `--font-weight-bold` | `700` | Títulos e logótipo |
-| `--font-size-h1` | `clamp(2.5rem, 1.913rem + 2.609vw, 4rem)` | h1 |
-| `--font-size-h2` | `clamp(1.875rem, 1.533rem + 1.522vw, 2.75rem)` | h2, títulos dos passos |
-| `--font-size-h3` | `clamp(1.375rem, 1.228rem + 0.6522vw, 1.75rem)` | h3, títulos dos cartões |
-| `--font-size-lead` | `clamp(1.125rem, 1.052rem + 0.3261vw, 1.3125rem)` | Texto de entrada do hero |
-| `--font-size-body` | `clamp(1rem, 0.9511rem + 0.2174vw, 1.125rem)` | Texto, botões, menu, etiquetas dos campos |
-| `--font-size-input` | `1rem` | Texto dentro dos campos |
-| `--font-size-small` | `0.875rem` | Ajudas, erros, avisos, frase da estimativa |
-| `--font-size-label` | `0.875rem` | Etiquetas mono |
-| `--font-size-total` | `clamp(1.75rem, 1.554rem + 0.8696vw, 2.25rem)` | Total em m³ |
-| `--font-size-logo` | `1.75rem` | "ENCAIXE" no logótipo |
-| `--font-size-logo-sub` | `0.75rem` | "MUDANÇAS" no logótipo |
+| `--font-size-h1` | `clamp(4rem, 3.061rem + 2.609vw, 6.4rem)` | h1 |
+| `--font-size-h2` | `clamp(3rem, 2.452rem + 1.522vw, 4.4rem)` | h2, títulos dos passos |
+| `--font-size-h3` | `clamp(2.2rem, 1.965rem + 0.6522vw, 2.8rem)` | h3, títulos dos cartões |
+| `--font-size-lead` | `clamp(1.8rem, 1.683rem + 0.3261vw, 2.1rem)` | Texto de entrada do hero |
+| `--font-size-body` | `clamp(1.6rem, 1.522rem + 0.2174vw, 1.8rem)` | Texto, botões, menu, etiquetas dos campos |
+| `--font-size-input` | `1.6rem` | Texto dentro dos campos |
+| `--font-size-small` | `1.4rem` | Ajudas, erros, avisos, frase da estimativa |
+| `--font-size-label` | `1.4rem` | Etiquetas mono |
+| `--font-size-total` | `clamp(2.8rem, 2.487rem + 0.8696vw, 3.6rem)` | Total em m³ |
+| `--font-size-logo` | `2.8rem` | "ENCAIXE" no logótipo |
+| `--font-size-logo-sub` | `1.4rem` | "MUDANÇAS" no logótipo |
 | `--line-height-tight` | `1.05` | h1 |
 | `--line-height-heading` | `1.15` | h2, h3 |
 | `--line-height-ui` | `1.2` | Botões, etiquetas, campos, total, menu |
@@ -547,21 +552,21 @@ Os nomes são as custom properties a criar no `tokens.css`. Os breakpoints vêm 
 
 | Custom property | Valor | Onde se usa |
 |---|---|---|
-| `--space-1` | `0.25rem` | Dentro de componentes (ver secção 6) |
-| `--space-2` | `0.5rem` | Etiqueta e campo, ícone e texto |
-| `--space-3` | `0.75rem` | Margem interna de campos, margem vertical de botões |
-| `--space-4` | `1rem` | Calculadora, margem lateral em mobile |
-| `--space-5` | `1.5rem` | Margem interna de cartões em mobile, entre campos |
-| `--space-6` | `2rem` | Entre cartões, margem interna de cartões a partir de 48em |
-| `--space-7` | `3rem` | Título da secção e conteúdo, formulário e painel |
-| `--space-8` | `4rem` | Entre secções em mobile |
-| `--space-9` | `6rem` | Entre secções a partir de 64em |
-| `--section-space` | `var(--space-8)`, e `var(--space-9)` a partir de 64em | Espaço entre secções |
-| `--gutter` | `1rem`, `1.5rem` a partir de 48em, `2rem` a partir de 64em | Margens laterais da página |
-| `--container-max` | `72rem` | Largura máxima do conteúdo |
+| `--space-1` | `4px` | Dentro de componentes (ver secção 6) |
+| `--space-2` | `8px` | Etiqueta e campo, ícone e texto |
+| `--space-3` | `12px` | Margem interna de campos, margem vertical de botões |
+| `--space-4` | `16px` | Calculadora, margem lateral em mobile |
+| `--space-5` | `24px` | Margem interna de cartões em mobile, entre campos |
+| `--space-6` | `32px` | Entre cartões, margem interna de cartões a partir de 768px |
+| `--space-7` | `48px` | Título da secção e conteúdo, formulário e painel |
+| `--space-8` | `64px` | Entre secções em mobile |
+| `--space-9` | `96px` | Entre secções a partir de 1024px |
+| `--section-space` | `var(--space-8)`, e `var(--space-9)` a partir de 1024px | Espaço entre secções |
+| `--gutter` | `16px`, `24px` a partir de 768px, `32px` a partir de 1024px | Margens laterais da página |
+| `--container-max` | `1152px` | Largura máxima do conteúdo |
 | `--measure` | `65ch` | Largura máxima dos parágrafos |
-| `--form-max` | `40rem` | Largura máxima da coluna do formulário |
-| `--aside-width` | `20rem` | Largura do painel da estimativa a partir de 64em |
+| `--form-max` | `640px` | Largura máxima da coluna do formulário |
+| `--aside-width` | `320px` | Largura do painel da estimativa a partir de 1024px |
 
 ### Forma e tamanhos
 
@@ -572,12 +577,12 @@ Os nomes são as custom properties a criar no `tokens.css`. Os breakpoints vêm 
 | `--border-width-thin` | `1px` | Divisores decorativos |
 | `--focus-width` | `3px` | Contorno de foco |
 | `--focus-offset` | `2px` | Afastamento do contorno de foco |
-| `--tap-target` | `2.75rem` | Altura e largura mínimas de botões e links do menu mobile |
-| `--input-min-height` | `3rem` | Altura mínima dos campos |
-| `--icon-sm` | `1rem` | Ícone de alerta |
-| `--icon-md` | `1.5rem` | Ícones de botões e menu |
-| `--icon-lg` | `2rem` | Ícones da calculadora |
-| `--tape-height` | `1.25rem` | Fita kraft |
+| `--tap-target` | `44px` | Altura e largura mínimas de botões e links do menu mobile |
+| `--input-min-height` | `48px` | Altura mínima dos campos |
+| `--icon-sm` | `16px` | Ícone de alerta |
+| `--icon-md` | `24px` | Ícones de botões e menu |
+| `--icon-lg` | `32px` | Ícones da calculadora |
+| `--tape-height` | `20px` | Fita kraft |
 
 ### Movimento
 
@@ -591,6 +596,5 @@ Os nomes são as custom properties a criar no `tokens.css`. Os breakpoints vêm 
 
 | Nome | Valor | Escreve-se em |
 |---|---|---|
-| Duas colunas | `40em` | `@media (min-width: 40em)` |
-| Tablet | `48em` | `@media (min-width: 48em)` |
-| Desktop | `64em` | `@media (min-width: 64em)` |
+| Tablet | `768px` | `@media (min-width: 768px)` |
+| Desktop | `1024px` | `@media (min-width: 1024px)` |
