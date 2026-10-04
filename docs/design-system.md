@@ -498,6 +498,8 @@ Só há duas animações. Todas as outras mudanças de estado (hover, foco, menu
 
 Os nomes são as custom properties a criar no `tokens.css`. Os breakpoints vêm numa tabela à parte, porque não podem ser custom properties.
 
+**O que passa a variável no `tokens.css`:** as cores, as famílias de letra, os pesos, os tamanhos de letra, o `--gutter`, o `--section-space` e o `--ease-out`. Os restantes nomes destas tabelas servem só para identificar cada valor. No CSS escreve-se o valor diretamente, sem variável.
+
 Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10px). Espaçamento entre letras em em. Alturas de linha sem unidade. Largura do texto em ch. Tudo o resto em px.
 
 ### Cor

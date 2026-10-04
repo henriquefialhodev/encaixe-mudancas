@@ -40,7 +40,8 @@ HTML, CSS and vanilla JavaScript (ES modules). No backend. Quote submission is s
 ## Brand
 The full visual system is in `docs/design-system.md`. It loads through `.claude/rules/design-system.md` when working on HTML, CSS or the icon sprite.
 - I write tokens.css myself from the token table (study mode). Do not write it for me.
-- Use only the tokens. No hardcoded colours, sizes or spacing in other files.
+- `tokens.css` holds colours, font families, font weights, font sizes, `--gutter`, `--section-space` and `--ease-out`. No hardcoded values for these in other files.
+- Everything else (spacing, layout widths, shape, sizes, line-height, letter-spacing, durations) is written as plain values taken from `docs/design-system.md`. No value that is not in the design system.
 
 ## Rules
 - Mobile-first. WCAG 2.1 AA. Technical SEO.
