@@ -64,6 +64,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
   - não avança
   - mostra a mensagem junto ao campo, ligada com `aria-describedby`
   - põe o foco no primeiro campo com erro
+  - no passo 2, que não tem um campo, a mensagem aparece junto ao total e o foco vai para o primeiro botão +
 - Quando o passo muda, o foco vai para o título do novo passo.
 - "Anterior" nunca apaga dados.
 - No passo 4, o resumo tem botões "Editar" que levam ao passo certo.
@@ -85,6 +86,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 - A data não pode estar no passado nem ser uma das datas ocupadas, que são geradas a partir de hoje (secção 3).
 - As datas comparam-se no formato `AAAA-MM-DD` (o mesmo do `value` de um `<input type="date">`), construído a partir do ano, mês e dia locais. `toISOString()` devolve a data em UTC e, perto da meia-noite, pode dar o dia anterior.
 - O email tem de ser válido e o telefone tem de ter 9 dígitos.
+- O passo 2 precisa de pelo menos um item na calculadora, para haver volume.
 - A caixa de consentimento RGPD é obrigatória.
 - As mensagens de erro são em pt-PT e dizem como corrigir, não só que está errado.
 
