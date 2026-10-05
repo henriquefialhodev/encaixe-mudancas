@@ -233,7 +233,7 @@ Escala com base de 4px. Todos os valores em px.
 
 ### Larguras
 
-- **Largura máxima do conteúdo:** 1152px. Acima disto, as linhas e as grelhas ficam largas demais para ler de uma vez.
+- **Largura máxima do conteúdo:** 1152px, sem contar com as margens laterais. Acima disto, as linhas e as grelhas ficam largas demais para ler de uma vez.
 - **Largura máxima do texto corrido:** 65ch.
 - **Margem lateral (`--gutter`):** 16px em mobile, 24px a partir de 768px, 32px a partir de 1024px.
 
@@ -370,7 +370,9 @@ Serviços, passos do formulário, painel da estimativa.
 
 ### Navegação
 
-**Cabeçalho:** fundo paper, borda inferior 2px ink. Logótipo à esquerda, menu à direita.
+**Cabeçalho:** fundo paper, borda inferior 2px ink. Logótipo à esquerda, menu à direita. Margem interna de 12px em cima e em baixo, 20px a partir de 1024px.
+
+**Link de salto ("Saltar para o conteúdo"):** aspeto de botão secundário. Fica escondido acima do ecrã e aparece a 12px do topo ao receber o foco.
 
 **Links do menu:** Barlow 600, ink, sem sublinhado em repouso. Dentro de um menu, a posição já mostra que são links.
 
@@ -383,9 +385,11 @@ Serviços, passos do formulário, painel da estimativa.
 | Página atual (`aria-current="page"`) | Sublinhado fixo de 3px. Não depende só da cor | 14,73 |
 | Desativado | Não existe | |
 
-**Botão "Menu" (abaixo de 1024px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
+**Botão "Menu" (abaixo de 1024px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Margem interna de 10px em cima e em baixo e 12px dos lados. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
 
-**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, largura total, borda inferior 2px ink. Links um por linha, cada um com 44px de altura no mínimo. Abre e fecha sem animação.
+**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, de ponta a ponta do ecrã, com borda superior de 2px ink. A borda inferior é a do próprio cabeçalho. Margem interna de 8px em cima e 24px em baixo. Links um por linha, cada um com 52px de altura no mínimo, separados por uma linha de 1px em line. O "Pedir orçamento" fica no fim, a 16px do último link, com a largura toda. Abre e fecha sem animação.
+
+**Menu a partir de 1024px:** os links ficam em linha, com 32px entre eles e até ao botão "Pedir orçamento".
 
 **Rodapé:** fundo ink, texto e links paper. Logótipo na versão para fundo escuro. Aviso de projeto fictício e link do Livro de Reclamações Eletrónico. Links e foco com as regras do rodapé da tabela do link.
 
@@ -427,6 +431,7 @@ Serviços, passos do formulário, painel da estimativa.
 - Puramente decorativa: `aria-hidden="true"`.
 - Variante com texto: etiqueta mono em ink ("FRÁGIL · ESTE LADO PARA CIMA"), 6,64:1. Se o texto for só decoração, continua com `aria-hidden="true"`.
 - Onde: entre as secções da página inicial e no topo do painel da estimativa. No máximo uma fita entre duas secções.
+- Fita do topo da página: leva o aviso de projeto fictício em texto real, sem `aria-hidden`, porque é informação e não decoração. Etiqueta mono em ink, centrada, com 8px de margem interna em cima e em baixo. A altura cresce com o texto.
 
 ### Painel da estimativa
 
