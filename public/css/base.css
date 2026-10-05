@@ -88,6 +88,10 @@ h3 {
   letter-spacing: 0.01em;
 }
 
+strong {
+  font-weight: var(--font-weight-semibold);
+}
+
 a {
   color: var(--color-signal-dark);
   text-decoration: underline;
