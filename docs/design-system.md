@@ -205,6 +205,7 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 - **O texto dentro dos campos fica sempre em 16px.** O Safari do iPhone faz zoom automático ao focar um campo com letra mais pequena, e a página fica desalinhada.
 - Largura máxima de linha nos parágrafos: 65 caracteres (`65ch`). Linhas mais compridas cansam a leitura.
 - As maiúsculas das etiquetas fazem-se com `text-transform: uppercase`. Alguns leitores de ecrã soletram palavras escritas em maiúsculas no HTML.
+- O `<strong>` usa o peso 600. Não há ficheiro de 700 para a Barlow, e sem esta regra o browser inventava um negrito falso.
 
 ---
 
@@ -391,7 +392,12 @@ Serviços, passos do formulário, painel da estimativa.
 
 **Menu a partir de 1024px:** os links ficam em linha, com 32px entre eles e até ao botão "Pedir orçamento".
 
-**Rodapé:** fundo ink, texto e links paper. Logótipo na versão para fundo escuro. Aviso de projeto fictício e link do Livro de Reclamações Eletrónico. Links e foco com as regras do rodapé da tabela do link.
+**Rodapé:** fundo ink, texto e links paper. Logótipo na versão para fundo escuro, com texto e borda em paper. Links e foco com as regras do rodapé da tabela do link, com o sublinhado afastado 0.15em. Margem interna de 48px em cima e em baixo, 64px a partir de 1024px.
+
+- **Em mobile:** peças empilhadas com 32px entre elas, por esta ordem: logótipo, links, aviso de projeto fictício, Livro de Reclamações Eletrónico, linha final. Cada link tem 44px de altura no mínimo.
+- **A partir de 1024px:** grelha de três colunas (`3fr 2fr auto`) com 64px entre elas. A primeira tem o logótipo e o aviso, a 24px um do outro, e o aviso com 48ch no máximo. A segunda tem os links, a 12px uns dos outros. A terceira tem o Livro de Reclamações e fica com a largura do texto, para caber numa linha.
+- **Livro de Reclamações:** caixa com borda de 2px em paper e 16px de margem interna (16px em cima e em baixo e 20px dos lados a partir de 1024px). Link em peso 600.
+- **Linha final:** texto pequeno. A partir de 1024px fica por baixo das três colunas, a 48px, com borda superior de 1px em paper e 24px de margem interna em cima.
 
 ### Botões − e + da calculadora
 
