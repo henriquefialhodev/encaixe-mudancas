@@ -205,6 +205,7 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 - **O texto dentro dos campos fica sempre em 16px.** O Safari do iPhone faz zoom automático ao focar um campo com letra mais pequena, e a página fica desalinhada.
 - Largura máxima de linha nos parágrafos: 65 caracteres (`65ch`). Linhas mais compridas cansam a leitura.
 - As maiúsculas das etiquetas fazem-se com `text-transform: uppercase`. Alguns leitores de ecrã soletram palavras escritas em maiúsculas no HTML.
+- O `<strong>` usa o peso 600. Não há ficheiro de 700 para a Barlow, e sem esta regra o browser inventava um negrito falso.
 
 ---
 
@@ -233,7 +234,7 @@ Escala com base de 4px. Todos os valores em px.
 
 ### Larguras
 
-- **Largura máxima do conteúdo:** 1152px. Acima disto, as linhas e as grelhas ficam largas demais para ler de uma vez.
+- **Largura máxima do conteúdo:** 1152px, sem contar com as margens laterais. Acima disto, as linhas e as grelhas ficam largas demais para ler de uma vez.
 - **Largura máxima do texto corrido:** 65ch.
 - **Margem lateral (`--gutter`):** 16px em mobile, 24px a partir de 768px, 32px a partir de 1024px.
 
@@ -370,7 +371,9 @@ Serviços, passos do formulário, painel da estimativa.
 
 ### Navegação
 
-**Cabeçalho:** fundo paper, borda inferior 2px ink. Logótipo à esquerda, menu à direita.
+**Cabeçalho:** fundo paper, borda inferior 2px ink. Logótipo à esquerda, menu à direita. Margem interna de 12px em cima e em baixo, 20px a partir de 1024px.
+
+**Link de salto ("Saltar para o conteúdo"):** aspeto de botão secundário. Fica escondido acima do ecrã e aparece a 12px do topo ao receber o foco.
 
 **Links do menu:** Barlow 600, ink, sem sublinhado em repouso. Dentro de um menu, a posição já mostra que são links.
 
@@ -383,11 +386,18 @@ Serviços, passos do formulário, painel da estimativa.
 | Página atual (`aria-current="page"`) | Sublinhado fixo de 3px. Não depende só da cor | 14,73 |
 | Desativado | Não existe | |
 
-**Botão "Menu" (abaixo de 1024px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
+**Botão "Menu" (abaixo de 1024px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Margem interna de 10px em cima e em baixo e 12px dos lados. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
 
-**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, largura total, borda inferior 2px ink. Links um por linha, cada um com 44px de altura no mínimo. Abre e fecha sem animação.
+**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, de ponta a ponta do ecrã, com borda superior de 2px ink. A borda inferior é a do próprio cabeçalho. Margem interna de 8px em cima e 24px em baixo. Links um por linha, cada um com 52px de altura no mínimo, separados por uma linha de 1px em line. O "Pedir orçamento" fica no fim, a 16px do último link, com a largura toda. Abre e fecha sem animação.
 
-**Rodapé:** fundo ink, texto e links paper. Logótipo na versão para fundo escuro. Aviso de projeto fictício e link do Livro de Reclamações Eletrónico. Links e foco com as regras do rodapé da tabela do link.
+**Menu a partir de 1024px:** os links ficam em linha, com 32px entre eles e até ao botão "Pedir orçamento".
+
+**Rodapé:** fundo ink, texto e links paper. Logótipo na versão para fundo escuro, com texto e borda em paper. Links e foco com as regras do rodapé da tabela do link, com o sublinhado afastado 0.15em. Margem interna de 48px em cima e em baixo, 64px a partir de 1024px.
+
+- **Em mobile:** peças empilhadas com 32px entre elas, por esta ordem: logótipo, links, aviso de projeto fictício, Livro de Reclamações Eletrónico, linha final. Cada link tem 44px de altura no mínimo.
+- **A partir de 1024px:** grelha de três colunas (`3fr 2fr auto`) com 64px entre elas. A primeira tem o logótipo e o aviso, a 24px um do outro, e o aviso com 48ch no máximo. A segunda tem os links, a 12px uns dos outros. A terceira tem o Livro de Reclamações e fica com a largura do texto, para caber numa linha.
+- **Livro de Reclamações:** caixa com borda de 2px em paper e 16px de margem interna (16px em cima e em baixo e 20px dos lados a partir de 1024px). Link em peso 600.
+- **Linha final:** texto pequeno. A partir de 1024px fica por baixo das três colunas, a 48px, com borda superior de 1px em paper e 24px de margem interna em cima.
 
 ### Botões − e + da calculadora
 
@@ -427,6 +437,7 @@ Serviços, passos do formulário, painel da estimativa.
 - Puramente decorativa: `aria-hidden="true"`.
 - Variante com texto: etiqueta mono em ink ("FRÁGIL · ESTE LADO PARA CIMA"), 6,64:1. Se o texto for só decoração, continua com `aria-hidden="true"`.
 - Onde: entre as secções da página inicial e no topo do painel da estimativa. No máximo uma fita entre duas secções.
+- Fita do topo da página: leva o aviso de projeto fictício em texto real, sem `aria-hidden`, porque é informação e não decoração. Etiqueta mono em ink, centrada, com 8px de margem interna em cima e em baixo. A altura cresce com o texto.
 
 ### Painel da estimativa
 
