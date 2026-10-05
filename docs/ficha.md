@@ -48,7 +48,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 **F1. Menu responsivo**
 - No telemóvel, um botão abre e fecha o menu, e o `aria-expanded` acompanha o estado.
 - O menu funciona só com teclado e a tecla Esc fecha-o.
-- A partir da largura do tablet, o menu aparece sempre e o botão desaparece.
+- A partir de 1024px, o menu aparece sempre e o botão desaparece.
 
 **F2. Perguntas frequentes**
 - Feitas com `<details>` e `<summary>`, sem JavaScript. O HTML já faz o acordeão sozinho e com boa acessibilidade.

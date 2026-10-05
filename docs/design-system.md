@@ -243,9 +243,9 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 
 | Breakpoint | O que muda | Motivo |
 |---|---|---|
-| até 767px | Uma coluna. Menu atrás de um botão. Estimativa numa barra fixa no fundo | Num telemóvel só cabe uma coluna legível |
-| 768px | Serviços e divisões da calculadora em 2 colunas. Menu sempre visível, o botão "Menu" desaparece (F1). Margem lateral 24px | É a largura de um tablet, onde a ficha pede o menu sempre visível. Dois cartões lado a lado ficam com 344px cada (768px menos as margens de 48px e o espaço de 32px entre eles, a dividir por dois). Confirmar no browser que os links do menu cabem numa linha ao lado do logótipo |
-| 1024px | Serviços em 3 colunas. "Como funciona" em linha horizontal. No orçamento, o painel da estimativa passa para o lado do formulário e a calculadora volta a uma coluna. Margem lateral 32px | A 1024px, tirando as margens (64px), o painel (320px) e o espaço entre os dois (48px), o formulário fica com 592px. Abaixo disto, os campos e a calculadora ficavam apertados. Com o painel ao lado, o formulário tem no máximo 640px: em duas colunas, nomes como "Cama de solteiro com colchão" ocupavam três linhas |
+| até 767px | Uma coluna. Menu atrás de um botão, que se mantém até 1023px. Estimativa numa barra fixa no fundo | Num telemóvel só cabe uma coluna legível |
+| 768px | Serviços e divisões da calculadora em 2 colunas. Margem lateral 24px. O menu continua atrás do botão | É a largura de um tablet. Dois cartões lado a lado ficam com 344px cada (768px menos as margens de 48px e o espaço de 32px entre eles, a dividir por dois). O menu não passa a visível aqui porque, testado no browser, os links não cabem numa linha ao lado do logótipo |
+| 1024px | Menu sempre visível, o botão "Menu" desaparece (F1). Serviços em 3 colunas. "Como funciona" em linha horizontal. No orçamento, o painel da estimativa passa para o lado do formulário e a calculadora volta a uma coluna. Margem lateral 32px | A partir daqui os links do menu cabem numa linha ao lado do logótipo. Confirmar no browser a 1024px exatos. A 1024px, tirando as margens (64px), o painel (320px) e o espaço entre os dois (48px), o formulário fica com 592px. Abaixo disto, os campos e a calculadora ficavam apertados. Com o painel ao lado, o formulário tem no máximo 640px: em duas colunas, nomes como "Cama de solteiro com colchão" ocupavam três linhas |
 
 **Atenção:** as custom properties não funcionam dentro da condição de um `@media`. Os breakpoints escrevem-se à mão em cada media query. Dentro do `@media` já se pode mudar o valor de uma custom property, por exemplo o `--gutter`.
 
@@ -383,7 +383,7 @@ Serviços, passos do formulário, painel da estimativa.
 | Página atual (`aria-current="page"`) | Sublinhado fixo de 3px. Não depende só da cor | 14,73 |
 | Desativado | Não existe | |
 
-**Botão "Menu" (abaixo de 768px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
+**Botão "Menu" (abaixo de 1024px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
 
 **Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, largura total, borda inferior 2px ink. Links um por linha, cada um com 44px de altura no mínimo. Abre e fecha sem animação.
 

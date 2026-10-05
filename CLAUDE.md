@@ -27,7 +27,7 @@ HTML, CSS and vanilla JavaScript (ES modules). No backend. Quote submission is s
 - Footer on every page: fictional project notice and link to Livro de Reclamações Eletrónico
 
 ## Features
-- Responsive menu: toggle button with aria-expanded, keyboard accessible, Esc closes it, always visible from tablet width up
+- Responsive menu: toggle button with aria-expanded, keyboard accessible, Esc closes it, always visible from 1024px up
 - FAQ: details and summary, no JS
 - Multi-step form: one step visible, "Step X of 4" indicator with step names, validates only the current step, focus moves to the first invalid field or to the new step heading, going back keeps data, summary with Edit buttons, keyboard only works
 - Form without JS: all fieldsets are shown and can be filled in, the submit button is hidden and a visible notice says JavaScript is needed to send the request. The JS shows the button and hides the notice. Personal data never goes into the URL.
