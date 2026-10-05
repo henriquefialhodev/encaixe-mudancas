@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <title>Encaixe Mudanças</title>
+  <rect width="32" height="32" rx="4" fill="#F3EEE4"/>
+  <g transform="translate(4 4) scale(0.75)">
+    <path d="M18 3H3V29H29V14" fill="none" stroke="#1D1C1A" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/>
+    <rect x="21.5" y="1.5" width="9" height="9" fill="#1D1C1A"/>
+  </g>
+</svg>

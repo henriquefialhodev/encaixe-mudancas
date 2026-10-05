@@ -1,0 +1,54 @@
+:root {
+  /* COLORS */
+  --color-paper: #f3eee4;
+  --color-surface: #ffffff;
+  --color-ink: #1d1c1a;
+  --color-muted: #5a554d;
+  --color-kraft: #c49a6c;
+  --color-signal: #e4570f;
+  --color-signal-hover: #f07a3c;
+  --color-signal-dark: #a8400a;
+  --color-error: #b42318;
+  --color-success: #1e6b3a;
+  --color-line: #d9cfbf;
+
+  /* TYPOGRAPHY */
+  --font-heading: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Barlow", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-h1: clamp(4rem, 3.061rem + 2.609vw, 6.4rem);
+  --font-size-h2: clamp(3rem, 2.452rem + 1.522vw, 4.4rem);
+  --font-size-h3: clamp(2.2rem, 1.965rem + 0.6522vw, 2.8rem);
+  --font-size-lead: clamp(1.8rem, 1.683rem + 0.3261vw, 2.1rem);
+  --font-size-body: clamp(1.6rem, 1.522rem + 0.2174vw, 1.8rem);
+  --font-size-input: 1.6rem;
+  --font-size-small: 1.4rem;
+  --font-size-label: 1.4rem;
+  --font-size-total: clamp(2.8rem, 2.487rem + 0.8696vw, 3.6rem);
+  --font-size-logo: 2.8rem;
+  --font-size-logo-sub: 1.4rem;
+
+  /* LAYOUT */
+  --gutter: 16px;
+  --section-space: 64px;
+
+  /* TRANSITIONS */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 32px;
+    --section-space: 96px;
+  }
+}

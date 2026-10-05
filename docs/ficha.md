@@ -48,7 +48,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 **F1. Menu responsivo**
 - No telemóvel, um botão abre e fecha o menu, e o `aria-expanded` acompanha o estado.
 - O menu funciona só com teclado e a tecla Esc fecha-o.
-- A partir da largura do tablet, o menu aparece sempre e o botão desaparece.
+- A partir de 1024px, o menu aparece sempre e o botão desaparece.
 
 **F2. Perguntas frequentes**
 - Feitas com `<details>` e `<summary>`, sem JavaScript. O HTML já faz o acordeão sozinho e com boa acessibilidade.
@@ -64,6 +64,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
   - não avança
   - mostra a mensagem junto ao campo, ligada com `aria-describedby`
   - põe o foco no primeiro campo com erro
+  - no passo 2, que não tem um campo, a mensagem aparece junto ao total e o foco vai para o primeiro botão +
 - Quando o passo muda, o foco vai para o título do novo passo.
 - "Anterior" nunca apaga dados.
 - No passo 4, o resumo tem botões "Editar" que levam ao passo certo.
@@ -85,6 +86,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 - A data não pode estar no passado nem ser uma das datas ocupadas, que são geradas a partir de hoje (secção 3).
 - As datas comparam-se no formato `AAAA-MM-DD` (o mesmo do `value` de um `<input type="date">`), construído a partir do ano, mês e dia locais. `toISOString()` devolve a data em UTC e, perto da meia-noite, pode dar o dia anterior.
 - O email tem de ser válido e o telefone tem de ter 9 dígitos.
+- O passo 2 precisa de pelo menos um item na calculadora, para haver volume.
 - A caixa de consentimento RGPD é obrigatória.
 - As mensagens de erro são em pt-PT e dizem como corrigir, não só que está errado.
 
@@ -116,7 +118,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 **F8. Técnico**
 - Aviso de projeto fictício visível em todas as páginas.
 - Emails com `@example.com` e telefone sem link para ligar.
-- Dados estruturados `MovingCompany`, meta tags, Open Graph, `sitemap.xml`, `robots.txt`, favicon e manifest.
+- Dados estruturados `MovingCompany` (só como prática, porque o site não é indexado), meta tags, Open Graph e favicon. O site inteiro fica com `noindex` através do `public/_headers`. Sem `sitemap.xml`, `robots.txt` nem manifest.
 
 ### Extras para depois
 
@@ -195,7 +197,7 @@ São só para inspiração, nunca para copiar.
 | 10 | `feat/quote-submit` | referência, `sessionStorage`, `obrigado.html` | 2h |
 | 11 | `feat/images` | gerar as imagens, converter para WebP, tamanhos, `alt` | 2h |
 | 12 | `feat/legal-404` | páginas legais, Livro de Reclamações, 404 | 2h |
-| 13 | `feat/seo` | meta tags, Open Graph, JSON-LD, sitemap, robots, favicon, manifest | 2h |
+| 13 | `feat/seo` | meta tags, Open Graph, JSON-LD (prática) | 2h |
 | 14 | `fix/a11y-audit` | testes em Chrome, WebKit e telemóvel, Lighthouse, leitor de ecrã, correções | 4h + 2h |
 | 15 | `feat/readme-deploy` | README, publicação, capturas e cartão do portefólio | 2h |
 
