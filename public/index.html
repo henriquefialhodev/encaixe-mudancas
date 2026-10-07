@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/home.css" />
     <script src="js/main.js" type="module"></script>
   </head>
   <body>
@@ -66,7 +67,48 @@
         </nav>
       </div>
     </header>
-    <main id="main-content"></main>
+    <main id="main-content">
+      <section class="site-hero" aria-labelledby="site-hero-title">
+        <div class="container site-hero-inner">
+          <div class="site-hero-content">
+            <p class="label">Braga · Mudanças pequenas e médias</p>
+            <h1 id="site-hero-title">
+              Mudanças em Braga, com o volume contado peça a peça
+            </h1>
+            <p class="site-hero-description">
+              Para apartamentos, quartos de estudante e pequenos escritórios.
+              Indique o que vai levar e vê logo o volume em m³, o veículo
+              indicado e uma estimativa de preço.
+            </p>
+            <div class="site-hero-actions">
+              <a class="btn btn-primary" href="orcamento.html"
+                >Pedir orçamento
+                <svg
+                  width="24"
+                  height="24"
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon-arrow-right"
+                >
+                  <use
+                    href="assets/icons/sprite.svg#icon-arrow-right"
+                  ></use></svg
+              ></a>
+              <a class="btn btn-secondary" href="#how-it-works"
+                >Ver como funciona</a
+              >
+            </div>
+          </div>
+          <img
+            class="site-hero-image"
+            src="assets/images/img-hero.webp"
+            alt="Sala vazia com caixas de cartão empilhadas, etiquetadas à mão, e um tapete enrolado"
+            width="1536"
+            height="1024"
+          />
+        </div>
+      </section>
+    </main>
     <footer class="site-footer">
       <div class="container site-footer-inner">
         <a class="logo" href="index.html"
