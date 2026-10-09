@@ -214,7 +214,7 @@
   width: 100%;
 }
 
-/* DESKTOP */
+/* DESKTOP HEADER*/
 @media (min-width: 1024px) {
   .site-header-inner {
     padding-block: 20px;
@@ -319,7 +319,7 @@
   outline-color: var(--color-signal);
 }
 
-/* TABLET */
+/* TABLET FOOTER */
 @media (min-width: 768px) {
   .site-footer-complaints {
     align-self: flex-start;
@@ -330,7 +330,7 @@
   }
 }
 
-/* DESKTOP */
+/* DESKTOP FOOTER */
 @media (min-width: 1024px) {
   .site-footer-inner {
     display: grid;
@@ -383,5 +383,27 @@
     padding-top: 24px;
     border-top: 1px solid var(--color-paper);
     grid-area: copyright;
+  }
+}
+
+/* TAPE */
+.site-tape {
+  height: 20px;
+  background-color: var(--color-kraft);
+}
+
+/* CARD */
+.site-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .site-card {
+    padding: 32px;
   }
 }

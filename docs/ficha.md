@@ -148,7 +148,7 @@ Não tem.
 
 ### Animações
 
-Só uma transição curta entre passos e o destaque do total quando muda. As duas desligam-se com `prefers-reduced-motion`.
+As animações estão na secção 12 do design system. Todas se desligam com `prefers-reduced-motion`.
 
 ## 7. Imagens
 

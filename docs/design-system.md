@@ -280,7 +280,7 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 
 - **Só um botão primário (laranja) por ecrã ou por passo.** Interpretação da regra "laranja só para ações": o laranja aparece só em ações, mas nem todas as ações são laranja. Se fossem, o "Seguinte" deixava de se destacar.
 - **Área mínima de toque: 44 × 44px** (`--tap-target`).
-- **As mudanças de estado são instantâneas, sem transição.** As únicas animações do site são as da secção 12.
+- **As animações e transições do site são as da secção 12.**
 - **Desativar é a exceção.** A ficha já define que "Seguinte" e o envio validam ao clicar, em vez de ficarem desativados. Um botão desativado não diz porque está desativado e perde o foco. O estilo desativado existe para os botões − e + da calculadora e para casos futuros.
 - **`disabled` e `aria-disabled` não são a mesma coisa** (conceito novo). Um botão com `disabled` sai da ordem do Tab e, se tinha o foco, o foco perde-se para o início da página. Com `aria-disabled="true"`, o botão continua focável e o leitor de ecrã anuncia "indisponível", mas é o JavaScript que tem de ignorar o clique. Nos botões − e +, usa-se `aria-disabled`.
 
@@ -489,18 +489,19 @@ Serviços, passos do formulário, painel da estimativa.
 
 ## 12. Movimento
 
-Só há duas animações. Todas as outras mudanças de estado (hover, foco, menu, perguntas frequentes, scroll) são instantâneas.
+As animações do site estão na tabela abaixo. Cada animação nova entra na tabela, e a última coluna diz o que acontece para quem pediu ao sistema menos movimento.
 
 | O que anima | Propriedades | Duração | Curva | Com `prefers-reduced-motion: reduce` |
 |---|---|---|---|---|
 | Entrada do novo passo | Opacidade de 0 para 1 e deslocamento vertical de 8px para 0 | 200ms (`--duration-step`) | `cubic-bezier(0.2, 0, 0, 1)` (`--ease-out`) | Sem animação. O passo aparece logo |
 | Destaque do total quando muda | Fundo do total de kraft para transparente. O texto fica ink (6,64 sobre kraft, 17,03 sobre surface) | 600ms (`--duration-highlight`) | `--ease-out` | Sem animação. O número muda e o `aria-live` anuncia-o |
+| Scroll até uma secção, ao clicar num link de âncora | Posição da página, com `scroll-behavior: smooth` no `html` | Decidida pelo browser | Decidida pelo browser | Sem animação. A página salta diretamente para a secção |
 
 - **O passo anterior desaparece logo, sem animação de saída.** Assim nunca há dois passos visíveis ao mesmo tempo e o foco vai direto para o título do novo passo.
 - **A animação não atrasa o foco.** O foco move-se no mesmo momento em que o passo aparece.
 - O destaque repete-se a cada mudança do total. Se houver vários cliques seguidos, recomeça.
-- Sem `scroll-behavior: smooth`, porque também é animação.
-- Anima-se só `opacity`, `transform` e `background-color`. Nunca `transition: all`, que anima propriedades que não se queria animar.
+- O `scroll-behavior: smooth` escreve-se só dentro de `@media (prefers-reduced-motion: no-preference)`. Fora dele não existe, e a página salta sem deslizar. Um scroll animado da página inteira é dos movimentos que mais afeta quem pediu ao sistema para reduzir animações.
+- Nas transições e animações em CSS, anima-se só `opacity`, `transform` e `background-color`. Nunca `transition: all`, que anima propriedades que não se queria animar.
 - `--ease-out` arranca depressa e trava no fim. Parece uma resposta ao clique, não um efeito decorativo.
 
 ---
