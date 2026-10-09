@@ -32,7 +32,7 @@
   width: 100%;
 }
 
-/* TABLET */
+/* TABLET HERO */
 @media (min-width: 768px) {
   .site-hero {
     padding-top: 64px;
@@ -56,7 +56,7 @@
   }
 }
 
-/* DESKTOP */
+/* DESKTOP HERO */
 @media (min-width: 1024px) {
   .site-hero {
     padding-top: 96px;
@@ -68,5 +68,49 @@
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: center;
+  }
+}
+
+/* SERVICES */
+.site-services {
+  padding-block: var(--section-space);
+}
+
+.site-services-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.site-services-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.site-services-image {
+  width: 100%;
+}
+
+/* TABLET SERVICES */
+@media (min-width: 768px) {
+  .site-services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .site-services-image {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* DESKTOP SERVICES */
+@media (min-width: 1024px) {
+  .site-services-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .site-services-image:first-child {
+    grid-column: 3;
+    grid-row: 1;
   }
 }
