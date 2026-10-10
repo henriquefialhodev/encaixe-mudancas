@@ -388,7 +388,9 @@
 
 /* TAPE */
 .site-tape {
-  height: 20px;
+  min-height: 20px;
+  padding: 7px 12px;
+  text-align: center;
   background-color: var(--color-kraft);
 }
 
@@ -407,3 +409,4 @@
     padding: 32px;
   }
 }
+
