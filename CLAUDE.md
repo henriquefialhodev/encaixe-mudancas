@@ -65,4 +65,4 @@ The full visual system is in `docs/design-system.md`. It loads through `.claude/
 - README in English: description, live link, screenshot, decisions and difficulties, how to run locally.
 
 ## Status
-- Next: hero
+- Next: review and browser tests of the home page

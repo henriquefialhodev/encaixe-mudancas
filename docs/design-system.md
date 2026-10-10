@@ -252,8 +252,11 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 
 ### Grelhas
 
-- **Página inicial:** grelha de 1, 2 ou 3 colunas para os serviços, com `--space-6` entre cartões.
-- **"Como funciona":** lista vertical em mobile (linha temporal a descer). A partir de 1024px, 4 colunas na horizontal.
+- **Secções da página inicial:** o espaço vertical de cada secção é o `--section-space` (64px, 96px a partir de 1024px). O título fica a 48px do conteúdo.
+- **Hero:** 48px de espaço em cima e 64px em baixo. 64px e 64px a partir de 768px. 96px e 96px a partir de 1024px. Etiqueta, título, texto de entrada e botões a 16px uns dos outros, com mais 8px antes do texto de entrada e mais 16px antes dos botões. Os botões ficam um por cima do outro, a 12px, e lado a lado a partir de 768px, a 16px. A fotografia fica a 32px do texto, 48px a partir de 768px. A partir de 768px o título tem 14em de largura máxima e o texto de entrada 65ch. A partir de 1024px, duas colunas iguais com 64px entre elas, alinhadas ao centro na vertical: texto à esquerda, fotografia à direita.
+- **Serviços:** grelha de 1, 2 ou 3 colunas (768px e 1024px), com `--space-6` entre as peças. Tem seis peças, pela ordem do HTML: fotografia da carrinha, cartão 01, cartão 02, fotografia da embalagem, cartão 03, cartão 04. A partir de 768px as fotografias enchem a altura da célula com `object-fit: cover`, para ficarem com a altura do cartão ao lado sem se deformarem. A partir de 1024px, a fotografia da carrinha passa para a terceira coluna da primeira fila, e as outras peças arrumam-se pela ordem.
+- **"Como funciona":** lista vertical em mobile (linha temporal a descer). A partir de 1024px, 4 colunas na horizontal. Ver "Linha temporal" na secção 9.
+- **Zonas, Perguntas frequentes e Contactos:** uma coluna até 1023px. A partir de 1024px, duas colunas (`1fr 2fr`) com 64px entre elas: o título à esquerda e o conteúdo à direita. Nos Contactos, o texto de introdução fica na coluna da esquerda, por baixo do título.
 - **Orçamento em mobile:** uma coluna com o formulário e a barra fixa no fundo. A barra tapa o fim da página, por isso:
   - o `<body>` leva uma margem em baixo igual à altura da barra.
   - o `<html>` leva `scroll-padding-bottom` com essa mesma altura (conceito novo: diz ao browser quanto espaço deixar livre ao fazer scroll até um elemento). Assim, quando o foco passa para um campo junto ao fundo, o campo não fica escondido debaixo da barra.
@@ -328,6 +331,7 @@ Links no texto e botões com aspeto de link (exemplo: "Editar" no resumo do pass
 
 - O sublinhado fica sempre nos links dentro de texto, porque a cor sozinha não chega para distinguir um link (critério 1.4.1).
 - `:visited` fica igual ao normal. Num site pequeno, mudar a cor só acrescenta uma cor a gerir.
+- O sublinhado dos links de texto fica afastado 0.15em do texto.
 
 ### Campos de formulário
 
@@ -386,9 +390,11 @@ Serviços, passos do formulário, painel da estimativa.
 | Página atual (`aria-current="page"`) | Sublinhado fixo de 3px. Não depende só da cor | 14,73 |
 | Desativado | Não existe | |
 
+A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma linha de 2px em ink, desenhada com `::after` por baixo do link, que cresce da esquerda para a direita (secção 12). Abaixo de 1024px continua a ser o sublinhado do texto, sem animação.
+
 **Botão "Menu" (abaixo de 1024px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Margem interna de 10px em cima e em baixo e 12px dos lados. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
 
-**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, de ponta a ponta do ecrã, com borda superior de 2px ink. A borda inferior é a do próprio cabeçalho. Margem interna de 8px em cima e 24px em baixo. Links um por linha, cada um com 52px de altura no mínimo, separados por uma linha de 1px em line. O "Pedir orçamento" fica no fim, a 16px do último link, com a largura toda. Abre e fecha sem animação.
+**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, de ponta a ponta do ecrã, com borda superior de 2px ink. A borda inferior é a do próprio cabeçalho. Margem interna de 8px em cima e 24px em baixo. Links um por linha, cada um com 52px de altura no mínimo, separados por uma linha de 1px em line. O "Pedir orçamento" fica no fim, a 16px do último link, com a largura toda. Abre e fecha com a altura animada (secção 12). Fechado, o painel fica com altura zero e `visibility: hidden`, para os links não receberem foco. Sem JavaScript, o menu fica sempre aberto e o botão não aparece.
 
 **Menu a partir de 1024px:** os links ficam em linha, com 32px entre eles e até ao botão "Pedir orçamento".
 
@@ -398,6 +404,38 @@ Serviços, passos do formulário, painel da estimativa.
 - **A partir de 1024px:** grelha de três colunas (`3fr 2fr auto`) com 64px entre elas. A primeira tem o logótipo e o aviso, a 24px um do outro, e o aviso com 48ch no máximo. A segunda tem os links, a 12px uns dos outros. A terceira tem o Livro de Reclamações e fica com a largura do texto, para caber numa linha.
 - **Livro de Reclamações:** caixa com borda de 2px em paper e 16px de margem interna (16px em cima e em baixo e 20px dos lados a partir de 1024px). Link em peso 600.
 - **Linha final:** texto pequeno. A partir de 1024px fica por baixo das três colunas, a 48px, com borda superior de 1px em paper e 24px de margem interna em cima.
+
+### Linha temporal ("Como funciona")
+
+- Lista ordenada (`<ol>`) com quatro etapas. Cada etapa tem a etiqueta mono ("ETAPA 01"), o título h3 e o texto, a 8px uns dos outros.
+- Linha de 2px em ink. Cada etapa tem um marcador quadrado de 16px, centrado em cima da linha, desenhado com `::before`. Os marcadores são ink. O da última etapa é surface com borda de 2px em ink, para marcar o fim do processo.
+- **Até 1023px:** linha vertical à esquerda, com 32px entre etapas. O texto fica afastado 28px da linha, 32px a partir de 768px, onde cada etapa tem 65ch de largura máxima.
+- **A partir de 1024px:** linha horizontal por cima, quatro colunas iguais com 32px entre elas, e o texto a 32px da linha.
+
+### Etiquetas das zonas
+
+- Lista (`<ul>`) com os concelhos, em linha, a passar para a linha seguinte quando não cabem. 8px entre etiquetas, 12px a partir de 768px.
+- Cada etiqueta: fundo surface, borda 2px ink, texto ink em Barlow 600, altura de linha 1.2. Margem interna de 8px em cima e em baixo e 12px dos lados. A partir de 768px, 10px e 16px.
+- Não são clicáveis, por isso não têm estados.
+
+### Perguntas frequentes
+
+- Cada pergunta é um `<details>` com fundo surface e borda 2px ink, a 12px da seguinte. A primeira começa aberta.
+- A pergunta (`<summary>`) tem o texto à esquerda, em Barlow 600 com altura de linha 1.4, e um ícone de 24px à direita: mais quando está fechada, menos quando está aberta. Margem interna de 16px e altura mínima de 56px. A partir de 768px, 20px em cima e em baixo, 24px dos lados e 64px de altura mínima.
+- A resposta fica por baixo, com a mesma margem lateral da pergunta, a mesma margem em baixo e 65ch de largura máxima.
+
+| Estado | Aspeto |
+|---|---|
+| Normal | Texto ink sobre surface (17,03) |
+| `:hover` | Texto da pergunta sublinhado, com 2px, com o rato em qualquer ponto da pergunta |
+| `:focus-visible` | Contorno 3px signal-dark afastado 2px |
+
+### Caixa dos contactos
+
+- Cartão com uma lista de descrição (`<dl>`). Cada contacto é um par: o nome em etiqueta mono (`<dt>`) e o valor por baixo (`<dd>`), a 4px um do outro.
+- **Até 767px:** os pares uns por baixo dos outros, a 20px. Margem interna do cartão de 24px.
+- **A partir de 768px:** os pares em duas colunas iguais, com 32px entre eles. Margem interna de 32px.
+- O email é um link de texto. O telefone é texto simples, sem link.
 
 ### Botões − e + da calculadora
 
@@ -433,9 +471,9 @@ Serviços, passos do formulário, painel da estimativa.
 
 ### Fita kraft (divisor)
 
-- Tira com fundo kraft, 20px de altura (`--tape-height`), largura do contentor, sem rotação.
+- Tira com fundo kraft, 20px de altura no mínimo (`--tape-height`), largura do contentor, sem rotação.
 - Puramente decorativa: `aria-hidden="true"`.
-- Variante com texto: etiqueta mono em ink ("FRÁGIL · ESTE LADO PARA CIMA"), 6,64:1. Se o texto for só decoração, continua com `aria-hidden="true"`.
+- Variante com texto: etiqueta mono em ink ("FRÁGIL · ESTE LADO PARA CIMA"), 6,64:1, centrada. Se o texto for só decoração, continua com `aria-hidden="true"`. A fita tem 7px de margem interna em cima e em baixo e 12px dos lados, e cresce com o texto. Vazia, fica com os 20px mínimos.
 - Onde: entre as secções da página inicial e no topo do painel da estimativa. No máximo uma fita entre duas secções.
 - Fita do topo da página: leva o aviso de projeto fictício em texto real, sem `aria-hidden`, porque é informação e não decoração. Etiqueta mono em ink, centrada, com 8px de margem interna em cima e em baixo. A altura cresce com o texto.
 
@@ -496,12 +534,16 @@ As animações do site estão na tabela abaixo. Cada animação nova entra na ta
 | Entrada do novo passo | Opacidade de 0 para 1 e deslocamento vertical de 8px para 0 | 200ms (`--duration-step`) | `cubic-bezier(0.2, 0, 0, 1)` (`--ease-out`) | Sem animação. O passo aparece logo |
 | Destaque do total quando muda | Fundo do total de kraft para transparente. O texto fica ink (6,64 sobre kraft, 17,03 sobre surface) | 600ms (`--duration-highlight`) | `--ease-out` | Sem animação. O número muda e o `aria-live` anuncia-o |
 | Scroll até uma secção, ao clicar num link de âncora | Posição da página, com `scroll-behavior: smooth` no `html` | Decidida pelo browser | Decidida pelo browser | Sem animação. A página salta diretamente para a secção |
+| Abertura e fecho do menu, abaixo de 1024px | Altura do painel, de zero até à altura do conteúdo, com `grid-template-rows` de `0fr` para `1fr`. A `visibility` só passa a escondida no fim do fecho | 400ms | `--ease-out` | Sem animação. O menu abre e fecha de repente |
+| `:hover` dos links do menu, a partir de 1024px | Linha de 2px que cresce da esquerda para a direita, com `transform: scaleX` de 0 para 1 | 300ms | `--ease-out` | Sem animação. A linha aparece inteira |
+| `:hover` dos botões primário e secundário | Cor do fundo e cor do texto | 300ms | `--ease-out` | Sem animação. As cores mudam de repente |
 
 - **O passo anterior desaparece logo, sem animação de saída.** Assim nunca há dois passos visíveis ao mesmo tempo e o foco vai direto para o título do novo passo.
 - **A animação não atrasa o foco.** O foco move-se no mesmo momento em que o passo aparece.
 - O destaque repete-se a cada mudança do total. Se houver vários cliques seguidos, recomeça.
 - O `scroll-behavior: smooth` escreve-se só dentro de `@media (prefers-reduced-motion: no-preference)`. Fora dele não existe, e a página salta sem deslizar. Um scroll animado da página inteira é dos movimentos que mais afeta quem pediu ao sistema para reduzir animações.
-- Nas transições e animações em CSS, anima-se só `opacity`, `transform` e `background-color`. Nunca `transition: all`, que anima propriedades que não se queria animar.
+- Nas transições e animações em CSS, animam-se `opacity`, `transform`, `background-color` e `color`. A exceção é o menu, que anima a altura com `grid-template-rows`, porque só assim o painel empurra a página e leva a borda do cabeçalho com ele. Nunca `transition: all`, que anima propriedades que não se queria animar.
+- O `:active` dos botões não tem transição. O clique muda as cores de uma vez, que é o efeito de carimbo, e o texto nunca fica da cor do fundo a meio de uma transição.
 - `--ease-out` arranca depressa e trava no fim. Parece uma resposta ao clique, não um efeito decorativo.
 
 ---

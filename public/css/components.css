@@ -98,6 +98,18 @@
   cursor: pointer;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .btn {
+    transition:
+      background-color 300ms var(--ease-out),
+      color 300ms var(--ease-out);
+  }
+
+  .btn:active {
+    transition: none;
+  }
+}
+
 .btn-secondary {
   background: var(--color-surface);
   color: var(--color-ink);
@@ -150,7 +162,8 @@
 }
 
 .btn-menu[aria-expanded="false"] + .site-nav {
-  display: none;
+  grid-template-rows: 0fr;
+  visibility: hidden;
 }
 
 /* LABEL */
@@ -167,10 +180,32 @@
 /* NAVIGATION */
 
 .site-nav {
+  display: grid;
+  grid-template-rows: 1fr;
   flex-basis: calc(100% + 2 * var(--gutter));
   margin-top: 12px;
   margin-inline: calc(-1 * var(--gutter));
   margin-bottom: -12px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav {
+    transition:
+      grid-template-rows 400ms var(--ease-out),
+      visibility 400ms;
+  }
+
+  .site-nav-list a::after {
+    transition: transform 300ms var(--ease-out);
+  }
+}
+
+.site-nav-window {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.site-nav-panel {
   padding: 8px var(--gutter) 24px;
   background: var(--color-surface);
   border-top: 2px solid var(--color-ink);
@@ -225,15 +260,23 @@
   }
 
   .btn-menu[aria-expanded="false"] + .site-nav {
-    display: flex;
+    grid-template-rows: 1fr;
+    visibility: visible;
   }
 
   .site-nav {
+    flex-basis: auto;
+    margin: 0;
+  }
+
+  .site-nav-window {
+    overflow: visible;
+  }
+
+  .site-nav-panel {
     display: flex;
     align-items: center;
     gap: 32px;
-    flex-basis: auto;
-    margin: 0;
     padding: 0;
     background: none;
     border-top: none;
@@ -243,6 +286,34 @@
     display: flex;
     gap: 32px;
     margin-bottom: 0;
+  }
+
+  .site-nav-list a {
+    position: relative;
+  }
+
+  .site-nav-list a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% + 0.6em);
+    height: 2px;
+    background: var(--color-ink);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .site-nav-list a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .site-nav-list a:hover {
+    text-decoration: none;
+  }
+
+  .site-nav-list a:active {
+    text-decoration: none;
   }
 
   .site-nav-list li + li {
@@ -409,4 +480,3 @@
     padding: 32px;
   }
 }
-
