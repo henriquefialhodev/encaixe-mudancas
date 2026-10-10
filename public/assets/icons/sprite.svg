@@ -17,5 +17,17 @@
             stroke-width="2"
             stroke-linecap="square"
             stroke-linejoin="miter"><path d="M4 12h14M13 6l6 6-6 6"/></symbol>
+<!-- ICON PLUS -->
+<symbol id="icon-plus" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="square"
+                  stroke-linejoin="miter"><path d="M12 5v14M5 12h14" /></symbol>
+<!-- ICON MINUS -->
+<symbol id="icon-minus" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="square"
+                  stroke-linejoin="miter"><path d="M5 12h14"/></symbol>
 </svg>
 
