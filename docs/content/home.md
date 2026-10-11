@@ -24,7 +24,7 @@ Os nomes entre parênteses (h1, h2, etiqueta) dizem que papel cada texto tem na 
 
 - **Etiqueta:** Braga · Mudanças pequenas e médias
 - **h1:** Mudanças em Braga, com o volume contado peça a peça
-- **Texto:** Para apartamentos, quartos de estudante e pequenos escritórios. Indique o que vai levar e vê logo o volume em m³, o veículo indicado e uma estimativa de preço.
+- **Texto:** Para apartamentos, quartos de estudante e pequenos escritórios. Indique o que vai levar e veja logo o volume em m³, o veículo indicado e uma estimativa de preço.
 - **Botão primário:** Pedir orçamento
 - **Botão secundário:** Ver como funciona
 - **alt da imagem:** Sala vazia com caixas de cartão empilhadas, etiquetadas à mão, e um tapete enrolado
@@ -70,7 +70,7 @@ Os nomes entre parênteses (h1, h2, etiqueta) dizem que papel cada texto tem na 
 
 - **Etiqueta:** Etapa 01
 - **h3:** Peça o orçamento online
-- **Texto:** Indique as moradas, o que vai levar e a data. Vê o volume e uma estimativa de preço antes de enviar o pedido.
+- **Texto:** Indique as moradas, o que vai levar e a data. Veja o volume e uma estimativa de preço antes de enviar o pedido.
 
 ### Etapa 02
 
@@ -111,7 +111,7 @@ Não. A estimativa conta o volume, a distância, os andares sem elevador e os se
 
 ### Como sei quantos m³ tem a minha casa?
 
-Não precisa de saber. No orçamento, escolhe os móveis e o número de caixas, e o volume é somado à medida que avança.
+Não precisa de saber. No orçamento, basta escolher os móveis e o número de caixas, e o volume é somado à medida que avança.
 
 ### E se não houver elevador?
 

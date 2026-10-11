@@ -16,7 +16,7 @@ HTML, CSS and vanilla JavaScript (ES modules). No backend. Quote submission is s
 - Published on Netlify from `public/` (see `netlify.toml`). Nothing outside `public/` is published.
 - `public/`: the HTML pages, `assets/` (fonts, `icons/sprite.svg`, images, `images/og/`), `css/` (`tokens.css`, `base.css`, `layout.css`, `components.css`, `pages/`) and `js/`.
 - JavaScript as ES modules: `js/main.js` on every page, `js/quote/` for the quote form (`config.js`, `busy-dates.js`, `validation.js`, `volume-calculator.js`, `price-estimate.js`, and `quote-form.js` as the entry point), `js/thank-you.js` for obrigado.html.
-- `docs/`: `design-system.md` and `ficha.md`.
+- `docs/`: `design-system.md`, `ficha.md`, `content/` (page copy, one file per page) and `brand/` (logo and favicon source files).
 - The README has the table of which CSS and JS each page loads.
 
 ## Pages
