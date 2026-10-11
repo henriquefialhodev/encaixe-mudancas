@@ -1,5 +1,5 @@
 .container {
-  max-width: calc(1152px + 2  * var(--gutter));
+  max-width: calc(1152px + 2 * var(--gutter));
   margin: 0 auto;
   padding: 0 var(--gutter);
 }

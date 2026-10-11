@@ -225,6 +225,10 @@
   padding: 8px 12px;
 }
 
+.site-zones-text {
+  max-width: 65ch;
+}
+
 /* TABLET ZONES */
 @media (min-width: 768px) {
   .site-zones-list {
@@ -370,6 +374,10 @@
 
 .site-contact-item dd {
   margin: 0;
+}
+
+.site-contact-text {
+  max-width: 65ch;
 }
 
 /* TABLET CONTACT */
