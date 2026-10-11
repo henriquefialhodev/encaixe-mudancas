@@ -48,9 +48,10 @@ Duas linhas dentro de um retângulo de borda 2px, como uma etiqueta de envio.
 
 Um quadrado em traço de 2px com o canto superior direito em falta. Nesse espaço encaixa um quadrado mais pequeno, cheio. É uma caixa com uma peça a encaixar, que é o nome da empresa.
 
-- Usa-se no favicon, no ícone do manifest e na imagem de Open Graph.
+- Usa-se no favicon e na imagem de Open Graph.
 - Nestas versões, o ficheiro é SVG com o texto convertido em contornos (no Figma, "Outline stroke" e "Flatten"). Um SVG usado como imagem não carrega as fontes do site, por isso o texto tem de passar a formas.
-- No favicon a 16px e 32px usa-se só o símbolo, com traço mais grosso (3px numa grelha de 32px), para não desaparecer.
+- No favicon a 16px e 32px usa-se só o símbolo, com traço mais grosso do que nos ícones, para não desaparecer. No `favicon.svg`, o símbolo está desenhado com traço de 3 e reduzido a 75%, o que dá 2,25px na grelha de 32px.
+- O fundo do favicon tem cantos arredondados, com 4px de raio. É a única exceção ao raio 0 do resto do sistema, aceite porque a 16px, num separador do browser, quase não se vê.
 
 ### Versões
 
@@ -225,7 +226,7 @@ Escala com base de 4px. Todos os valores em px.
 | `--space-8` | 64px | **Entre secções** em mobile |
 | `--space-9` | 96px | **Entre secções** a partir de 1024px |
 
-- `--section-space` guarda o espaço entre secções: `--space-8` em mobile e `--space-9` a partir de 1024px.
+- `--section-space` guarda o espaço entre secções: 64px em mobile e 96px a partir de 1024px.
 - Regra para decidir: quanto mais relacionados estão dois elementos, mais pequeno o espaço entre eles. Uma etiqueta fica a 8px do seu campo e a 24px do campo seguinte, e é isso que mostra a que campo pertence.
 
 ---
@@ -377,7 +378,7 @@ Serviços, passos do formulário, painel da estimativa.
 
 **Cabeçalho:** fundo paper, borda inferior 2px ink. Logótipo à esquerda, menu à direita. Margem interna de 12px em cima e em baixo, 20px a partir de 1024px.
 
-**Link de salto ("Saltar para o conteúdo"):** aspeto de botão secundário. Fica escondido acima do ecrã e aparece a 12px do topo ao receber o foco.
+**Link de salto ("Saltar para o conteúdo"):** aspeto de botão secundário. Fica escondido acima do ecrã e aparece a 12px do topo ao receber o foco, por cima da fita do topo. É uma exceção assumida: do lado que fica sobre o kraft, o contorno de foco em signal-dark tem 2,41:1, abaixo dos 3:1. Aceita-se porque o link tem fundo surface e borda ink e vê-se bem, e só existe à vista enquanto tem o foco.
 
 **Links do menu:** Barlow 600, ink, sem sublinhado em repouso. Dentro de um menu, a posição já mostra que são links.
 
@@ -394,27 +395,27 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 
 **Botão "Menu" (abaixo de 1024px):** botão secundário de 44 × 44px no mínimo, com ícone de menu e a palavra "Menu" em etiqueta mono. Margem interna de 10px em cima e em baixo e 12px dos lados. Com o menu aberto, o ícone passa a uma cruz e o texto a "Fechar". Estados iguais ao botão secundário.
 
-**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, de ponta a ponta do ecrã, com borda superior de 2px ink. A borda inferior é a do próprio cabeçalho. Margem interna de 8px em cima e 24px em baixo. Links um por linha, cada um com 52px de altura no mínimo, separados por uma linha de 1px em line. O "Pedir orçamento" fica no fim, a 16px do último link, com a largura toda. Abre e fecha com a altura animada (secção 12). Fechado, o painel fica com altura zero e `visibility: hidden`, para os links não receberem foco. Sem JavaScript, o menu fica sempre aberto e o botão não aparece.
+**Menu aberto em mobile:** painel com fundo surface por baixo do cabeçalho, de ponta a ponta do ecrã, com borda superior de 2px ink. A borda inferior é a do próprio cabeçalho. Margem interna de 8px em cima e 24px em baixo. Links um por linha, cada um com 52px de altura no mínimo, separados por uma linha de 1px em line. O "Pedir orçamento" fica no fim, a 16px do último link, com a largura toda. Abre e fecha com a altura animada (secção 12). Fechado, o painel fica com altura zero e `visibility: hidden`, para os links não receberem foco. Sem JavaScript, o menu fica sempre aberto e o botão não aparece. O Esc fecha o menu e devolve o foco ao botão só quando o foco estava dentro do menu. Se estava noutro sítio da página, fica onde estava.
 
-**Menu a partir de 1024px:** os links ficam em linha, com 32px entre eles e até ao botão "Pedir orçamento".
+**Menu a partir de 1024px:** os links ficam em linha. O espaço entre eles e até ao botão "Pedir orçamento" cresce com a largura do ecrã, `clamp(24px, 2.25vw, 32px)`: 24px a 1024px, onde tudo tem de caber numa linha, e 32px a partir de 1440px. Entre o logótipo e a navegação há sempre 24px no mínimo.
 
 **Rodapé:** fundo ink, texto e links paper. Logótipo na versão para fundo escuro, com texto e borda em paper. Links e foco com as regras do rodapé da tabela do link, com o sublinhado afastado 0.15em. Margem interna de 48px em cima e em baixo, 64px a partir de 1024px.
 
-- **Em mobile:** peças empilhadas com 32px entre elas, por esta ordem: logótipo, links, aviso de projeto fictício, Livro de Reclamações Eletrónico, linha final. Cada link tem 44px de altura no mínimo.
+- **Em mobile:** peças empilhadas com 32px entre elas, por esta ordem: logótipo, links, aviso de projeto fictício, Livro de Reclamações Eletrónico, linha final. Cada link tem 44px de altura no mínimo, definidos no próprio `<a>` e não no item da lista, porque a área de toque é a caixa do link.
 - **A partir de 1024px:** grelha de três colunas (`3fr 2fr auto`) com 64px entre elas. A primeira tem o logótipo e o aviso, a 24px um do outro, e o aviso com 48ch no máximo. A segunda tem os links, a 12px uns dos outros. A terceira tem o Livro de Reclamações e fica com a largura do texto, para caber numa linha.
-- **Livro de Reclamações:** caixa com borda de 2px em paper e 16px de margem interna (16px em cima e em baixo e 20px dos lados a partir de 1024px). Link em peso 600.
+- **Livro de Reclamações:** caixa com borda de 2px em paper e 16px de margem interna (16px em cima e em baixo e 20px dos lados a partir de 1024px). Link em peso 600. A caixa é o próprio link, por isso é clicável em toda a área, incluindo a margem interna.
 - **Linha final:** texto pequeno. A partir de 1024px fica por baixo das três colunas, a 48px, com borda superior de 1px em paper e 24px de margem interna em cima.
 
 ### Linha temporal ("Como funciona")
 
-- Lista ordenada (`<ol>`) com quatro etapas. Cada etapa tem a etiqueta mono ("ETAPA 01"), o título h3 e o texto, a 8px uns dos outros.
+- Lista ordenada (`<ol>`) com quatro etapas. Cada etapa tem a etiqueta mono ("ETAPA 01"), o título h3 e o texto, a 8px uns dos outros. A lista leva `role="list"`: sem marcas e fora de uma `<nav>`, o Safari deixa de a anunciar como lista.
 - Linha de 2px em ink. Cada etapa tem um marcador quadrado de 16px, centrado em cima da linha, desenhado com `::before`. Os marcadores são ink. O da última etapa é surface com borda de 2px em ink, para marcar o fim do processo.
 - **Até 1023px:** linha vertical à esquerda, com 32px entre etapas. O texto fica afastado 28px da linha, 32px a partir de 768px, onde cada etapa tem 65ch de largura máxima.
 - **A partir de 1024px:** linha horizontal por cima, quatro colunas iguais com 32px entre elas, e o texto a 32px da linha.
 
 ### Etiquetas das zonas
 
-- Lista (`<ul>`) com os concelhos, em linha, a passar para a linha seguinte quando não cabem. 8px entre etiquetas, 12px a partir de 768px.
+- Lista (`<ul>`) com os concelhos, em linha, a passar para a linha seguinte quando não cabem. 8px entre etiquetas, 12px a partir de 768px. Leva `role="list"`, pela mesma razão da linha temporal.
 - Cada etiqueta: fundo surface, borda 2px ink, texto ink em Barlow 600, altura de linha 1.2. Margem interna de 8px em cima e em baixo e 12px dos lados. A partir de 768px, 10px e 16px.
 - Não são clicáveis, por isso não têm estados.
 
@@ -475,7 +476,7 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 - Puramente decorativa: `aria-hidden="true"`.
 - Variante com texto: etiqueta mono em ink ("FRÁGIL · ESTE LADO PARA CIMA"), 6,64:1, centrada. Se o texto for só decoração, continua com `aria-hidden="true"`. A fita tem 7px de margem interna em cima e em baixo e 12px dos lados, e cresce com o texto. Vazia, fica com os 20px mínimos.
 - Onde: entre as secções da página inicial e no topo do painel da estimativa. No máximo uma fita entre duas secções.
-- Fita do topo da página: leva o aviso de projeto fictício em texto real, sem `aria-hidden`, porque é informação e não decoração. Etiqueta mono em ink, centrada, com 8px de margem interna em cima e em baixo. A altura cresce com o texto.
+- Fita do topo da página: leva o aviso de projeto fictício em texto real, sem `aria-hidden`, porque é informação e não decoração. Fica dentro do `<header>`, antes do contentor, para quem navega por zonas com leitor de ecrã passar por ela. Etiqueta mono em ink, centrada, com 8px de margem interna em cima e em baixo. A altura cresce com o texto.
 
 ### Painel da estimativa
 
@@ -520,6 +521,7 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 
 - `srcset` com as larguras acima e `sizes` de acordo com a coluna onde a imagem fica.
 - `width` e `height` sempre no HTML, para o browser reservar o espaço e a página não saltar enquanto a imagem carrega.
+- As fotografias com `loading="lazy"` levam também a proporção no CSS, com `aspect-ratio`. O `height: auto` do `base.css` faz com que o DevTools do Chrome não conte com a proporção dos atributos e assinale a imagem como não tendo dimensões.
 - `alt` descreve o que a imagem mostra e importa para a página, em pt-PT. Exemplo para o hero: "Sala vazia com caixas de cartão empilhadas e etiquetadas à mão".
 - Ícones da calculadora: SVG do sprite, não fotografias.
 
@@ -617,7 +619,7 @@ Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10
 | `--space-7` | `48px` | Título da secção e conteúdo, formulário e painel |
 | `--space-8` | `64px` | Entre secções em mobile |
 | `--space-9` | `96px` | Entre secções a partir de 1024px |
-| `--section-space` | `var(--space-8)`, e `var(--space-9)` a partir de 1024px | Espaço entre secções |
+| `--section-space` | `64px`, e `96px` a partir de 1024px | Espaço entre secções |
 | `--gutter` | `16px`, `24px` a partir de 768px, `32px` a partir de 1024px | Margens laterais da página |
 | `--container-max` | `1152px` | Largura máxima do conteúdo |
 | `--measure` | `65ch` | Largura máxima dos parágrafos |
@@ -645,8 +647,10 @@ Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10
 | Custom property | Valor | Onde se usa |
 |---|---|---|
 | `--duration-step` | `200ms` | Entrada do novo passo |
+| `--duration-hover` | `300ms` | `:hover` dos botões e dos links do menu |
+| `--duration-menu` | `400ms` | Abertura e fecho do menu |
 | `--duration-highlight` | `600ms` | Destaque do total |
-| `--ease-out` | `cubic-bezier(0.2, 0, 0, 1)` | As duas animações |
+| `--ease-out` | `cubic-bezier(0.2, 0, 0, 1)` | Todas as animações da secção 12, menos o scroll |
 
 ### Breakpoints (não são custom properties)
 
