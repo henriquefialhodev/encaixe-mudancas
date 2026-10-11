@@ -534,7 +534,7 @@ As animações do site estão na tabela abaixo. Cada animação nova entra na ta
 | Entrada do novo passo | Opacidade de 0 para 1 e deslocamento vertical de 8px para 0 | 200ms (`--duration-step`) | `cubic-bezier(0.2, 0, 0, 1)` (`--ease-out`) | Sem animação. O passo aparece logo |
 | Destaque do total quando muda | Fundo do total de kraft para transparente. O texto fica ink (6,64 sobre kraft, 17,03 sobre surface) | 600ms (`--duration-highlight`) | `--ease-out` | Sem animação. O número muda e o `aria-live` anuncia-o |
 | Scroll até uma secção, ao clicar num link de âncora | Posição da página, com `scroll-behavior: smooth` no `html` | Decidida pelo browser | Decidida pelo browser | Sem animação. A página salta diretamente para a secção |
-| Abertura e fecho do menu, abaixo de 1024px | Altura do painel, de zero até à altura do conteúdo, com `grid-template-rows` de `0fr` para `1fr`. A `visibility` só passa a escondida no fim do fecho | 400ms | `--ease-out` | Sem animação. O menu abre e fecha de repente |
+| Abertura e fecho do menu, abaixo de 1024px | Altura do painel, de zero até à altura do conteúdo, com `grid-template-rows` de `0fr` para `1fr`. A `visibility` só passa a escondida no fim do fecho. Ao clicar num link do menu, fecha sem animação, para a página parar na secção certa | 400ms | `--ease-out` | Sem animação. O menu abre e fecha de repente |
 | `:hover` dos links do menu, a partir de 1024px | Linha de 2px que cresce da esquerda para a direita, com `transform: scaleX` de 0 para 1 | 300ms | `--ease-out` | Sem animação. A linha aparece inteira |
 | `:hover` dos botões primário e secundário | Cor do fundo e cor do texto | 300ms | `--ease-out` | Sem animação. As cores mudam de repente |
 
