@@ -200,6 +200,10 @@
   }
 }
 
+.site-nav.is-instant {
+  transition: none;
+}
+
 .site-nav-window {
   overflow: hidden;
   min-height: 0;
