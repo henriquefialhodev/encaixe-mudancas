@@ -545,6 +545,7 @@ As animações do site estão na tabela abaixo. Cada animação nova entra na ta
 - O destaque repete-se a cada mudança do total. Se houver vários cliques seguidos, recomeça.
 - O `scroll-behavior: smooth` escreve-se só dentro de `@media (prefers-reduced-motion: no-preference)`. Fora dele não existe, e a página salta sem deslizar. Um scroll animado da página inteira é dos movimentos que mais afeta quem pediu ao sistema para reduzir animações.
 - Nas transições e animações em CSS, animam-se `opacity`, `transform`, `background-color` e `color`. A exceção é o menu, que anima a altura com `grid-template-rows`, porque só assim o painel empurra a página e leva a borda do cabeçalho com ele. Nunca `transition: all`, que anima propriedades que não se queria animar.
+- Ao carregar a página, o menu já está fechado abaixo de 1024px, sem animação. Um script no `<head>`, antes das folhas de estilo, põe a classe `js` no `<html>`, e o CSS fecha o menu enquanto o botão ainda tem `hidden`. Sem isto, o menu era desenhado aberto e só fechava quando o `main.js` corria, o que fazia a página saltar. Sem JavaScript a classe não existe e o menu fica aberto.
 - O `:active` dos botões não tem transição. O clique muda as cores de uma vez, que é o efeito de carimbo, e o texto nunca fica da cor do fundo a meio de uma transição.
 - `--ease-out` arranca depressa e trava no fim. Parece uma resposta ao clique, não um efeito decorativo.
 
