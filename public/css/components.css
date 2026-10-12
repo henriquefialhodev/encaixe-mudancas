@@ -161,6 +161,7 @@
   display: block;
 }
 
+.js .btn-menu[hidden] + .site-nav,
 .btn-menu[aria-expanded="false"] + .site-nav {
   grid-template-rows: 0fr;
   visibility: hidden;
@@ -264,6 +265,7 @@
     display: none;
   }
 
+  .js .btn-menu[hidden] + .site-nav,
   .btn-menu[aria-expanded="false"] + .site-nav {
     grid-template-rows: 1fr;
     visibility: visible;
