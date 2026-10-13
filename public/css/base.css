@@ -8,16 +8,16 @@
 
 @font-face {
   font-family: "Barlow";
-  src: url("../assets/fonts/barlow-400.woff2") format("woff2");
-  font-weight: 400;
+  src: url("../assets/fonts/barlow-600.woff2") format("woff2");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Barlow";
-  src: url("../assets/fonts/barlow-600.woff2") format("woff2");
-  font-weight: 600;
+  src: url("../assets/fonts/barlow-400.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -28,6 +28,30 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Barlow Condensed Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  font-weight: 700;
+  font-style: normal;
+  size-adjust: 74.99%;
+}
+
+@font-face {
+  font-family: "Barlow Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  font-weight: 600;
+  font-style: normal;
+  size-adjust: 90.68%;
+}
+
+@font-face {
+  font-family: "Barlow Fallback";
+  src: local("Arial"), local("ArialMT");
+  font-weight: 400;
+  font-style: normal;
+  size-adjust: 95.16%;
 }
 
 html {
