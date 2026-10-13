@@ -187,6 +187,7 @@
   margin-top: 12px;
   margin-inline: calc(-1 * var(--gutter));
   margin-bottom: -12px;
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -206,7 +207,6 @@
 }
 
 .site-nav-window {
-  overflow: hidden;
   min-height: 0;
 }
 
@@ -274,9 +274,6 @@
   .site-nav {
     flex-basis: auto;
     margin: 0;
-  }
-
-  .site-nav-window {
     overflow: visible;
   }
 
