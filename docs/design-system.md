@@ -180,7 +180,16 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 - **Porque estes links:** o download do Google Fonts e os repositórios oficiais dão ficheiros completos (TTF ou OTF, com todos os alfabetos). Os links da última coluna são do Fontsource, que distribui os mesmos ficheiros do Google Fonts já em WOFF2 e cortados por subconjunto. É a forma mais curta de ter exatamente 4 ficheiros pequenos.
 - O subconjunto latino cobre tudo o que o site precisa em pt-PT: ã, õ, ç, acentos, €, ³ e º.
 - Nomes sugeridos na pasta `assets/fonts/`: `barlow-condensed-700.woff2`, `barlow-400.woff2`, `barlow-600.woff2`, `ibm-plex-mono-500.woff2`.
-- Pilhas de recurso, enquanto as fontes carregam: títulos `"Barlow Condensed", "Arial Narrow", sans-serif`, texto `"Barlow", system-ui, sans-serif`, mono `"IBM Plex Mono", ui-monospace, monospace`.
+- Pilhas de recurso, enquanto as fontes carregam: títulos `"Barlow Condensed", "Barlow Condensed Fallback", sans-serif`, texto `"Barlow", "Barlow Fallback", system-ui, sans-serif`, mono `"IBM Plex Mono", "Courier New", ui-monospace, monospace`.
+- **Fontes de recurso ajustadas.** As fontes do sistema têm outra largura. Sem ajuste, o texto muda de tamanho quando as fontes verdadeiras chegam e a página salta. A 1024px a navegação chegava a cair para uma segunda linha. Por isso o `base.css` tem três `@font-face` que pegam na Arial do computador com `local()` e a encolhem com `size-adjust` até ocupar a largura da fonte verdadeira. Não levam `font-display`, porque não há descarga.
+
+| `font-family` | `src` | `font-weight` | `size-adjust` | Substitui |
+|---|---|---|---|---|
+| `"Barlow Fallback"` | `local("Arial"), local("ArialMT")` | 400 | 95.16% | Barlow 400 |
+| `"Barlow Fallback"` | `local("Arial Bold"), local("Arial-BoldMT")` | 600 | 90.68% | Barlow 600 |
+| `"Barlow Condensed Fallback"` | `local("Arial Bold"), local("Arial-BoldMT")` | 700 | 74.99% | Barlow Condensed 700 |
+
+- Os valores de `size-adjust` são a largura da fonte verdadeira a dividir pela largura da Arial, medida no browser com frases do site. A mono não precisa de `@font-face`: a Courier New tem a mesma largura por letra que a IBM Plex Mono. Onde não há Arial, como em Android, o browser salta para a fonte seguinte da pilha, sem ajuste.
 
 ### Escala
 
@@ -579,9 +588,9 @@ Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10
 
 | Custom property | Valor | Onde se usa |
 |---|---|---|
-| `--font-heading` | `"Barlow Condensed", "Arial Narrow", sans-serif` | h1, h2, h3, logótipo |
-| `--font-body` | `"Barlow", system-ui, sans-serif` | Texto, botões, campos, menu |
-| `--font-mono` | `"IBM Plex Mono", ui-monospace, monospace` | Etiquetas, referência, m³, quantidades |
+| `--font-heading` | `"Barlow Condensed", "Barlow Condensed Fallback", sans-serif` | h1, h2, h3, logótipo |
+| `--font-body` | `"Barlow", "Barlow Fallback", system-ui, sans-serif` | Texto, botões, campos, menu |
+| `--font-mono` | `"IBM Plex Mono", "Courier New", ui-monospace, monospace` | Etiquetas, referência, m³, quantidades |
 | `--font-weight-regular` | `400` | Texto |
 | `--font-weight-medium` | `500` | Tudo em IBM Plex Mono |
 | `--font-weight-semibold` | `600` | Botões, etiquetas dos campos, menu, mensagens de erro |
