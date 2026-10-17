@@ -213,7 +213,8 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 
 - **Os títulos não vão em maiúsculas.** As maiúsculas ficam só nas etiquetas mono, para serem o sinal visual de "etiqueta".
 - **O texto dentro dos campos fica sempre em 16px.** O Safari do iPhone faz zoom automático ao focar um campo com letra mais pequena, e a página fica desalinhada.
-- Largura máxima de linha nos parágrafos: 65 caracteres (`65ch`). Linhas mais compridas cansam a leitura.
+- Largura máxima de linha nos parágrafos: cerca de 65 caracteres, escrita como `37em`. Linhas mais compridas cansam a leitura.
+- **Porque `em` e não `ch`:** o `ch` é a largura do "0" da fonte em uso. Enquanto a Barlow carrega, é o "0" da fonte de recurso, que tem outra largura, e as caixas mudam de tamanho quando a Barlow chega. O `em` é o tamanho da letra, igual nas duas fontes. Na Barlow o "0" ocupa 0,565em, por isso 65 caracteres dão cerca de 37em e 48 caracteres cerca de 27em.
 - As maiúsculas das etiquetas fazem-se com `text-transform: uppercase`. Alguns leitores de ecrã soletram palavras escritas em maiúsculas no HTML.
 - O `<strong>` usa o peso 600. Não há ficheiro de 700 para a Barlow, e sem esta regra o browser inventava um negrito falso.
 
@@ -245,7 +246,7 @@ Escala com base de 4px. Todos os valores em px.
 ### Larguras
 
 - **Largura máxima do conteúdo:** 1152px, sem contar com as margens laterais. Acima disto, as linhas e as grelhas ficam largas demais para ler de uma vez.
-- **Largura máxima do texto corrido:** 65ch.
+- **Largura máxima do texto corrido:** 37em.
 - **Margem lateral (`--gutter`):** 16px em mobile, 24px a partir de 768px, 32px a partir de 1024px.
 
 ### Breakpoints
@@ -263,7 +264,7 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 ### Grelhas
 
 - **Secções da página inicial:** o espaço vertical de cada secção é o `--section-space` (64px, 96px a partir de 1024px). O título fica a 48px do conteúdo.
-- **Hero:** 48px de espaço em cima e 64px em baixo. 64px e 64px a partir de 768px. 96px e 96px a partir de 1024px. Etiqueta, título, texto de entrada e botões a 16px uns dos outros, com mais 8px antes do texto de entrada e mais 16px antes dos botões. Os botões ficam um por cima do outro, a 12px, e lado a lado a partir de 768px, a 16px. A fotografia fica a 32px do texto, 48px a partir de 768px. A partir de 768px o título tem 14em de largura máxima e o texto de entrada 65ch. A partir de 1024px, duas colunas iguais com 64px entre elas, alinhadas ao centro na vertical: texto à esquerda, fotografia à direita.
+- **Hero:** 48px de espaço em cima e 64px em baixo. 64px e 64px a partir de 768px. 96px e 96px a partir de 1024px. Etiqueta, título, texto de entrada e botões a 16px uns dos outros, com mais 8px antes do texto de entrada e mais 16px antes dos botões. Os botões ficam um por cima do outro, a 12px, e lado a lado a partir de 768px, a 16px. A fotografia fica a 32px do texto, 48px a partir de 768px. A partir de 768px o título tem 14em de largura máxima e o texto de entrada 37em. A partir de 1024px, duas colunas iguais com 64px entre elas, alinhadas ao centro na vertical: texto à esquerda, fotografia à direita.
 - **Serviços:** grelha de 1, 2 ou 3 colunas (768px e 1024px), com `--space-6` entre as peças. Tem seis peças, pela ordem do HTML: fotografia da carrinha, cartão 01, cartão 02, fotografia da embalagem, cartão 03, cartão 04. A partir de 768px as fotografias enchem a altura da célula com `object-fit: cover`, para ficarem com a altura do cartão ao lado sem se deformarem. A partir de 1024px, a fotografia da carrinha passa para a terceira coluna da primeira fila, e as outras peças arrumam-se pela ordem.
 - **"Como funciona":** lista vertical em mobile (linha temporal a descer). A partir de 1024px, 4 colunas na horizontal. Ver "Linha temporal" na secção 9.
 - **Zonas, Perguntas frequentes e Contactos:** uma coluna até 1023px. A partir de 1024px, duas colunas (`1fr 2fr`) com 64px entre elas: o título à esquerda e o conteúdo à direita. Nos Contactos, o texto de introdução fica na coluna da esquerda, por baixo do título.
@@ -411,7 +412,7 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 **Rodapé:** fundo ink, texto e links paper. Logótipo na versão para fundo escuro, com texto e borda em paper. Links e foco com as regras do rodapé da tabela do link, com o sublinhado afastado 0.15em. Margem interna de 48px em cima e em baixo, 64px a partir de 1024px.
 
 - **Em mobile:** peças empilhadas com 32px entre elas, por esta ordem: logótipo, links, aviso de projeto fictício, Livro de Reclamações Eletrónico, linha final. Cada link tem 44px de altura no mínimo, definidos no próprio `<a>` e não no item da lista, porque a área de toque é a caixa do link.
-- **A partir de 1024px:** grelha de três colunas (`3fr 2fr auto`) com 64px entre elas. A primeira tem o logótipo e o aviso, a 24px um do outro, e o aviso com 48ch no máximo. A segunda tem os links, a 12px uns dos outros. A terceira tem o Livro de Reclamações e fica com a largura do texto, para caber numa linha.
+- **A partir de 1024px:** grelha de três colunas (`3fr 2fr auto`) com 64px entre elas. A primeira tem o logótipo e o aviso, a 24px um do outro, e o aviso com 27em no máximo. A segunda tem os links, a 12px uns dos outros. A terceira tem o Livro de Reclamações e fica com a largura do texto, para caber numa linha.
 - **Livro de Reclamações:** caixa com borda de 2px em paper e 16px de margem interna (16px em cima e em baixo e 20px dos lados a partir de 1024px). Link em peso 600. A caixa é o próprio link, por isso é clicável em toda a área, incluindo a margem interna.
 - **Linha final:** texto pequeno. A partir de 1024px fica por baixo das três colunas, a 48px, com borda superior de 1px em paper e 24px de margem interna em cima.
 
@@ -419,7 +420,7 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 
 - Lista ordenada (`<ol>`) com quatro etapas. Cada etapa tem a etiqueta mono ("ETAPA 01"), o título h3 e o texto, a 8px uns dos outros. A lista leva `role="list"`: sem marcas e fora de uma `<nav>`, o Safari deixa de a anunciar como lista.
 - Linha de 2px em ink. Cada etapa tem um marcador quadrado de 16px, centrado em cima da linha, desenhado com `::before`. Os marcadores são ink. O da última etapa é surface com borda de 2px em ink, para marcar o fim do processo.
-- **Até 1023px:** linha vertical à esquerda, com 32px entre etapas. O texto fica afastado 28px da linha, 32px a partir de 768px, onde cada etapa tem 65ch de largura máxima.
+- **Até 1023px:** linha vertical à esquerda, com 32px entre etapas. O texto fica afastado 28px da linha, 32px a partir de 768px, onde cada etapa tem 37em de largura máxima.
 - **A partir de 1024px:** linha horizontal por cima, quatro colunas iguais com 32px entre elas, e o texto a 32px da linha.
 
 ### Etiquetas das zonas
@@ -432,7 +433,7 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 
 - Cada pergunta é um `<details>` com fundo surface e borda 2px ink, a 12px da seguinte. A primeira começa aberta.
 - A pergunta (`<summary>`) tem o texto à esquerda, em Barlow 600 com altura de linha 1.4, e um ícone de 24px à direita: mais quando está fechada, menos quando está aberta. Margem interna de 16px e altura mínima de 56px. A partir de 768px, 20px em cima e em baixo, 24px dos lados e 64px de altura mínima.
-- A resposta fica por baixo, com a mesma margem lateral da pergunta, a mesma margem em baixo e 65ch de largura máxima.
+- A resposta fica por baixo, com a mesma margem lateral da pergunta, a mesma margem em baixo e 37em de largura máxima.
 
 | Estado | Aspeto |
 |---|---|
@@ -634,7 +635,7 @@ Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10
 | `--section-space` | `64px`, e `96px` a partir de 1024px | Espaço entre secções |
 | `--gutter` | `16px`, `24px` a partir de 768px, `32px` a partir de 1024px | Margens laterais da página |
 | `--container-max` | `1152px` | Largura máxima do conteúdo |
-| `--measure` | `65ch` | Largura máxima dos parágrafos |
+| `--measure` | `37em` | Largura máxima dos parágrafos, cerca de 65 caracteres |
 | `--form-max` | `640px` | Largura máxima da coluna do formulário |
 | `--aside-width` | `320px` | Largura do painel da estimativa a partir de 1024px |
 
