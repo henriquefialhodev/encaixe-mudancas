@@ -110,8 +110,15 @@
           </div>
           <img
             class="site-hero-image"
-            src="assets/images/img-hero.webp"
+            src="assets/images/img-hero-800.webp"
+            srcset="
+              assets/images/img-hero-480.webp   480w,
+              assets/images/img-hero-800.webp   800w,
+              assets/images/img-hero-1200.webp 1200w,
+              assets/images/img-hero-1536.webp 1536w
+            "
             alt="Sala vazia com caixas de cartão empilhadas, etiquetadas à mão, e um tapete enrolado"
+            sizes="(min-width: 1024px) 544px, (min-width: 768px) calc(100vw - 48px), calc(100vw - 32px)"
             width="1536"
             height="1024"
             fetchpriority="high"
@@ -131,9 +138,15 @@
           <div class="site-services-grid">
             <img
               class="site-services-image"
-              src="assets/images/img-services-1.webp"
+              src="assets/images/img-services-1-800.webp"
+              srcset="
+                assets/images/img-services-1-480.webp   480w,
+                assets/images/img-services-1-800.webp   800w,
+                assets/images/img-services-1-1200.webp 1200w
+              "
               alt="Carrinha branca de portas traseiras abertas, com móveis embrulhados, numa rua de granito"
               loading="lazy"
+              sizes="(min-width: 1024px) 363px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 32px)"
               width="1448"
               height="1086"
             />
@@ -156,9 +169,15 @@
             </article>
             <img
               class="site-services-image"
-              src="assets/images/img-services-2.webp"
+              src="assets/images/img-services-2-800.webp"
+              srcset="
+                assets/images/img-services-2-480.webp   480w,
+                assets/images/img-services-2-800.webp   800w,
+                assets/images/img-services-2-1200.webp 1200w
+              "
               alt="Mãos a embrulhar pratos em papel kraft, ao lado de uma caixa de cartão"
               loading="lazy"
+              sizes="(min-width: 1024px) 363px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 32px)"
               width="1448"
               height="1086"
             />
