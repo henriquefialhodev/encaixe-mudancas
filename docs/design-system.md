@@ -523,11 +523,13 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 
 | Imagem | Proporção | Larguras a gerar (WebP) | Carregamento |
 |---|---|---|---|
-| Hero | 3:2 | 480, 800, 1200, 1600 | Imediato, com `fetchpriority="high"` |
+| Hero | 3:2 | 480, 800, 1200, 1536 | Imediato, com `fetchpriority="high"` |
 | Serviços | 4:3 | 480, 800, 1200 | `loading="lazy"` |
 | Embalagem | 4:3 | 480, 800, 1200 | `loading="lazy"` |
 | Open Graph | 1200 × 630 (1,91:1) | só 1200 | Não aparece na página |
 
+- A maior largura do hero é 1536px porque é a largura do original. Uma imagem nunca se gera maior do que o original.
+- Os ficheiros geram-se com `npm run images` na pasta `tools/`. O script lê os originais de `src-images/` e grava em `public/assets/images/` com o nome `nome-largura.webp` (por exemplo `img-hero-800.webp`), em WebP com qualidade 75.
 - `srcset` com as larguras acima e `sizes` de acordo com a coluna onde a imagem fica.
 - `width` e `height` sempre no HTML, para o browser reservar o espaço e a página não saltar enquanto a imagem carrega.
 - As fotografias com `loading="lazy"` levam também a proporção no CSS, com `aspect-ratio`. O `height: auto` do `base.css` faz com que o DevTools do Chrome não conte com a proporção dos atributos e assinale a imagem como não tendo dimensões.
