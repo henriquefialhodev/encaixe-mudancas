@@ -47,7 +47,7 @@
   }
 
   .site-hero-description {
-    max-width: 65ch;
+    max-width: 37em;
   }
 
   .site-hero-actions {
@@ -164,7 +164,7 @@
 @media (min-width: 768px) {
   .site-work-item {
     padding-left: 32px;
-    max-width: 65ch;
+    max-width: 37em;
   }
 }
 
@@ -226,7 +226,7 @@
 }
 
 .site-zones-text {
-  max-width: 65ch;
+  max-width: 37em;
 }
 
 /* TABLET ZONES */
@@ -297,7 +297,7 @@
 
 .site-faq-answer {
   padding: 0 16px 16px;
-  max-width: 65ch;
+  max-width: 37em;
 }
 
 .site-faq-item .icon-minus {
@@ -377,7 +377,7 @@
 }
 
 .site-contact-text {
-  max-width: 65ch;
+  max-width: 37em;
 }
 
 /* TABLET CONTACT */
