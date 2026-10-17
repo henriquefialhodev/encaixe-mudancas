@@ -60,7 +60,7 @@ The full visual system is in `docs/design-system.md`. It loads through `.claude/
 
 ## Done
 - Tested in Chrome, in WebKit (Playwright) and on a real phone. No console errors.
-- Lighthouse, mobile mode, incognito window: 100 in accessibility and SEO, 90 or more in performance and best practices.
+- Lighthouse, mobile mode, incognito window: 100 in accessibility, 90 or more in performance and best practices. In SEO, every audit passes except "Page is blocked from indexing", which fails on purpose because the site is noindex.
 - Keyboard and screen reader check.
 - README in English: description, live link, screenshot, decisions and difficulties, how to run locally.
 

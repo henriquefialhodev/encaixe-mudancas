@@ -161,6 +161,7 @@
   display: block;
 }
 
+.js .btn-menu[hidden] + .site-nav,
 .btn-menu[aria-expanded="false"] + .site-nav {
   grid-template-rows: 0fr;
   visibility: hidden;
@@ -186,6 +187,7 @@
   margin-top: 12px;
   margin-inline: calc(-1 * var(--gutter));
   margin-bottom: -12px;
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -205,7 +207,6 @@
 }
 
 .site-nav-window {
-  overflow: hidden;
   min-height: 0;
 }
 
@@ -264,6 +265,7 @@
     display: none;
   }
 
+  .js .btn-menu[hidden] + .site-nav,
   .btn-menu[aria-expanded="false"] + .site-nav {
     grid-template-rows: 1fr;
     visibility: visible;
@@ -272,9 +274,6 @@
   .site-nav {
     flex-basis: auto;
     margin: 0;
-  }
-
-  .site-nav-window {
     overflow: visible;
   }
 
