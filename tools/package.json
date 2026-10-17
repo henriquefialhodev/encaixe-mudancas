@@ -1,0 +1,11 @@
+{
+  "name": "encaixe-mudancas-tools",
+  "private": true,
+  "description": "Local tools for the Encaixe Mudanças site. Not published.",
+  "scripts": {
+    "images": "node resize-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}
