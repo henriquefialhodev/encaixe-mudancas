@@ -1,0 +1,41 @@
+.site-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 32px;
+  padding-bottom: var(--section-space);
+}
+
+.site-quote-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-quote-lead {
+  font-size: var(--font-size-lead);
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .site-quote {
+    padding-top: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-quote {
+    padding-top: 64px;
+  }
+}
+
+.site-quote-notice {
+  padding: 16px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  font-weight: var(--font-weight-semibold);
+}
+
+.js .site-quote-notice {
+  display: none;
+}
