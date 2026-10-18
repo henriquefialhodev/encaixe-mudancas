@@ -156,6 +156,11 @@
   line-height: 1.2;
 }
 
+.site-quote-select select {
+  appearance: none;
+  padding-right: 48px;
+}
+
 .site-quote-field input:hover,
 .site-quote-field select:hover {
   border-color: var(--color-ink);
@@ -174,6 +179,18 @@
 }
 .site-quote-input-large {
   max-width: 320px;
+}
+
+.site-quote-select {
+  position: relative;
+}
+
+.site-quote-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .site-quote-choice-legend {
