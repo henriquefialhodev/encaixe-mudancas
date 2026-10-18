@@ -146,138 +146,157 @@
             <legend class="site-quote-legend">
               <h2 tabindex="-1">Origem e destino</h2>
             </legend>
-            <fieldset class="site-quote-group">
-              <legend class="site-quote-legend">
-                <h3>Origem</h3>
-              </legend>
-              <div class="site-quote-field">
-                <label for="origin-postcode">Código postal</label>
-                <p id="origin-postcode-help" class="site-quote-help">
-                  Formato 0000-000
-                </p>
-                <input
-                  id="origin-postcode"
-                  name="origin-postcode"
-                  type="text"
-                  autocomplete="section-origin postal-code"
-                  pattern="[0-9]{4}-[0-9]{3}"
-                  maxlength="8"
-                  required
-                  aria-describedby="origin-postcode-help"
-                />
-              </div>
-              <div class="site-quote-field">
-                <label for="origin-floor">Andar</label>
-                <select id="origin-floor" name="origin-floor" required>
-                  <option value="">Escolha o andar</option>
-                  <option value="0">Rés-do-chão</option>
-                  <option value="1">1.º andar</option>
-                  <option value="2">2.º andar</option>
-                  <option value="3">3.º andar</option>
-                  <option value="4">4.º andar</option>
-                  <option value="5">5.º andar</option>
-                  <option value="6">6.º andar ou mais</option>
-                </select>
-              </div>
-              <fieldset class="site-quote-choice">
-                <legend class="site-quote-choice-legend">Tem elevador?</legend>
-                <div class="site-quote-options">
-                  <label class="site-quote-option">
+            <div class="site-quote-step-body">
+              <fieldset class="site-quote-group">
+                <legend class="site-quote-legend">
+                  <h3>Origem</h3>
+                </legend>
+                <div class="site-quote-group-body">
+                  <div class="site-quote-field">
+                    <label for="origin-postcode">Código postal</label>
+                    <p id="origin-postcode-help" class="site-quote-help">
+                      Formato 0000-000
+                    </p>
                     <input
-                      type="radio"
-                      name="origin-lift"
-                      value="yes"
+                      id="origin-postcode"
+                      class="site-quote-input-small"
+                      name="origin-postcode"
+                      type="text"
+                      autocomplete="section-origin postal-code"
+                      pattern="[0-9]{4}-[0-9]{3}"
+                      maxlength="8"
                       required
-                    />Sim</label
-                  >
-                  <label class="site-quote-option">
-                    <input
-                      type="radio"
-                      name="origin-lift"
-                      value="no"
+                      aria-describedby="origin-postcode-help"
+                    />
+                  </div>
+                  <div class="site-quote-field">
+                    <label for="origin-floor">Andar</label>
+                    <select
+                      id="origin-floor"
+                      class="site-quote-input-medium"
+                      name="origin-floor"
                       required
-                    />Não</label
-                  >
+                    >
+                      <option value="">Escolha o andar</option>
+                      <option value="0">Rés-do-chão</option>
+                      <option value="1">1.º andar</option>
+                      <option value="2">2.º andar</option>
+                      <option value="3">3.º andar</option>
+                      <option value="4">4.º andar</option>
+                      <option value="5">5.º andar</option>
+                      <option value="6">6.º andar ou mais</option>
+                    </select>
+                  </div>
+                  <fieldset class="site-quote-choice">
+                    <legend class="site-quote-choice-legend">
+                      Tem elevador?
+                    </legend>
+                    <div class="site-quote-options">
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="origin-lift"
+                          value="yes"
+                          required
+                        />Sim</label
+                      >
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="origin-lift"
+                          value="no"
+                          required
+                        />Não</label
+                      >
+                    </div>
+                  </fieldset>
                 </div>
               </fieldset>
-            </fieldset>
-            <fieldset class="site-quote-group">
-              <legend class="site-quote-legend">
-                <h3>Destino</h3>
-              </legend>
-              <div class="site-quote-field">
-                <label for="destination-postcode">Código postal</label>
-                <p id="destination-postcode-help" class="site-quote-help">
-                  Formato 0000-000
+              <fieldset class="site-quote-group">
+                <legend class="site-quote-legend">
+                  <h3>Destino</h3>
+                </legend>
+                <div class="site-quote-group-body">
+                  <div class="site-quote-field">
+                    <label for="destination-postcode">Código postal</label>
+                    <p id="destination-postcode-help" class="site-quote-help">
+                      Formato 0000-000
+                    </p>
+                    <input
+                      id="destination-postcode"
+                      class="site-quote-input-small"
+                      name="destination-postcode"
+                      type="text"
+                      autocomplete="section-destination postal-code"
+                      pattern="[0-9]{4}-[0-9]{3}"
+                      maxlength="8"
+                      required
+                      aria-describedby="destination-postcode-help"
+                    />
+                  </div>
+                  <div class="site-quote-field">
+                    <label for="destination-floor">Andar</label>
+                    <select
+                      id="destination-floor"
+                      class="site-quote-input-medium"
+                      name="destination-floor"
+                      required
+                    >
+                      <option value="">Escolha o andar</option>
+                      <option value="0">Rés-do-chão</option>
+                      <option value="1">1.º andar</option>
+                      <option value="2">2.º andar</option>
+                      <option value="3">3.º andar</option>
+                      <option value="4">4.º andar</option>
+                      <option value="5">5.º andar</option>
+                      <option value="6">6.º andar ou mais</option>
+                    </select>
+                  </div>
+                  <fieldset class="site-quote-choice">
+                    <legend class="site-quote-choice-legend">
+                      Tem elevador?
+                    </legend>
+                    <div class="site-quote-options">
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="destination-lift"
+                          value="yes"
+                          required
+                        />Sim</label
+                      >
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="destination-lift"
+                          value="no"
+                          required
+                        />Não</label
+                      >
+                    </div>
+                  </fieldset>
+                </div>
+              </fieldset>
+              <div class="site-quote-field site-quote-distance">
+                <label for="distance">Distância entre as duas moradas</label>
+                <p id="distance-help" class="site-quote-help">
+                  Se não souber ao certo, escolha a mais próxima.
                 </p>
-                <input
-                  id="destination-postcode"
-                  name="destination-postcode"
-                  type="text"
-                  autocomplete="section-destination postal-code"
-                  pattern="[0-9]{4}-[0-9]{3}"
-                  maxlength="8"
-                  required
-                  aria-describedby="destination-postcode-help"
-                />
-              </div>
-              <div class="site-quote-field">
-                <label for="destination-floor">Andar</label>
                 <select
-                  id="destination-floor"
-                  name="destination-floor"
+                  id="distance"
+                  class="site-quote-input-large"
+                  name="distance"
+                  aria-describedby="distance-help"
                   required
                 >
-                  <option value="">Escolha o andar</option>
-                  <option value="0">Rés-do-chão</option>
-                  <option value="1">1.º andar</option>
-                  <option value="2">2.º andar</option>
-                  <option value="3">3.º andar</option>
-                  <option value="4">4.º andar</option>
-                  <option value="5">5.º andar</option>
-                  <option value="6">6.º andar ou mais</option>
+                  <option value="">Escolha a distância</option>
+                  <option value="same-municipality">No mesmo concelho</option>
+                  <option value="up-to-25">Até 25 km</option>
+                  <option value="25-to-50">De 25 a 50 km</option>
+                  <option value="50-to-100">De 50 a 100 km</option>
+                  <option value="over-100">Mais de 100 km</option>
                 </select>
               </div>
-              <fieldset class="site-quote-choice">
-                <legend class="site-quote-choice-legend">Tem elevador?</legend>
-                <div class="site-quote-options">
-                  <label class="site-quote-option">
-                    <input
-                      type="radio"
-                      name="destination-lift"
-                      value="yes"
-                      required
-                    />Sim</label
-                  >
-                  <label class="site-quote-option">
-                    <input
-                      type="radio"
-                      name="destination-lift"
-                      value="no"
-                      required
-                    />Não</label
-                  >
-                </div>
-              </fieldset>
-            </fieldset>
-            <div class="site-quote-field site-quote-distance">
-              <label for="distance">Distância entre as duas moradas</label>
-              <p id="distance-help" class="site-quote-help">
-                Se não souber ao certo, escolha a mais próxima.
-              </p>
-              <select
-                id="distance"
-                name="distance"
-                aria-describedby="distance-help"
-                required
-              >
-                <option value="">Escolha a distância</option>
-                <option value="same-municipality">No mesmo concelho</option>
-                <option value="up-to-25">Até 25 km</option>
-                <option value="25-to-50">De 25 a 50 km</option>
-                <option value="50-to-100">De 50 a 100 km</option>
-                <option value="over-100">Mais de 100 km</option>
-              </select>
             </div>
           </fieldset>
         </form>

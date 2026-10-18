@@ -1,6 +1,4 @@
-/*
-* QUOTE INTRO
-*/
+/* PAGE INTRO */
 
 .site-quote {
   display: flex;
@@ -21,18 +19,21 @@
   line-height: 1.5;
 }
 
+/* TABLET PAGE INTRO */
 @media (min-width: 768px) {
   .site-quote {
     padding-top: 48px;
   }
 }
 
+/* DESKTOP PAGE INTRO */
 @media (min-width: 1024px) {
   .site-quote {
     padding-top: 64px;
   }
 }
 
+/* NO-JS NOTICE */
 .site-quote-notice {
   padding: 16px;
   background: var(--color-surface);
@@ -44,10 +45,7 @@
   display: none;
 }
 
-/*
-* QUOTE PROGRESS
-*/
-
+/* STEP INDICATOR */
 .site-quote-progress {
   display: none;
 }
@@ -57,10 +55,6 @@
   flex-direction: column;
   gap: 12px;
 }
-
-/*
-* QUOTE LIST
-*/
 
 .site-quote-steps {
   list-style: none;
@@ -111,6 +105,7 @@
   font-weight: var(--font-weight-semibold);
 }
 
+/* TABLET STEP INDICATOR */
 @media (min-width: 768px) {
   .site-quote-step-name {
     position: static;
@@ -120,5 +115,142 @@
     overflow: visible;
     clip-path: none;
     white-space: normal;
+  }
+}
+
+/* FORM STEPS */
+.site-quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.site-quote-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-quote-field label {
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+.site-quote-help {
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.site-quote-field input,
+.site-quote-field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 2px solid var(--color-muted);
+  border-radius: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: inherit;
+  font-size: var(--font-size-input);
+  line-height: 1.2;
+}
+
+.site-quote-field input:hover,
+.site-quote-field select:hover {
+  border-color: var(--color-ink);
+}
+
+.site-quote-field input:focus-visible,
+.site-quote-field select:focus-visible {
+  border-color: var(--color-ink);
+}
+
+.site-quote-input-small {
+  max-width: 192px;
+}
+.site-quote-input-medium {
+  max-width: 256px;
+}
+.site-quote-input-large {
+  max-width: 320px;
+}
+
+.site-quote-choice-legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+.site-quote-options {
+  display: flex;
+  gap: 32px;
+}
+
+.site-quote-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.site-quote-option input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-ink);
+}
+
+.site-quote-group + .site-quote-group,
+.site-quote-distance {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line);
+}
+
+.site-quote-step,
+.site-quote-group,
+.site-quote-choice {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.site-quote-step {
+  padding: 24px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+}
+
+.site-quote-legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.site-quote-group .site-quote-legend {
+  margin-bottom: 16px;
+}
+
+.site-quote-step-body {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.site-quote-group-body {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* TABLET FORM STEPS */
+@media (min-width: 768px) {
+  .site-quote-step {
+    padding: 32px;
   }
 }
