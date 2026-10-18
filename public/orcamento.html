@@ -171,21 +171,29 @@
                   </div>
                   <div class="site-quote-field">
                     <label for="origin-floor">Andar</label>
-                    <select
-                      id="origin-floor"
-                      class="site-quote-input-medium"
-                      name="origin-floor"
-                      required
-                    >
-                      <option value="">Escolha o andar</option>
-                      <option value="0">Rés-do-chão</option>
-                      <option value="1">1.º andar</option>
-                      <option value="2">2.º andar</option>
-                      <option value="3">3.º andar</option>
-                      <option value="4">4.º andar</option>
-                      <option value="5">5.º andar</option>
-                      <option value="6">6.º andar ou mais</option>
-                    </select>
+                    <div class="site-quote-select site-quote-input-medium">
+                      <select id="origin-floor" name="origin-floor" required>
+                        <option value="">Escolha o andar</option>
+                        <option value="0">Rés-do-chão</option>
+                        <option value="1">1.º andar</option>
+                        <option value="2">2.º andar</option>
+                        <option value="3">3.º andar</option>
+                        <option value="4">4.º andar</option>
+                        <option value="5">5.º andar</option>
+                        <option value="6">6.º andar ou mais</option>
+                      </select>
+                      <svg
+                        class="site-quote-select-icon"
+                        width="24"
+                        height="24"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="assets/icons/sprite.svg#icon-chevron-down"
+                        ></use>
+                      </svg>
+                    </div>
                   </div>
                   <fieldset class="site-quote-choice">
                     <legend class="site-quote-choice-legend">
@@ -236,21 +244,33 @@
                   </div>
                   <div class="site-quote-field">
                     <label for="destination-floor">Andar</label>
-                    <select
-                      id="destination-floor"
-                      class="site-quote-input-medium"
-                      name="destination-floor"
-                      required
-                    >
-                      <option value="">Escolha o andar</option>
-                      <option value="0">Rés-do-chão</option>
-                      <option value="1">1.º andar</option>
-                      <option value="2">2.º andar</option>
-                      <option value="3">3.º andar</option>
-                      <option value="4">4.º andar</option>
-                      <option value="5">5.º andar</option>
-                      <option value="6">6.º andar ou mais</option>
-                    </select>
+                    <div class="site-quote-select site-quote-input-medium">
+                      <select
+                        id="destination-floor"
+                        name="destination-floor"
+                        required
+                      >
+                        <option value="">Escolha o andar</option>
+                        <option value="0">Rés-do-chão</option>
+                        <option value="1">1.º andar</option>
+                        <option value="2">2.º andar</option>
+                        <option value="3">3.º andar</option>
+                        <option value="4">4.º andar</option>
+                        <option value="5">5.º andar</option>
+                        <option value="6">6.º andar ou mais</option>
+                      </select>
+                      <svg
+                        class="site-quote-select-icon"
+                        width="24"
+                        height="24"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="assets/icons/sprite.svg#icon-chevron-down"
+                        ></use>
+                      </svg>
+                    </div>
                   </div>
                   <fieldset class="site-quote-choice">
                     <legend class="site-quote-choice-legend">
@@ -282,20 +302,30 @@
                 <p id="distance-help" class="site-quote-help">
                   Se não souber ao certo, escolha a mais próxima.
                 </p>
-                <select
-                  id="distance"
-                  class="site-quote-input-large"
-                  name="distance"
-                  aria-describedby="distance-help"
-                  required
-                >
-                  <option value="">Escolha a distância</option>
-                  <option value="same-municipality">No mesmo concelho</option>
-                  <option value="up-to-25">Até 25 km</option>
-                  <option value="25-to-50">De 25 a 50 km</option>
-                  <option value="50-to-100">De 50 a 100 km</option>
-                  <option value="over-100">Mais de 100 km</option>
-                </select>
+                <div class="site-quote-select site-quote-input-large">
+                  <select
+                    id="distance"
+                    name="distance"
+                    aria-describedby="distance-help"
+                    required
+                  >
+                    <option value="">Escolha a distância</option>
+                    <option value="same-municipality">No mesmo concelho</option>
+                    <option value="up-to-25">Até 25 km</option>
+                    <option value="25-to-50">De 25 a 50 km</option>
+                    <option value="50-to-100">De 50 a 100 km</option>
+                    <option value="over-100">Mais de 100 km</option>
+                  </select>
+                  <svg
+                    class="site-quote-select-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="assets/icons/sprite.svg#icon-chevron-down"></use>
+                  </svg>
+                </div>
               </div>
             </div>
           </fieldset>
