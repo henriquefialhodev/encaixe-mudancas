@@ -1,3 +1,7 @@
+/*
+* QUOTE INTRO
+*/
+
 .site-quote {
   display: flex;
   flex-direction: column;
@@ -38,4 +42,83 @@
 
 .js .site-quote-notice {
   display: none;
+}
+
+/*
+* QUOTE PROGRESS
+*/
+
+.site-quote-progress {
+  display: none;
+}
+
+.js .site-quote-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/*
+* QUOTE LIST
+*/
+
+.site-quote-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.site-quote-steps li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 2px dashed var(--color-muted);
+  color: var(--color-muted);
+}
+
+.site-quote-steps li[aria-current="step"] {
+  background: var(--color-surface);
+  border-style: solid;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.site-quote-step-number {
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-label);
+  letter-spacing: 0.08em;
+}
+
+.site-quote-step-name {
+  font-size: var(--font-size-small);
+  line-height: 1.2;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+[aria-current="step"] .site-quote-step-name {
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 768px) {
+  .site-quote-step-name {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
 }
