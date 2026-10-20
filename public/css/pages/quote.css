@@ -143,7 +143,8 @@
 }
 
 .site-quote-field input,
-.site-quote-field select {
+.site-quote-field select,
+.site-quote-field textarea {
   width: 100%;
   min-height: 48px;
   padding: 12px;
@@ -162,12 +163,14 @@
 }
 
 .site-quote-field input:hover,
-.site-quote-field select:hover {
+.site-quote-field select:hover,
+.site-quote-field textarea:hover {
   border-color: var(--color-ink);
 }
 
 .site-quote-field input:focus-visible,
-.site-quote-field select:focus-visible {
+.site-quote-field select:focus-visible,
+.site-quote-field textarea:focus-visible {
   border-color: var(--color-ink);
 }
 
@@ -271,3 +274,12 @@
     padding: 32px;
   }
 }
+
+/* INVENTORY DESCRIPTION FIELD */
+.js .site-quote-inventory-description {
+  display: none;
+}
+
+.site-quote-field textarea {
+  resize: vertical;
+} 
