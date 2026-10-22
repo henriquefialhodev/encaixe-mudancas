@@ -328,7 +328,7 @@
               </div>
             </div>
           </fieldset>
-          <fieldset class="site-quote-step">
+          <fieldset class="site-quote-step site-quote-step-inventory">
             <legend class="site-quote-legend">
               <h2 tabindex="-1">Recheio</h2>
             </legend>
@@ -351,6 +351,81 @@
                   aria-describedby="inventory-description-help"
                 ></textarea>
               </div>
+            </div>
+          </fieldset>
+          <fieldset class="site-quote-step site-quote-date-extras">
+            <legend class="site-quote-legend">
+              <h2 tabindex="-1">Data e extras</h2>
+            </legend>
+            <div class="site-quote-step-body">
+              <div class="site-quote-field site-quote-move-date">
+                <label for="move-date">Data da mudança</label>
+                <p id="move-date-help" class="site-quote-help">
+                  A partir de hoje. Se o dia já estiver ocupado, avisamos.
+                </p>
+                <input
+                  type="date"
+                  id="move-date"
+                  class="site-quote-input-medium"
+                  name="move-date"
+                  aria-describedby="move-date-help"
+                  required
+                />
+              </div>
+              <fieldset class="site-quote-group">
+                <legend class="site-quote-legend">
+                  <h3>Serviços extra (opcional)</h3>
+                </legend>
+                <div class="site-quote-group-body">
+                  <div class="site-quote-checkbox-item">
+                    <input
+                      id="extra-packing"
+                      type="checkbox"
+                      name="extras"
+                      value="packing"
+                      aria-describedby="extra-packing-help"
+                    />
+                    <label for="extra-packing" class="site-quote-extra">
+                      Embalagem de objetos frágeis
+                    </label>
+                    <p id="extra-packing-help" class="site-quote-help">
+                      Loiça, vidros e outros frágeis, em papel kraft e caixas
+                      próprias.
+                    </p>
+                  </div>
+                  <div class="site-quote-checkbox-item">
+                    <input
+                      id="extra-boxes"
+                      type="checkbox"
+                      name="extras"
+                      value="boxes"
+                      aria-describedby="extra-boxes-help"
+                    />
+                    <label for="extra-boxes" class="site-quote-extra">
+                      Entrega de caixas antes da mudança
+                    </label>
+                    <p id="extra-boxes-help" class="site-quote-help">
+                      Levamos caixas e fita até 3 dias antes.
+                    </p>
+                  </div>
+                  <div class="site-quote-checkbox-item">
+                    <input
+                      id="extra-storage"
+                      type="checkbox"
+                      name="extras"
+                      value="storage"
+                      aria-describedby="extra-storage-help"
+                    />
+                    <label for="extra-storage" class="site-quote-extra">
+                      Guarda-móveis
+                    </label>
+                    <p id="extra-storage-help" class="site-quote-help">
+                      A partir de 1 semana. O preço por semana é confirmado por
+                      email.
+                    </p>
+                  </div>
+                </div>
+              </fieldset>
             </div>
           </fieldset>
         </form>

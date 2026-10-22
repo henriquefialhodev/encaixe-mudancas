@@ -275,11 +275,18 @@
   }
 }
 
-/* INVENTORY DESCRIPTION FIELD */
+/* INVENTORY */
+.site-quote-step-inventory .site-quote-legend {
+  margin-bottom: 16px;
+}
+
 .js .site-quote-inventory-description {
   display: none;
 }
 
 .site-quote-field textarea {
   resize: vertical;
-} 
+}
+
+/* DATE AND EXTRAS */
+
