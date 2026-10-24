@@ -421,12 +421,10 @@
                       aria-describedby="extra-storage-help"
                     />
                     <div class="site-quote-checkbox-content">
-                      <label for="extra-storage">
-                        Guarda-móveis
-                      </label>
+                      <label for="extra-storage"> Guarda-móveis </label>
                       <p id="extra-storage-help" class="site-quote-help">
-                        A partir de 1 semana. O preço por semana é confirmado por
-                        email.
+                        A partir de 1 semana. O preço por semana é confirmado
+                        por email.
                       </p>
                     </div>
                   </div>
@@ -434,6 +432,118 @@
               </fieldset>
             </div>
           </fieldset>
+          <fieldset class="site-quote-step site-quote-contact">
+            <legend class="site-quote-legend">
+              <h2 tabindex="-1">Contacto e resumo</h2>
+            </legend>
+            <div class="site-quote-step-body">
+              <div class="site-quote-group-body">
+                <div class="site-quote-field site-quote-contact-name">
+                  <label for="contact-full-name">Nome</label>
+                  <input
+                    id="contact-full-name"
+                    name="contact-full-name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="site-quote-field site-quote-contact-email">
+                  <label for="contact-email">Email</label>
+                  <input
+                    id="contact-email"
+                    name="contact-email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+                <div class="site-quote-field site-quote-contact-phone">
+                  <label for="contact-phone">Telefone</label>
+                  <p id="contact-phone-help" class="site-quote-help">
+                    9 dígitos
+                  </p>
+                  <input
+                    id="contact-phone"
+                    class="site-quote-input-medium"
+                    name="contact-phone"
+                    type="tel"
+                    autocomplete="tel-national"
+                    maxlength="11"
+                    aria-describedby="contact-phone-help"
+                    required
+                  />
+                </div>
+                <div class="site-quote-field site-quote-contact-notes">
+                  <label for="contact-note">Observações (opcional)</label>
+                  <p id="contact-note-help" class="site-quote-help">
+                    Por exemplo, um móvel que não está na lista ou o horário que
+                    prefere.
+                  </p>
+                  <textarea
+                    id="contact-note"
+                    name="contact-note"
+                    rows="6"
+                    aria-describedby="contact-note-help"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="site-quote-privacy">
+                <input id="privacy" type="checkbox" name="privacy" required />
+                <label for="privacy">
+                  Li a
+                  <a href="privacidade.html" target="_blank"
+                    >política de privacidade (abre noutro separador)</a
+                  >
+                  e aceito que os meus dados sejam usados para responder a este
+                  pedido.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <section class="site-quote-order-summary">
+            <h3>Resumo do pedido</h3>
+            <div class="site-quote-step-body">
+              <ul>
+                <li>
+                  <span class="label">Origem e destino</span>
+                  <button type="button" aria-label="Editar origem e destino">
+                    Editar
+                  </button>
+                  <div class="site-quote-order-summary-location">
+                    <p id="site-quote-order-summary-origin"></p>
+                    <p id="site-quote-order-summary-destination"></p>
+                    <p id="site-quote-order-summary-distance"></p>
+                  </div>
+                </li>
+                <li>
+                  <span class="label">Recheio</span>
+                  <button type="button" aria-label="Editar recheio">
+                    Editar
+                  </button>
+                  <div class="site-quote-order-summary-inventory">
+                    <p id="site-quote-order-summary-items"></p>
+                    <p id="site-quote-order-summary-vehicle-suggestion"></p>
+                  </div>
+                </li>
+                <li>
+                  <span class="label">Data e extras</span>
+                  <button type="button" aria-label="Editar data e extras">
+                    Editar
+                  </button>
+                  <div class="site-quote-order-summary-date-extras">
+                    <p id="site-quote-order-summary-date"></p>
+                    <p id="site-quote-order-summary-extras"></p>
+                  </div>
+                </li>
+                <li>
+                  <span class="label">Estimativa</span>
+                  <p id="site-quote-order-summary-estimate"></p>
+                  <p>Estimativa indicativa</p>
+                </li>
+              </ul>
+            </div>
+          </section>
         </form>
       </div>
     </main>

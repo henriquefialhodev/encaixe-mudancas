@@ -224,7 +224,8 @@
 
 .site-quote-group + .site-quote-group,
 .site-quote-distance,
-.site-quote-group.site-quote-extras {
+.site-quote-group.site-quote-extras,
+.site-quote-privacy {
   padding-top: 24px;
   border-top: 1px solid var(--color-line);
 }
@@ -301,14 +302,16 @@
   gap: 12px;
 }
 
-.site-quote-checkbox-item input {
+.site-quote-checkbox-item input,
+.site-quote-privacy input {
   margin: 4px 0 0;
   width: 20px;
   height: 20px;
   flex-shrink: 0;
 }
 
-.site-quote-checkbox-item input:checked {
+.site-quote-checkbox-item input:checked,
+.site-quote-privacy input:checked {
   accent-color: var(--color-ink);
 }
 
@@ -321,4 +324,11 @@
 .site-quote-checkbox-content label {
   font-weight: var(--font-weight-semibold);
   line-height: 1.2;
+}
+
+/* CONTACT AND SUMMARY */
+.site-quote-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
