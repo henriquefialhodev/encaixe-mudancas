@@ -408,6 +408,18 @@
   line-height: 1.5;
 }
 
+/* NAVIGATION BUTTONS */
+.site-quote-navigation-buttons {
+  display: none;
+}
+
+.js .site-quote-navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
 /* TABLET FORM STEPS */
 @media (min-width: 768px) {
   .site-quote-step,
