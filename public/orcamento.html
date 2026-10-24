@@ -335,7 +335,8 @@
             <div class="site-quote-step-body">
               <p class="site-quote-description">
                 Indique quantos tem de cada. Conte as caixas de tamanho médio,
-                como as de supermercado.
+                como as de supermercado. Se tiver alguma coisa que não está na
+                lista, escreva-a nas observações, no passo 4.
               </p>
               <div class="site-quote-inventory"></div>
               <div class="site-quote-field site-quote-inventory-description">
@@ -506,31 +507,37 @@
             <div class="site-quote-step-body">
               <ul>
                 <li>
-                  <span class="label">Origem e destino</span>
-                  <button type="button" aria-label="Editar origem e destino">
-                    Editar
-                  </button>
+                  <div class="site-quote-order-summary-header">
+                    <span class="label">Origem e destino</span>
+                    <button type="button" aria-label="Editar origem e destino">
+                      Editar
+                    </button>
+                  </div>
                   <div class="site-quote-order-summary-location">
-                    <p id="site-quote-order-summary-origin"></p>
-                    <p id="site-quote-order-summary-destination"></p>
-                    <p id="site-quote-order-summary-distance"></p>
+                    <p id="site-quote-order-summary-origin">teste</p>
+                    <p id="site-quote-order-summary-destination">teste</p>
+                    <p id="site-quote-order-summary-distance">teste</p>
                   </div>
                 </li>
                 <li>
-                  <span class="label">Recheio</span>
-                  <button type="button" aria-label="Editar recheio">
-                    Editar
-                  </button>
+                  <div class="site-quote-order-summary-header">
+                    <span class="label">Recheio</span>
+                    <button type="button" aria-label="Editar recheio">
+                      Editar
+                    </button>
+                  </div>
                   <div class="site-quote-order-summary-inventory">
                     <p id="site-quote-order-summary-items"></p>
                     <p id="site-quote-order-summary-vehicle-suggestion"></p>
                   </div>
                 </li>
                 <li>
-                  <span class="label">Data e extras</span>
-                  <button type="button" aria-label="Editar data e extras">
-                    Editar
-                  </button>
+                  <div class="site-quote-order-summary-header">
+                    <span class="label">Data e extras</span>
+                    <button type="button" aria-label="Editar data e extras">
+                      Editar
+                    </button>
+                  </div>
                   <div class="site-quote-order-summary-date-extras">
                     <p id="site-quote-order-summary-date"></p>
                     <p id="site-quote-order-summary-extras"></p>
@@ -539,7 +546,9 @@
                 <li>
                   <span class="label">Estimativa</span>
                   <p id="site-quote-order-summary-estimate"></p>
-                  <p>Estimativa indicativa</p>
+                  <p class="site-quote-order-summary-estimate-note">
+                    Estimativa indicativa
+                  </p>
                 </li>
               </ul>
             </div>
