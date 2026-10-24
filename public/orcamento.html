@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Peça um orçamento de mudança em Braga em 4 passos. Indique o recheio e veja o volume em m³ e uma estimativa de preço. Projeto fictício."
+    />
+    <meta name="apple-mobile-web-app-title" content="Encaixe Mudanças" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:site_name" content="Encaixe Mudanças" />
+    <meta property="og:title" content="Pedir orçamento | Encaixe Mudanças" />
+    <meta
+      property="og:description"
+      content="Peça um orçamento de mudança em Braga em 4 passos. Indique o recheio e veja o volume em m³ e uma estimativa de preço. Projeto fictício."
+    />
+    <meta
+      property="og:url"
+      content="https://encaixe-mudancas.netlify.app/orcamento.html"
+    />
+    <meta
+      property="og:image"
+      content="https://encaixe-mudancas.netlify.app/assets/images/og/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Logótipo da Encaixe Mudanças, o título «Mudanças em Braga, com o volume contado peça a peça» e caixas de cartão etiquetadas"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Pedir orçamento | Encaixe Mudanças</title>
+    <link
+      rel="canonical"
+      href="https://encaixe-mudancas.netlify.app/orcamento.html"
+    />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="js/main.js" type="module"></script>
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/quote.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar para o conteúdo</a>
+    <header class="site-header">
+      <div class="site-top-bar">
+        <p>Projeto fictício de portefólio · Os pedidos não são enviados</p>
+      </div>
+      <div class="container site-header-inner">
+        <a class="logo" href="index.html"
+          ><span class="logo-brand">Encaixe</span>
+          <span class="logo-sub">Mudanças</span>
+        </a>
+        <button
+          type="button"
+          class="btn btn-secondary btn-menu"
+          aria-controls="header-nav"
+          hidden
+        >
+          <svg
+            width="24"
+            height="24"
+            aria-hidden="true"
+            focusable="false"
+            class="icon-menu"
+          >
+            <use href="assets/icons/sprite.svg#icon-menu"></use>
+          </svg>
+          <svg
+            width="24"
+            height="24"
+            aria-hidden="true"
+            focusable="false"
+            class="icon-close"
+          >
+            <use href="assets/icons/sprite.svg#icon-close"></use></svg
+          ><span class="btn-menu-text">Menu</span>
+        </button>
+        <nav id="header-nav" class="site-nav" aria-label="Navegação principal">
+          <div class="site-nav-window">
+            <div class="site-nav-panel">
+              <ul class="site-nav-list">
+                <li><a href="index.html#services">Serviços</a></li>
+                <li><a href="index.html#how-it-works">Como funciona</a></li>
+                <li><a href="index.html#zones">Zonas</a></li>
+                <li><a href="index.html#faq">Perguntas frequentes</a></li>
+                <li><a href="index.html#contact">Contactos</a></li>
+              </ul>
+              <a
+                class="btn btn-secondary"
+                href="orcamento.html"
+                aria-current="page"
+                >Pedir orçamento</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="container site-quote">
+      <header class="site-quote-intro">
+        <h1>Pedir orçamento</h1>
+        <p class="site-quote-lead">
+          Quatro passos. O volume e a estimativa atualizam à medida que
+          preenche.
+        </p>
+      </header>
+      <div class="site-quote-layout">
+        <form class="site-quote-form" method="post">
+          <p class="site-quote-notice">
+            Para enviar o pedido, precisa de ter o JavaScript ativo no browser.
+          </p>
+          <div class="site-quote-progress">
+            <p class="label" aria-hidden="true">Passo 01 / 04</p>
+            <p class="visually-hidden">Passo 1 de 4</p>
+            <ol class="site-quote-steps" aria-label="Progresso do pedido">
+              <li aria-current="step">
+                <span class="site-quote-step-number">01</span>
+                <span class="site-quote-step-name">Origem e destino</span>
+              </li>
+              <li>
+                <span class="site-quote-step-number">02</span>
+                <span class="site-quote-step-name">Recheio</span>
+              </li>
+              <li>
+                <span class="site-quote-step-number">03</span>
+                <span class="site-quote-step-name">Data e extras</span>
+              </li>
+              <li>
+                <span class="site-quote-step-number">04</span>
+                <span class="site-quote-step-name">Contacto e resumo</span>
+              </li>
+            </ol>
+          </div>
+          <fieldset class="site-quote-step">
+            <legend class="site-quote-legend">
+              <h2 tabindex="-1">Origem e destino</h2>
+            </legend>
+            <div class="site-quote-step-body">
+              <fieldset class="site-quote-group">
+                <legend class="site-quote-legend">
+                  <h3>Origem</h3>
+                </legend>
+                <div class="site-quote-group-body">
+                  <div class="site-quote-field">
+                    <label for="origin-postcode">Código postal</label>
+                    <p id="origin-postcode-help" class="site-quote-help">
+                      Formato 0000-000
+                    </p>
+                    <input
+                      id="origin-postcode"
+                      class="site-quote-input-small"
+                      name="origin-postcode"
+                      type="text"
+                      autocomplete="section-origin postal-code"
+                      pattern="[0-9]{4}-[0-9]{3}"
+                      maxlength="8"
+                      required
+                      aria-describedby="origin-postcode-help"
+                    />
+                  </div>
+                  <div class="site-quote-field">
+                    <label for="origin-floor">Andar</label>
+                    <div class="site-quote-select site-quote-input-medium">
+                      <select id="origin-floor" name="origin-floor" required>
+                        <option value="">Escolha o andar</option>
+                        <option value="0">Rés-do-chão</option>
+                        <option value="1">1.º andar</option>
+                        <option value="2">2.º andar</option>
+                        <option value="3">3.º andar</option>
+                        <option value="4">4.º andar</option>
+                        <option value="5">5.º andar</option>
+                        <option value="6">6.º andar ou mais</option>
+                      </select>
+                      <svg
+                        class="site-quote-select-icon"
+                        width="24"
+                        height="24"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="assets/icons/sprite.svg#icon-chevron-down"
+                        ></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <fieldset class="site-quote-choice">
+                    <legend class="site-quote-choice-legend">
+                      Tem elevador?
+                    </legend>
+                    <div class="site-quote-options">
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="origin-lift"
+                          value="yes"
+                          required
+                        />Sim</label
+                      >
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="origin-lift"
+                          value="no"
+                          required
+                        />Não</label
+                      >
+                    </div>
+                  </fieldset>
+                </div>
+              </fieldset>
+              <fieldset class="site-quote-group">
+                <legend class="site-quote-legend">
+                  <h3>Destino</h3>
+                </legend>
+                <div class="site-quote-group-body">
+                  <div class="site-quote-field">
+                    <label for="destination-postcode">Código postal</label>
+                    <p id="destination-postcode-help" class="site-quote-help">
+                      Formato 0000-000
+                    </p>
+                    <input
+                      id="destination-postcode"
+                      class="site-quote-input-small"
+                      name="destination-postcode"
+                      type="text"
+                      autocomplete="section-destination postal-code"
+                      pattern="[0-9]{4}-[0-9]{3}"
+                      maxlength="8"
+                      required
+                      aria-describedby="destination-postcode-help"
+                    />
+                  </div>
+                  <div class="site-quote-field">
+                    <label for="destination-floor">Andar</label>
+                    <div class="site-quote-select site-quote-input-medium">
+                      <select
+                        id="destination-floor"
+                        name="destination-floor"
+                        required
+                      >
+                        <option value="">Escolha o andar</option>
+                        <option value="0">Rés-do-chão</option>
+                        <option value="1">1.º andar</option>
+                        <option value="2">2.º andar</option>
+                        <option value="3">3.º andar</option>
+                        <option value="4">4.º andar</option>
+                        <option value="5">5.º andar</option>
+                        <option value="6">6.º andar ou mais</option>
+                      </select>
+                      <svg
+                        class="site-quote-select-icon"
+                        width="24"
+                        height="24"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <use
+                          href="assets/icons/sprite.svg#icon-chevron-down"
+                        ></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <fieldset class="site-quote-choice">
+                    <legend class="site-quote-choice-legend">
+                      Tem elevador?
+                    </legend>
+                    <div class="site-quote-options">
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="destination-lift"
+                          value="yes"
+                          required
+                        />Sim</label
+                      >
+                      <label class="site-quote-option">
+                        <input
+                          type="radio"
+                          name="destination-lift"
+                          value="no"
+                          required
+                        />Não</label
+                      >
+                    </div>
+                  </fieldset>
+                </div>
+              </fieldset>
+              <div class="site-quote-field site-quote-distance">
+                <label for="distance">Distância entre as duas moradas</label>
+                <p id="distance-help" class="site-quote-help">
+                  Se não souber ao certo, escolha a mais próxima.
+                </p>
+                <div class="site-quote-select site-quote-input-large">
+                  <select
+                    id="distance"
+                    name="distance"
+                    aria-describedby="distance-help"
+                    required
+                  >
+                    <option value="">Escolha a distância</option>
+                    <option value="same-municipality">No mesmo concelho</option>
+                    <option value="up-to-25">Até 25 km</option>
+                    <option value="25-to-50">De 25 a 50 km</option>
+                    <option value="50-to-100">De 50 a 100 km</option>
+                    <option value="over-100">Mais de 100 km</option>
+                  </select>
+                  <svg
+                    class="site-quote-select-icon"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <use href="assets/icons/sprite.svg#icon-chevron-down"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="site-quote-step site-quote-step-inventory">
+            <legend class="site-quote-legend">
+              <h2 tabindex="-1">Recheio</h2>
+            </legend>
+            <div class="site-quote-step-body">
+              <p class="site-quote-description">
+                Indique quantos tem de cada. Conte as caixas de tamanho médio,
+                como as de supermercado. Se tiver alguma coisa que não está na
+                lista, escreva-a nas observações, no passo 4.
+              </p>
+              <div class="site-quote-inventory"></div>
+              <div class="site-quote-field site-quote-inventory-description">
+                <label for="inventory-description">Descreva o recheio</label>
+                <p id="inventory-description-help" class="site-quote-help">
+                  Por exemplo: um sofá de 3 lugares, duas camas de casal e 15
+                  caixas.
+                </p>
+                <textarea
+                  id="inventory-description"
+                  name="inventory-description"
+                  rows="6"
+                  aria-describedby="inventory-description-help"
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="site-quote-step site-quote-date-extras">
+            <legend class="site-quote-legend">
+              <h2 tabindex="-1">Data e extras</h2>
+            </legend>
+            <div class="site-quote-step-body">
+              <div class="site-quote-field site-quote-move-date">
+                <label for="move-date">Data da mudança</label>
+                <p id="move-date-help" class="site-quote-help">
+                  A partir de hoje. Se o dia já estiver ocupado, avisamos.
+                </p>
+                <input
+                  type="date"
+                  id="move-date"
+                  class="site-quote-input-medium"
+                  name="move-date"
+                  aria-describedby="move-date-help"
+                  required
+                />
+              </div>
+              <fieldset class="site-quote-group site-quote-extras">
+                <legend class="site-quote-legend">
+                  <h3>Serviços extra (opcional)</h3>
+                </legend>
+                <div class="site-quote-group-body">
+                  <div class="site-quote-checkbox-item">
+                    <input
+                      id="extra-packing"
+                      type="checkbox"
+                      name="extras"
+                      value="packing"
+                      aria-describedby="extra-packing-help"
+                    />
+                    <div class="site-quote-checkbox-content">
+                      <label for="extra-packing">
+                        Embalagem de objetos frágeis
+                      </label>
+                      <p id="extra-packing-help" class="site-quote-help">
+                        Loiça, vidros e outros frágeis, em papel kraft e caixas
+                        próprias.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="site-quote-checkbox-item">
+                    <input
+                      id="extra-boxes"
+                      type="checkbox"
+                      name="extras"
+                      value="boxes"
+                      aria-describedby="extra-boxes-help"
+                    />
+                    <div class="site-quote-checkbox-content">
+                      <label for="extra-boxes">
+                        Entrega de caixas antes da mudança
+                      </label>
+                      <p id="extra-boxes-help" class="site-quote-help">
+                        Levamos caixas e fita até 3 dias antes.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="site-quote-checkbox-item">
+                    <input
+                      id="extra-storage"
+                      type="checkbox"
+                      name="extras"
+                      value="storage"
+                      aria-describedby="extra-storage-help"
+                    />
+                    <div class="site-quote-checkbox-content">
+                      <label for="extra-storage"> Guarda-móveis </label>
+                      <p id="extra-storage-help" class="site-quote-help">
+                        A partir de 1 semana. O preço por semana é confirmado
+                        por email.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+          <fieldset class="site-quote-step site-quote-contact">
+            <legend class="site-quote-legend">
+              <h2 tabindex="-1">Contacto e resumo</h2>
+            </legend>
+            <div class="site-quote-step-body">
+              <div class="site-quote-group-body">
+                <div class="site-quote-field site-quote-contact-name">
+                  <label for="contact-full-name">Nome</label>
+                  <input
+                    id="contact-full-name"
+                    name="contact-full-name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="site-quote-field site-quote-contact-email">
+                  <label for="contact-email">Email</label>
+                  <input
+                    id="contact-email"
+                    name="contact-email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+                <div class="site-quote-field site-quote-contact-phone">
+                  <label for="contact-phone">Telefone</label>
+                  <p id="contact-phone-help" class="site-quote-help">
+                    9 dígitos
+                  </p>
+                  <input
+                    id="contact-phone"
+                    class="site-quote-input-medium"
+                    name="contact-phone"
+                    type="tel"
+                    autocomplete="tel-national"
+                    maxlength="11"
+                    aria-describedby="contact-phone-help"
+                    required
+                  />
+                </div>
+                <div class="site-quote-field site-quote-contact-notes">
+                  <label for="contact-note">Observações (opcional)</label>
+                  <p id="contact-note-help" class="site-quote-help">
+                    Por exemplo, um móvel que não está na lista ou o horário que
+                    prefere.
+                  </p>
+                  <textarea
+                    id="contact-note"
+                    name="contact-note"
+                    rows="6"
+                    aria-describedby="contact-note-help"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="site-quote-privacy">
+                <input id="privacy" type="checkbox" name="privacy" required />
+                <label for="privacy">
+                  Li a
+                  <a href="privacidade.html" target="_blank"
+                    >política de privacidade (abre noutro separador)</a
+                  >
+                  e aceito que os meus dados sejam usados para responder a este
+                  pedido.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <section class="site-quote-order-summary">
+            <h3>Resumo do pedido</h3>
+            <div class="site-quote-step-body">
+              <ul>
+                <li>
+                  <div class="site-quote-order-summary-header">
+                    <span class="label">Origem e destino</span>
+                    <button type="button" aria-label="Editar origem e destino">
+                      Editar
+                    </button>
+                  </div>
+                  <div class="site-quote-order-summary-location">
+                    <p id="site-quote-order-summary-origin">teste</p>
+                    <p id="site-quote-order-summary-destination">teste</p>
+                    <p id="site-quote-order-summary-distance">teste</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="site-quote-order-summary-header">
+                    <span class="label">Recheio</span>
+                    <button type="button" aria-label="Editar recheio">
+                      Editar
+                    </button>
+                  </div>
+                  <div class="site-quote-order-summary-inventory">
+                    <p id="site-quote-order-summary-items"></p>
+                    <p id="site-quote-order-summary-vehicle-suggestion"></p>
+                  </div>
+                </li>
+                <li>
+                  <div class="site-quote-order-summary-header">
+                    <span class="label">Data e extras</span>
+                    <button type="button" aria-label="Editar data e extras">
+                      Editar
+                    </button>
+                  </div>
+                  <div class="site-quote-order-summary-date-extras">
+                    <p id="site-quote-order-summary-date"></p>
+                    <p id="site-quote-order-summary-extras"></p>
+                  </div>
+                </li>
+                <li>
+                  <span class="label">Estimativa</span>
+                  <p id="site-quote-order-summary-estimate"></p>
+                  <p class="site-quote-order-summary-estimate-note">
+                    Estimativa indicativa
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </form>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container site-footer-inner">
+        <a class="logo" href="index.html"
+          ><span class="logo-brand">Encaixe</span>
+          <span class="logo-sub">Mudanças</span>
+        </a>
+        <nav class="site-footer-nav" aria-label="Rodapé">
+          <ul class="site-footer-nav-list">
+            <li>
+              <a href="orcamento.html" aria-current="page">Pedir orçamento</a>
+            </li>
+            <li>
+              <a href="privacidade.html">Política de privacidade</a>
+            </li>
+            <li>
+              <a href="cookies.html">Política de cookies</a>
+            </li>
+            <li>
+              <a href="termos.html">Termos e condições</a>
+            </li>
+          </ul>
+        </nav>
+        <p class="site-footer-note">
+          <strong>Projeto fictício.</strong> A Encaixe Mudanças não existe. Site
+          criado por Henrique Fialho como projeto de portefólio.
+        </p>
+        <p class="site-footer-complaints">
+          <a href="https://www.livroreclamacoes.pt"
+            >Livro de Reclamações Eletrónico</a
+          >
+        </p>
+        <p class="site-footer-copyright">&copy; 2026 Encaixe Mudanças</p>
+      </div>
+    </footer>
+  </body>
+</html>

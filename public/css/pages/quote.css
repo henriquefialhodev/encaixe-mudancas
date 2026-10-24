@@ -1,0 +1,417 @@
+/* PAGE INTRO */
+
+.site-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 32px;
+  padding-bottom: var(--section-space);
+}
+
+.site-quote-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-quote-lead {
+  font-size: var(--font-size-lead);
+  line-height: 1.5;
+}
+
+/* TABLET PAGE INTRO */
+@media (min-width: 768px) {
+  .site-quote {
+    padding-top: 48px;
+  }
+}
+
+/* DESKTOP PAGE INTRO */
+@media (min-width: 1024px) {
+  .site-quote {
+    padding-top: 64px;
+  }
+}
+
+/* NO-JS NOTICE */
+.site-quote-notice {
+  padding: 16px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  font-weight: var(--font-weight-semibold);
+}
+
+.js .site-quote-notice {
+  display: none;
+}
+
+/* STEP INDICATOR */
+.site-quote-progress {
+  display: none;
+}
+
+.js .site-quote-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-quote-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.site-quote-steps li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 2px dashed var(--color-muted);
+  color: var(--color-muted);
+}
+
+.site-quote-steps li[aria-current="step"] {
+  background: var(--color-surface);
+  border-style: solid;
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.site-quote-step-number {
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-label);
+  letter-spacing: 0.08em;
+}
+
+.site-quote-step-name {
+  font-size: var(--font-size-small);
+  line-height: 1.2;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+[aria-current="step"] .site-quote-step-name {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* TABLET STEP INDICATOR */
+@media (min-width: 768px) {
+  .site-quote-step-name {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+}
+
+/* FORM STEPS */
+.site-quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.site-quote-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-quote-field label {
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+.site-quote-help {
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.site-quote-field input,
+.site-quote-field select,
+.site-quote-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: 2px solid var(--color-muted);
+  border-radius: 0;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: inherit;
+  font-size: var(--font-size-input);
+  line-height: 1.2;
+}
+
+.site-quote-select select {
+  appearance: none;
+  padding-right: 48px;
+}
+
+.site-quote-field input:hover,
+.site-quote-field select:hover,
+.site-quote-field textarea:hover {
+  border-color: var(--color-ink);
+}
+
+.site-quote-field input:focus-visible,
+.site-quote-field select:focus-visible,
+.site-quote-field textarea:focus-visible {
+  border-color: var(--color-ink);
+}
+
+.site-quote-input-small {
+  max-width: 192px;
+}
+.site-quote-input-medium {
+  max-width: 256px;
+}
+.site-quote-input-large {
+  max-width: 320px;
+}
+
+.site-quote-select {
+  position: relative;
+}
+
+.site-quote-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.site-quote-choice-legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+.site-quote-options {
+  display: flex;
+  gap: 32px;
+}
+
+.site-quote-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+
+.site-quote-option input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-ink);
+}
+
+.site-quote-group + .site-quote-group,
+.site-quote-distance,
+.site-quote-group.site-quote-extras,
+.site-quote-privacy,
+.site-quote-order-summary li {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line);
+}
+
+.site-quote-step,
+.site-quote-group,
+.site-quote-choice {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.site-quote-step {
+  padding: 24px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+}
+
+.site-quote-legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.site-quote-group .site-quote-legend {
+  margin-bottom: 16px;
+}
+
+.site-quote-step-body {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.site-quote-group-body {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* INVENTORY */
+.site-quote-step-inventory .site-quote-legend {
+  margin-bottom: 16px;
+}
+
+.js .site-quote-inventory-description {
+  display: none;
+}
+
+.site-quote-field textarea {
+  resize: vertical;
+}
+
+/* DATE AND EXTRAS */
+.site-quote-extras .site-quote-group-body {
+  gap: 16px;
+}
+
+.site-quote-checkbox-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.site-quote-checkbox-item input,
+.site-quote-privacy input {
+  margin: 4px 0 0;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.site-quote-checkbox-item input:checked,
+.site-quote-privacy input:checked {
+  accent-color: var(--color-ink);
+}
+
+.site-quote-checkbox-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.site-quote-checkbox-content label {
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+/* CONTACT AND SUMMARY */
+.site-quote-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* ORDER SUMMARY */
+.site-quote-order-summary {
+  display: none;
+}
+
+.js .site-quote-order-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-quote-order-summary {
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  padding: 24px;
+}
+
+.site-quote-order-summary button {
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  min-height: 44px;
+  color: var(--color-signal-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.site-quote-order-summary button:hover {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+}
+
+.site-quote-order-summary button:active {
+  text-decoration: none;
+}
+
+.site-quote-order-summary h3 {
+  margin-bottom: 24px;
+}
+
+.site-quote-order-summary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-quote-order-summary li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+  margin-bottom: 24px;
+}
+
+.site-quote-order-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-quote-order-summary ul li:last-child {
+  border-top: 2px solid var(--color-ink);
+  padding-top: 16px;
+  gap: 4px;
+}
+
+.site-quote-order-summary ul li #site-quote-order-summary-estimate {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-price);
+  line-height: 1.3;
+}
+
+.site-quote-order-summary-estimate-note {
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* TABLET FORM STEPS */
+@media (min-width: 768px) {
+  .site-quote-step,
+  .site-quote-order-summary {
+    padding: 32px;
+  }
+}
