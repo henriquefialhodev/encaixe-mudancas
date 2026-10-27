@@ -64,7 +64,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
   - não avança
   - mostra a mensagem junto ao campo, ligada com `aria-describedby`
   - põe o foco no primeiro campo com erro
-  - no passo 2, que não tem um campo, a mensagem aparece junto ao total e o foco vai para o primeiro botão +
+  - no passo 2, que não tem um campo, a mensagem aparece por baixo do texto de introdução do passo, dentro do cartão, e o foco vai para o primeiro botão +, que fica ligado à mensagem com `aria-describedby`. Junto ao total não serve, porque em mobile o total está na barra do fundo, longe dos botões +
 - Quando o passo muda, o foco vai para o título do novo passo.
 - "Anterior" nunca apaga dados.
 - No passo 4, o resumo tem botões "Editar" que levam ao passo certo.
@@ -72,9 +72,10 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 - **Sem JavaScript:**
   - Os 4 passos aparecem seguidos (um `fieldset` cada) e todos os campos podem ser preenchidos.
   - No início do formulário, antes do passo 1, aparece um aviso visível: "Para enviar o pedido, precisa de ter o JavaScript ativo no browser." Fica no início para o visitante saber antes de começar a preencher.
-  - O botão de envio fica escondido. Os botões "Seguinte" e "Anterior" também, porque sem JavaScript não fazem nada.
-  - O JavaScript mostra estes botões e esconde o aviso.
-  - O aviso é um elemento normal da página e não um `<noscript>`. Se o JavaScript estiver ativo mas o ficheiro falhar a carregar, o `<noscript>` não aparece e o visitante ficava sem botão e sem explicação. Com um elemento normal, o aviso só desaparece quando o JavaScript corre mesmo.
+  - O botão de envio fica escondido. Os botões "Seguinte" e "Anterior" também, porque sem JavaScript não fazem nada. O indicador de passos e o painel da estimativa também ficam escondidos: com os 4 passos seguidos e sem calculadora, mostravam informação errada.
+  - O JavaScript do formulário mostra estes botões. O aviso é escondido pelo CSS, com a classe `js` que o script do `<head>` põe no `<html>` antes de a página ser desenhada. Assim, quem tem JavaScript nunca vê o aviso, nem por um instante.
+  - O aviso é um elemento normal da página e não um `<noscript>`, para ser o CSS a decidir quando aparece.
+  - **Limite conhecido:** se o JavaScript estiver ativo mas o ficheiro do formulário falhar a carregar, o aviso fica escondido e os botões não aparecem. É um caso raro, e o mesmo compromisso do menu. Esconder o aviso só quando esse ficheiro corre evitava o caso, mas o aviso aparecia a toda a gente ao carregar e desaparecia logo a seguir, e a página saltava.
 - **Os dados pessoais nunca vão para o URL:**
   - O formulário usa `method="post"`. Com `get`, que é o valor por omissão, um envio sem JavaScript punha os dados todos no URL, onde ficam no histórico do browser e nos registos do servidor.
   - O botão de envio começa com os atributos `hidden` e `disabled`, e o JavaScript tira os dois. Só com `hidden`, carregar em Enter num campo ainda envia o formulário. Com `disabled`, o Enter não envia.
@@ -82,20 +83,21 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
   - O pedido passa para o `obrigado.html` só pelo `sessionStorage` (F7), nunca por parâmetros no URL.
 
 **F4. Validação**
-- Código postal no formato `0000-000`.
+- Código postal no formato `0000-000`. O hífen é posto automaticamente enquanto se escreve, e o campo usa `inputmode="numeric"` para o telemóvel mostrar o teclado de números.
 - A data não pode estar no passado nem ser uma das datas ocupadas, que são geradas a partir de hoje (secção 3).
 - As datas comparam-se no formato `AAAA-MM-DD` (o mesmo do `value` de um `<input type="date">`), construído a partir do ano, mês e dia locais. `toISOString()` devolve a data em UTC e, perto da meia-noite, pode dar o dia anterior.
-- O email tem de ser válido e o telefone tem de ter 9 dígitos.
+- O email tem de ser válido e o telefone tem de ter 9 dígitos. O telefone ganha espaços automaticamente enquanto se escreve (`910 000 000`), e a validação conta só os algarismos.
 - O passo 2 precisa de pelo menos um item na calculadora, para haver volume.
 - A caixa de consentimento RGPD é obrigatória.
 - As mensagens de erro são em pt-PT e dizem como corrigir, não só que está errado.
 
 **F5. Calculadora de volume**
-- Os itens estão agrupados por divisão (sala, quartos, cozinha, outros). Cada item tem botões − e + e mostra a quantidade.
-- Os botões têm um nome acessível completo, por exemplo "Adicionar sofá de 3 lugares".
+- Os itens estão agrupados por divisão (sala, quartos, cozinha, casa de banho, varanda e exterior, arrumos, outros). Não há um item "outros" em cada divisão, porque não teria volume. O que faltar escreve-se nas observações do passo 4. Cada item tem botões − e + e mostra a quantidade.
+- Os itens com tamanhos diferentes (sofás e roupeiros) usam tamanhos com intervalo, e o maior apanha tudo o que é maior, por exemplo "Sofá grande (4 lugares ou mais, ou de canto)". O que não está na lista vai para as observações do passo 4.
+- Os botões têm um nome acessível completo, por exemplo "Adicionar sofá médio (3 lugares)".
 - A quantidade nunca desce abaixo de 0 nem passa de 20.
 - Os itens e o volume de cada um vêm de um array de objetos, não estão escritos à mão no HTML. O HTML é gerado a partir desse array.
-- O total em m³ atualiza a cada clique e é anunciado pelo leitor de ecrã (`aria-live="polite"`).
+- O total em m³ atualiza a cada clique. O leitor de ecrã ouve uma mensagem curta com o item e o total, por exemplo "Cadeira: 4. Volume: 18,7 m³.", numa única mensagem escondida com `aria-live="polite"`. O painel não tem `aria-live`.
 - O veículo sugerido muda segundo limites que estão num objeto de configuração.
 - Sem JavaScript, aparece em vez disso uma caixa de texto: "Descreva o recheio".
 
@@ -107,7 +109,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
   - serviços extra
 - Todos os valores ficam num único objeto de configuração.
 - Atualiza sempre que muda um dado que conta para o preço.
-- Tem sempre a frase "Estimativa indicativa de um negócio fictício".
+- No painel do desktop e no resumo do passo 4 tem a frase "Estimativa indicativa", para ninguém achar que é o preço final. Na barra do telemóvel não aparece, para a barra caber numa linha. Que o negócio é fictício já está na fita do topo e no rodapé.
 
 **F7. Envio simulado**
 - Só envia com os 4 passos válidos.
@@ -158,7 +160,7 @@ O site precisa de fotografias, porque numa empresa de mudanças a confiança vem
 2. **Serviços:** `Plain white medium-size moving van with no logos or text, parked on a narrow granite-paved street in northern Portugal, rear doors open showing wrapped furniture, overcast daylight, documentary photography, no people`
 3. **Embalagem:** `Close-up of hands wrapping ceramic plates in brown kraft paper at a kitchen table, cardboard box beside, packing tape roll, natural window light, no faces, documentary photography`
 
-A imagem de Open Graph é um recorte da imagem do hero com o nome do negócio. Os ícones dos itens da calculadora vão no sprite SVG.
+A imagem de Open Graph é um recorte da imagem do hero com o nome do negócio. Os itens da calculadora não têm ícones, só o nome e o volume.
 
 ## 8. Páginas legais
 

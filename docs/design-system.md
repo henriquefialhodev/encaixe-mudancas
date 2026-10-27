@@ -40,7 +40,7 @@ Duas linhas dentro de um retângulo de borda 2px, como uma etiqueta de envio.
 | 2 | MUDANÇAS | IBM Plex Mono | 500 | 1.4rem (14px) | 0.2em |
 
 - As duas linhas ficam alinhadas à esquerda. Com 14px e o espaçamento largo, "MUDANÇAS" ocupa 87px, praticamente a mesma largura que "ENCAIXE" (88,5px). As duas linhas formam um bloco.
-- Margem interna do retângulo: 4px em cima e em baixo, 8px dos lados (`--space-1` e `--space-2`).
+- Margem interna do retângulo: 4px em cima e em baixo, 8px dos lados.
 - As maiúsculas são feitas com `text-transform: uppercase`. No HTML o texto fica "Encaixe Mudanças", para o leitor de ecrã o ler como palavras e não letra a letra.
 - **No cabeçalho, o logótipo é texto HTML dentro do link para a página inicial, não uma imagem.** As fontes já estão carregadas, por isso não custa nenhum pedido extra, cresce com o zoom e o nome do link é o próprio texto.
 
@@ -209,7 +209,9 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 | Texto dentro dos campos | 16px | 16px | `1.6rem` | Barlow 400 | 1.2 | 0 |
 | Texto pequeno (ajudas, erros, avisos) | 14px | 14px | `1.4rem` | Barlow 400 (erros 600) | 1.5 | 0 |
 | Etiqueta mono ("PASSO 02 / 04") | 14px | 14px | `1.4rem` | IBM Plex Mono 500, maiúsculas | 1.2 | 0.08em |
+| Preço da estimativa ("350 € a 420 €") | 22px | 22px | `2.2rem` | Barlow 600 | 1.3 | 0 |
 | Total em m³ | 28px | 36px | `clamp(2.8rem, 2.487rem + 0.8696vw, 3.6rem)` | IBM Plex Mono 500 | 1.2 | 0 |
+| Total e preço na barra do telemóvel | 16px | 16px | `1.6rem` | Total em IBM Plex Mono 500, preço em Barlow 600 | 1.2 | 0 |
 
 - **Os títulos não vão em maiúsculas.** As maiúsculas ficam só nas etiquetas mono, para serem o sinal visual de "etiqueta".
 - **O texto dentro dos campos fica sempre em 16px.** O Safari do iPhone faz zoom automático ao focar um campo com letra mais pequena, e a página fica desalinhada.
@@ -224,17 +226,17 @@ Todas com licença SIL Open Font License 1.1. São 4 ficheiros WOFF2, só com o 
 
 Escala com base de 4px. Todos os valores em px.
 
-| Token | Valor | Onde se usa |
-|---|---|---|
-| `--space-1` | 4px | **Dentro de componentes:** margem interna do logótipo (vertical), espaço entre o ícone de erro e a mensagem |
-| `--space-2` | 8px | **Dentro de componentes:** entre a etiqueta e o campo, entre o ícone e o texto num botão, margem do logótipo (horizontal) |
-| `--space-3` | 12px | **Dentro de componentes:** margem interna dos campos, margem vertical dos botões, entre elementos de um cartão |
-| `--space-4` | 16px | **Dentro de componentes:** entre os botões − e + e a quantidade, entre itens da calculadora. Margem lateral da página em mobile |
-| `--space-5` | 24px | **Dentro e entre componentes:** margem interna dos cartões em mobile, margem horizontal dos botões, entre campos do mesmo passo |
-| `--space-6` | 32px | **Entre componentes:** espaço entre cartões numa grelha, margem interna dos cartões a partir de 768px |
-| `--space-7` | 48px | **Entre componentes:** entre o título de uma secção e o conteúdo, entre os passos quando aparecem seguidos (sem JavaScript) |
-| `--space-8` | 64px | **Entre secções** em mobile |
-| `--space-9` | 96px | **Entre secções** a partir de 1024px |
+| Valor | Onde se usa |
+|---|---|
+| 4px | **Dentro de componentes:** margem interna do logótipo (vertical), espaço entre o ícone de erro e a mensagem |
+| 8px | **Dentro de componentes:** entre a etiqueta e o campo, entre o ícone e o texto num botão, margem do logótipo (horizontal) |
+| 12px | **Dentro de componentes:** margem interna dos campos, margem vertical dos botões, entre elementos de um cartão |
+| 16px | **Dentro de componentes:** entre os botões − e + e a quantidade, entre itens da calculadora. Margem lateral da página em mobile |
+| 24px | **Dentro e entre componentes:** margem interna dos cartões em mobile, margem horizontal dos botões, entre campos do mesmo passo |
+| 32px | **Entre componentes:** espaço entre cartões numa grelha, margem interna dos cartões a partir de 768px |
+| 48px | **Entre componentes:** entre o título de uma secção e o conteúdo, entre os passos quando aparecem seguidos (sem JavaScript) |
+| 64px | **Entre secções** em mobile |
+| 96px | **Entre secções** a partir de 1024px |
 
 - `--section-space` guarda o espaço entre secções: 64px em mobile e 96px a partir de 1024px.
 - Regra para decidir: quanto mais relacionados estão dois elementos, mais pequeno o espaço entre eles. Uma etiqueta fica a 8px do seu campo e a 24px do campo seguinte, e é isso que mostra a que campo pertence.
@@ -265,13 +267,13 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 
 - **Secções da página inicial:** o espaço vertical de cada secção é o `--section-space` (64px, 96px a partir de 1024px). O título fica a 48px do conteúdo.
 - **Hero:** 48px de espaço em cima e 64px em baixo. 64px e 64px a partir de 768px. 96px e 96px a partir de 1024px. Etiqueta, título, texto de entrada e botões a 16px uns dos outros, com mais 8px antes do texto de entrada e mais 16px antes dos botões. Os botões ficam um por cima do outro, a 12px, e lado a lado a partir de 768px, a 16px. A fotografia fica a 32px do texto, 48px a partir de 768px. A partir de 768px o título tem 14em de largura máxima e o texto de entrada 37em. A partir de 1024px, duas colunas iguais com 64px entre elas, alinhadas ao centro na vertical: texto à esquerda, fotografia à direita.
-- **Serviços:** grelha de 1, 2 ou 3 colunas (768px e 1024px), com `--space-6` entre as peças. Tem seis peças, pela ordem do HTML: fotografia da carrinha, cartão 01, cartão 02, fotografia da embalagem, cartão 03, cartão 04. A partir de 768px as fotografias enchem a altura da célula com `object-fit: cover`, para ficarem com a altura do cartão ao lado sem se deformarem. A partir de 1024px, a fotografia da carrinha passa para a terceira coluna da primeira fila, e as outras peças arrumam-se pela ordem.
+- **Serviços:** grelha de 1, 2 ou 3 colunas (768px e 1024px), com 32px entre as peças. Tem seis peças, pela ordem do HTML: fotografia da carrinha, cartão 01, cartão 02, fotografia da embalagem, cartão 03, cartão 04. A partir de 768px as fotografias enchem a altura da célula com `object-fit: cover`, para ficarem com a altura do cartão ao lado sem se deformarem. A partir de 1024px, a fotografia da carrinha passa para a terceira coluna da primeira fila, e as outras peças arrumam-se pela ordem.
 - **"Como funciona":** lista vertical em mobile (linha temporal a descer). A partir de 1024px, 4 colunas na horizontal. Ver "Linha temporal" na secção 9.
 - **Zonas, Perguntas frequentes e Contactos:** uma coluna até 1023px. A partir de 1024px, duas colunas (`1fr 2fr`) com 64px entre elas: o título à esquerda e o conteúdo à direita. Nos Contactos, o texto de introdução fica na coluna da esquerda, por baixo do título.
 - **Orçamento em mobile:** uma coluna com o formulário e a barra fixa no fundo. A barra tapa o fim da página, por isso:
   - o `<body>` leva uma margem em baixo igual à altura da barra.
   - o `<html>` leva `scroll-padding-bottom` com essa mesma altura (conceito novo: diz ao browser quanto espaço deixar livre ao fazer scroll até um elemento). Assim, quando o foco passa para um campo junto ao fundo, o campo não fica escondido debaixo da barra.
-- **Orçamento a partir de 1024px:** duas colunas. Formulário à esquerda (ocupa o espaço que sobra, até 640px) e painel da estimativa à direita (320px), com `--space-7` entre eles. O painel fica preso ao topo enquanto se faz scroll (`position: sticky`).
+- **Orçamento a partir de 1024px:** duas colunas. Formulário à esquerda (ocupa o espaço que sobra, até 640px) e painel da estimativa à direita (320px), com 48px entre eles. O painel fica preso ao topo enquanto se faz scroll (`position: sticky`).
 
 ---
 
@@ -293,7 +295,7 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 ### Regras comuns
 
 - **Só um botão primário (laranja) por ecrã ou por passo.** Interpretação da regra "laranja só para ações": o laranja aparece só em ações, mas nem todas as ações são laranja. Se fossem, o "Seguinte" deixava de se destacar.
-- **Área mínima de toque: 44 × 44px** (`--tap-target`).
+- **Área mínima de toque: 44 × 44px.**
 - **As animações e transições do site são as da secção 12.**
 - **Desativar é a exceção.** A ficha já define que "Seguinte" e o envio validam ao clicar, em vez de ficarem desativados. Um botão desativado não diz porque está desativado e perde o foco. O estilo desativado existe para os botões − e + da calculadora e para casos futuros.
 - **`disabled` e `aria-disabled` não são a mesma coisa** (conceito novo). Um botão com `disabled` sai da ordem do Tab e, se tinha o foco, o foco perde-se para o início da página. Com `aria-disabled="true"`, o botão continua focável e o leitor de ecrã anuncia "indisponível", mas é o JavaScript que tem de ignorar o clique. Nos botões − e +, usa-se `aria-disabled`.
@@ -303,8 +305,8 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 Exemplos: "Pedir orçamento", "Seguinte", "Enviar pedido".
 
 - Fundo signal, texto ink Barlow 600, borda 2px ink, cantos retos.
-- Margem interna `--space-3` em cima e em baixo, `--space-5` dos lados. Altura mínima 44px.
-- Ícone opcional de seta à direita do texto, 24px, a `--space-2` do texto.
+- Margem interna de 12px em cima e em baixo e 24px dos lados. Altura mínima 44px.
+- Ícone opcional de seta à direita do texto, 24px, a 8px do texto.
 
 | Estado | Aspeto | Contraste |
 |---|---|---|
@@ -348,12 +350,21 @@ Links no texto e botões com aspeto de link (exemplo: "Editar" no resumo do pass
 
 Inputs de texto, email, telefone, data, `<select>` e `<textarea>`.
 
-- `<label>` por cima do campo, Barlow 600, a `--space-2` do campo.
+- `<label>` por cima do campo, Barlow 600, a 8px do campo.
 - Texto de ajuda em muted, 14px, entre a etiqueta e o campo, ligado com `aria-describedby`.
 - Como quase todos os campos são obrigatórios, marcam-se os opcionais com "(opcional)" na etiqueta, em vez de pôr um asterisco em todos.
-- Campo: fundo surface, borda 2px muted, altura mínima 48px (`--input-min-height`), margem interna `--space-3`, texto 16px.
+- Campo: fundo surface, borda 2px muted, altura mínima 48px, margem interna 12px, texto 16px.
+- **Larguras máximas**, para a caixa mostrar o tamanho da resposta. Uma classe por tamanho, no próprio `<input>` ou `<select>`:
+
+| Classe | `max-width` | Campos |
+|---|---|---|
+| `site-quote-input-small` | 192px | Códigos postais |
+| `site-quote-input-medium` | 256px | Andares, data e telefone |
+| `site-quote-input-large` | 320px | Distância |
+
+  Os outros campos (nome, email e observações) ocupam a largura toda.
 - `<select>`: o mesmo aspeto, com uma seta do sprite à direita.
-- `<textarea>` ("Descreva o recheio"): o mesmo aspeto, com 6 linhas de altura inicial.
+- `<textarea>` ("Descreva o recheio"): o mesmo aspeto, com 6 linhas de altura inicial. Estica só na vertical (`resize: vertical`), para a pessoa poder ver tudo o que escreveu sem a caixa sair do cartão.
 
 | Estado | Aspeto | Contraste |
 |---|---|---|
@@ -374,8 +385,8 @@ Inputs de texto, email, telefone, data, `<select>` e `<textarea>`.
 Serviços, passos do formulário, painel da estimativa.
 
 - Fundo surface, borda 2px ink, cantos retos, sem sombra.
-- Margem interna `--space-5` em mobile, `--space-6` a partir de 768px.
-- Ordem interna: etiqueta mono ("SERVIÇO 01") → título h3 → texto → link opcional. `--space-3` entre elementos.
+- Margem interna de 24px em mobile e 32px a partir de 768px.
+- Ordem interna: etiqueta mono ("SERVIÇO 01") → título h3 → texto → link opcional. 12px entre elementos.
 
 | Estado | Aspeto |
 |---|---|
@@ -470,6 +481,9 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 - Por cima, a etiqueta mono "PASSO 02 / 04" com `aria-hidden="true"`, e ao lado um texto só para leitores de ecrã: "Passo 2 de 4". Um leitor de ecrã leria "zero dois barra zero quatro".
 - Em mobile, cada item mostra só o número ("01"). O nome do passo continua no HTML, escondido visualmente, para o leitor de ecrã ler "01, Origem e destino" e não só "01". Não se repete o nome do passo atual por baixo da lista, porque o título do cartão (h2) aparece logo a seguir e diz o mesmo.
 - A partir de 768px, cada item mostra o número e o nome.
+- Sem JavaScript, o indicador e a etiqueta ficam escondidos. Os 4 passos aparecem seguidos, por isso "Passo 01 / 04" estaria errado. O bloco tem `display: none` no CSS e `.js .site-quote-progress` mostra-o, como o aviso sem JavaScript ao contrário. Assim aparece logo no primeiro desenho da página, sem empurrar o formulário.
+- O estado atual lê-se do `aria-current="step"` no CSS, como o menu lê o `aria-expanded`. O JavaScript só muda o atributo.
+- Em mobile, o nome do passo fica escondido com as propriedades da `.visually-hidden` (secção 9, Texto só para leitores de ecrã), escritas na regra do nome, porque a classe no HTML valeria para todos os tamanhos. A partir de 768px voltam aos valores normais.
 
 | Estado | Aspeto | Contraste |
 |---|---|---|
@@ -482,17 +496,32 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 
 ### Fita kraft (divisor)
 
-- Tira com fundo kraft, 20px de altura no mínimo (`--tape-height`), largura do contentor, sem rotação.
+- Tira com fundo kraft, 20px de altura no mínimo, largura do contentor, sem rotação.
 - Puramente decorativa: `aria-hidden="true"`.
 - Variante com texto: etiqueta mono em ink ("FRÁGIL · ESTE LADO PARA CIMA"), 6,64:1, centrada. Se o texto for só decoração, continua com `aria-hidden="true"`. A fita tem 7px de margem interna em cima e em baixo e 12px dos lados, e cresce com o texto. Vazia, fica com os 20px mínimos.
 - Onde: entre as secções da página inicial e no topo do painel da estimativa. No máximo uma fita entre duas secções.
 - Fita do topo da página: leva o aviso de projeto fictício em texto real, sem `aria-hidden`, porque é informação e não decoração. Fica dentro do `<header>`, antes do contentor, para quem navega por zonas com leitor de ecrã passar por ela. Etiqueta mono em ink, centrada, com 8px de margem interna em cima e em baixo. A altura cresce com o texto.
 
+### Aviso sem JavaScript
+
+- Parágrafo no início do formulário do orçamento: "Para enviar o pedido, precisa de ter o JavaScript ativo no browser."
+- Fundo surface, borda 2px ink, margem interna de 16px e texto em Barlow 600. É o estilo da caixa do Livro de Reclamações do rodapé, para não criar um componente novo.
+- Escondido com `.js .site-quote-notice { display: none; }`. A classe `js` é posta no `<html>` pelo script do `<head>` antes de a página ser desenhada, por isso quem tem JavaScript nunca chega a ver o aviso, nem por um instante.
+- **Limite conhecido:** se o JavaScript estiver ativo mas o ficheiro do formulário falhar a carregar, o aviso fica escondido e os botões também, porque é esse ficheiro que os mostra. É o mesmo compromisso do menu (secção 12). Esconder o aviso só quando o ficheiro corre evitava este caso, mas o aviso aparecia ao carregar e desaparecia logo a seguir, e a página saltava.
+
 ### Painel da estimativa
 
-- **A partir de 1024px:** cartão à direita do formulário, preso ao topo com `position: sticky`. Mostra a etiqueta "VOLUME", o total em m³, o veículo sugerido, o intervalo de preço em Barlow 600 e a frase "Estimativa indicativa de um negócio fictício" em texto pequeno muted.
-- **Abaixo de 1024px:** barra fixa no fundo do ecrã, fundo surface, borda superior 2px ink. Mostra só o total em m³ e o intervalo de preço numa linha.
-- **É o mesmo elemento HTML nos dois casos.** Só o CSS muda a posição. Se houvesse dois elementos, cada um com `aria-live`, o leitor de ecrã anunciava o total duas vezes.
+- **A partir de 1024px:** cartão à direita do formulário, preso ao topo com `position: sticky`. Mostra a etiqueta "VOLUME", o total em m³, o veículo sugerido, o intervalo de preço em Barlow 600 e a frase "Estimativa indicativa" em texto pequeno muted. A frase diz que o valor não é o preço final. Que o negócio é fictício já está na fita do topo e no rodapé.
+- **Abaixo de 1024px:** barra fixa no fundo do ecrã, fundo surface, borda superior 2px ink. Mostra só o total em m³ e o intervalo de preço numa linha, sem a frase, para a barra ficar baixa.
+- **É o mesmo elemento HTML nos dois casos.** Só o CSS muda a posição.
+- **O painel não tem `aria-live`.** O que muda é anunciado por uma única mensagem escondida com `aria-live="polite"`, que o JavaScript preenche só com o que mudou: "Cadeira: 4. Volume: 18,7 m³." num clique em − ou +, e "Estimativa: 350 € a 420 €." quando muda outro campo que conta para o preço. Com o `aria-live` no painel, o leitor de ecrã lia o painel inteiro a cada clique e não dizia quantos itens havia.
+- **Sem JavaScript, o painel fica escondido**, tal como o indicador de passos e os botões de navegação. Sem a calculadora, mostrava sempre 0,0 m³. Tal como o indicador, tem `display: none` no CSS e aparece com a classe `js` no `<html>`.
+
+### Texto só para leitores de ecrã
+
+- Classe `.visually-hidden`, no `base.css`, para todas as páginas. Esconde o texto dos olhos e deixa-o para o leitor de ecrã. `display: none` e `hidden` escondem dos dois.
+- Encolhe a caixa do texto para 1px e corta o resto: `position: absolute`, `width` e `height` de 1px, `margin: -1px`, `padding` e `border` a 0, `overflow: hidden`, `clip-path: inset(50%)` e `white-space: nowrap`. Os valores de 1px são uma técnica de acessibilidade e não espaços do desenho, por isso não estão na escala.
+- Usa-se no "Passo 1 de 4" do indicador, e serve para o texto "concluído" dos passos feitos.
 
 ---
 
@@ -503,17 +532,17 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 - **Espessura do traço:** 2px, igual às bordas.
 - **Tamanhos:**
 
-| Token | Tamanho | Onde |
-|---|---|---|
-| `--icon-sm` | 16px | Ícone de alerta nas mensagens de erro |
-| `--icon-md` | 24px | Botões, menu, − e +, indicador de passos |
-| `--icon-lg` | 32px | Ícones dos itens da calculadora |
+| Tamanho | Onde |
+|---|---|
+| 16px | Ícone de alerta nas mensagens de erro |
+| 24px | Botões, menu, − e +, indicador de passos |
 
 - **Origem:** desenhados à mão ou adaptados do [Lucide](https://lucide.dev) (licença ISC), mudando as extremidades e junções de redondas para retas.
 - Ficam no sprite SVG externo e usam-se com `<use>`. Os atributos de traço (`fill="none"`, `stroke="currentColor"`, `stroke-width="2"`) ficam em cada `<symbol>`, porque são lidos a partir do símbolo e não do `<svg>` onde se usa.
 - Ícones decorativos ao lado de texto: `aria-hidden="true"` e `focusable="false"`.
-- Botões só com ícone (− e +): o nome acessível vem do botão, por exemplo "Adicionar sofá de 3 lugares".
-- Ícones necessários: menu, fechar, mais, menos, seta para a direita, seta para a esquerda, visto, alerta, editar e os itens da calculadora (sofá, cama, roupeiro, mesa, cadeira, frigorífico, máquina de lavar, televisão, caixa, entre outros).
+- Botões só com ícone (− e +): o nome acessível vem do botão, por exemplo "Adicionar sofá médio (3 lugares)".
+- Ícones necessários: menu, fechar, mais, menos, seta para a direita, seta para a esquerda, visto, alerta, editar e a seta para baixo dos `<select>`.
+- **Os itens da calculadora não têm ícones.** Cada item mostra só o nome e o volume, como no desenho do orçamento. A lista lê-se bem assim, e seriam 25 ícones para desenhar.
 
 ---
 
@@ -535,7 +564,6 @@ A partir de 1024px, o sublinhado do `:hover` deixa de ser o do texto. É uma lin
 - `width` e `height` sempre no HTML, para o browser reservar o espaço e a página não saltar enquanto a imagem carrega.
 - As fotografias com `loading="lazy"` levam também a proporção no CSS, com `aspect-ratio`. O `height: auto` do `base.css` faz com que o DevTools do Chrome não conte com a proporção dos atributos e assinale a imagem como não tendo dimensões.
 - `alt` descreve o que a imagem mostra e importa para a página, em pt-PT. Exemplo para o hero: "Sala vazia com caixas de cartão empilhadas e etiquetadas à mão".
-- Ícones da calculadora: SVG do sprite, não fotografias.
 
 ---
 
@@ -545,8 +573,8 @@ As animações do site estão na tabela abaixo. Cada animação nova entra na ta
 
 | O que anima | Propriedades | Duração | Curva | Com `prefers-reduced-motion: reduce` |
 |---|---|---|---|---|
-| Entrada do novo passo | Opacidade de 0 para 1 e deslocamento vertical de 8px para 0 | 200ms (`--duration-step`) | `cubic-bezier(0.2, 0, 0, 1)` (`--ease-out`) | Sem animação. O passo aparece logo |
-| Destaque do total quando muda | Fundo do total de kraft para transparente. O texto fica ink (6,64 sobre kraft, 17,03 sobre surface) | 600ms (`--duration-highlight`) | `--ease-out` | Sem animação. O número muda e o `aria-live` anuncia-o |
+| Entrada do novo passo | Opacidade de 0 para 1 e deslocamento vertical de 8px para 0 | 200ms | `cubic-bezier(0.2, 0, 0, 1)` (`--ease-out`) | Sem animação. O passo aparece logo |
+| Destaque do total quando muda | Fundo do total de kraft para transparente. O texto fica ink (6,64 sobre kraft, 17,03 sobre surface) | 600ms | `--ease-out` | Sem animação. O número muda e a mensagem escondida com `aria-live` anuncia-o |
 | Scroll até uma secção, ao clicar num link de âncora | Posição da página, com `scroll-behavior: smooth` no `html` | Decidida pelo browser | Decidida pelo browser | Sem animação. A página salta diretamente para a secção |
 | Abertura e fecho do menu, abaixo de 1024px | Altura do painel, de zero até à altura do conteúdo, com `grid-template-rows` de `0fr` para `1fr`. A `visibility` só passa a escondida no fim do fecho. Ao clicar num link do menu, fecha sem animação, para a página parar na secção certa | 400ms | `--ease-out` | Sem animação. O menu abre e fecha de repente |
 | `:hover` dos links do menu, a partir de 1024px | Linha de 2px que cresce da esquerda para a direita, com `transform: scaleX` de 0 para 1 | 300ms | `--ease-out` | Sem animação. A linha aparece inteira |
@@ -565,11 +593,11 @@ As animações do site estão na tabela abaixo. Cada animação nova entra na ta
 
 ## 13. Tabela de tokens
 
-Os nomes são as custom properties a criar no `tokens.css`. Os breakpoints vêm numa tabela à parte, porque não podem ser custom properties.
+Os breakpoints vêm numa tabela à parte, porque não podem ser custom properties.
 
-**O que passa a variável no `tokens.css`:** as cores, as famílias de letra, os pesos, os tamanhos de letra, o `--gutter`, o `--section-space` e o `--ease-out`. Os restantes nomes destas tabelas servem só para identificar cada valor. No CSS escreve-se o valor diretamente, sem variável.
+**O que passa a variável no `tokens.css`:** as cores, as famílias de letra, os pesos, os tamanhos de letra, o `--gutter`, o `--section-space` e o `--ease-out`. Só estes têm nome nas tabelas. Os outros valores escrevem-se diretamente no CSS, sem variável.
 
-Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10px). Espaçamento entre letras em em. Alturas de linha sem unidade. Largura do texto em ch. Tudo o resto em px.
+Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10px). Espaçamento entre letras em em. Alturas de linha sem unidade. Largura do texto em em. Tudo o resto em px.
 
 ### Cor
 
@@ -607,63 +635,79 @@ Unidades: tamanhos de letra em rem, com o `html` a `font-size: 62.5%` (1rem = 10
 | `--font-size-small` | `1.4rem` | Ajudas, erros, avisos, frase da estimativa |
 | `--font-size-label` | `1.4rem` | Etiquetas mono |
 | `--font-size-total` | `clamp(2.8rem, 2.487rem + 0.8696vw, 3.6rem)` | Total em m³ |
+| `--font-size-price` | `2.2rem` | Preço da estimativa, no resumo do passo 4 e no painel |
+| `--font-size-estimate` | `1.6rem` | Total e preço na barra do telemóvel |
 | `--font-size-logo` | `2.8rem` | "ENCAIXE" no logótipo |
 | `--font-size-logo-sub` | `1.4rem` | "MUDANÇAS" no logótipo |
-| `--line-height-tight` | `1.05` | h1 |
-| `--line-height-heading` | `1.15` | h2, h3 |
-| `--line-height-ui` | `1.2` | Botões, etiquetas, campos, total, menu |
-| `--line-height-small` | `1.5` | Texto de entrada e texto pequeno |
-| `--line-height-body` | `1.6` | Texto corrido |
-| `--letter-spacing-label` | `0.08em` | Etiquetas mono em maiúsculas |
-| `--letter-spacing-heading` | `0.01em` | h3, botões |
-| `--letter-spacing-logo` | `0.02em` | "ENCAIXE" no logótipo |
-| `--letter-spacing-logo-sub` | `0.2em` | "MUDANÇAS" no logótipo |
+
+Alturas de linha e espaçamento entre letras (sem variável):
+
+| Valor | Onde se usa |
+|---|---|
+| `1.05` | Altura de linha do h1 |
+| `1.15` | Altura de linha do h2 e do h3 |
+| `1.2` | Altura de linha dos botões, etiquetas, campos, total e menu |
+| `1.5` | Altura de linha do texto de entrada e do texto pequeno |
+| `1.6` | Altura de linha do texto corrido |
+| `0.08em` | Espaçamento das etiquetas mono em maiúsculas |
+| `0.01em` | Espaçamento do h3 e dos botões |
+| `0.02em` | Espaçamento de "ENCAIXE" no logótipo |
+| `0.2em` | Espaçamento de "MUDANÇAS" no logótipo |
 
 ### Espaçamento e layout
 
 | Custom property | Valor | Onde se usa |
 |---|---|---|
-| `--space-1` | `4px` | Dentro de componentes (ver secção 6) |
-| `--space-2` | `8px` | Etiqueta e campo, ícone e texto |
-| `--space-3` | `12px` | Margem interna de campos, margem vertical de botões |
-| `--space-4` | `16px` | Calculadora, margem lateral em mobile |
-| `--space-5` | `24px` | Margem interna de cartões em mobile, entre campos |
-| `--space-6` | `32px` | Entre cartões, margem interna de cartões a partir de 768px |
-| `--space-7` | `48px` | Título da secção e conteúdo, formulário e painel |
-| `--space-8` | `64px` | Entre secções em mobile |
-| `--space-9` | `96px` | Entre secções a partir de 1024px |
 | `--section-space` | `64px`, e `96px` a partir de 1024px | Espaço entre secções |
 | `--gutter` | `16px`, `24px` a partir de 768px, `32px` a partir de 1024px | Margens laterais da página |
-| `--container-max` | `1152px` | Largura máxima do conteúdo |
-| `--measure` | `37em` | Largura máxima dos parágrafos, cerca de 65 caracteres |
-| `--form-max` | `640px` | Largura máxima da coluna do formulário |
-| `--aside-width` | `320px` | Largura do painel da estimativa a partir de 1024px |
 
-### Forma e tamanhos
+Sem variável:
 
-| Custom property | Valor | Onde se usa |
-|---|---|---|
-| `--radius` | `0` | Todos os elementos |
-| `--border-width` | `2px` | Cartões, botões, campos, logótipo, cabeçalho |
-| `--border-width-thin` | `1px` | Divisores decorativos |
-| `--focus-width` | `3px` | Contorno de foco |
-| `--focus-offset` | `2px` | Afastamento do contorno de foco |
-| `--tap-target` | `44px` | Altura e largura mínimas de botões e links do menu mobile |
-| `--input-min-height` | `48px` | Altura mínima dos campos |
-| `--icon-sm` | `16px` | Ícone de alerta |
-| `--icon-md` | `24px` | Ícones de botões e menu |
-| `--icon-lg` | `32px` | Ícones da calculadora |
-| `--tape-height` | `20px` | Fita kraft |
+| Valor | Onde se usa |
+|---|---|
+| `4px` | Dentro de componentes (ver secção 6) |
+| `8px` | Etiqueta e campo, ícone e texto |
+| `12px` | Margem interna de campos, margem vertical de botões |
+| `16px` | Calculadora, margem lateral em mobile |
+| `24px` | Margem interna de cartões em mobile, entre campos |
+| `32px` | Entre cartões, margem interna de cartões a partir de 768px |
+| `48px` | Título da secção e conteúdo, formulário e painel |
+| `64px` | Entre secções em mobile |
+| `96px` | Entre secções a partir de 1024px |
+| `1152px` | Largura máxima do conteúdo |
+| `37em` | Largura máxima dos parágrafos, cerca de 65 caracteres |
+| `640px` | Largura máxima da coluna do formulário |
+| `320px` | Largura do painel da estimativa a partir de 1024px |
+
+### Forma e tamanhos (sem variável)
+
+| Valor | Onde se usa |
+|---|---|
+| `0` | Raio dos cantos, em todos os elementos |
+| `2px` | Bordas de cartões, botões, campos, logótipo e cabeçalho |
+| `1px` | Divisores decorativos |
+| `3px` | Contorno de foco |
+| `2px` | Afastamento do contorno de foco |
+| `44px` | Altura e largura mínimas de botões e links do menu mobile |
+| `48px` | Altura mínima dos campos |
+| `16px` | Ícone de alerta |
+| `24px` | Ícones de botões e menu |
+| `20px` | Altura mínima da fita kraft |
 
 ### Movimento
 
 | Custom property | Valor | Onde se usa |
 |---|---|---|
-| `--duration-step` | `200ms` | Entrada do novo passo |
-| `--duration-hover` | `300ms` | `:hover` dos botões e dos links do menu |
-| `--duration-menu` | `400ms` | Abertura e fecho do menu |
-| `--duration-highlight` | `600ms` | Destaque do total |
 | `--ease-out` | `cubic-bezier(0.2, 0, 0, 1)` | Todas as animações da secção 12, menos o scroll |
+
+Durações (sem variável):
+
+| Valor | Onde se usa |
+|---|---|
+| `200ms` | Entrada do novo passo |
+| `300ms` | `:hover` dos botões e dos links do menu |
+| `400ms` | Abertura e fecho do menu |
+| `600ms` | Destaque do total |
 
 ### Breakpoints (não são custom properties)
 

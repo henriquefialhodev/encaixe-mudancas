@@ -11,6 +11,12 @@
               stroke-width="2"
               stroke-linecap="square"
               stroke-linejoin="miter"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+<!-- ICON ARROW LEFT -->
+<symbol id="icon-arrow-left" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="square"
+            stroke-linejoin="miter"><path d="M20 12H6M11 6l-6 6 6 6"/></symbol>
 <!-- ICON ARROW RIGHT -->
 <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none"
             stroke="currentColor"

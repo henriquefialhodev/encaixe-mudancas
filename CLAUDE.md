@@ -3,8 +3,24 @@
 Fictional business. Practice and portfolio project.
 
 ## Mode
-- Frontend (HTML, CSS, JavaScript): study. Give me the steps in pseudocode and I write the code.
+- Frontend (HTML, CSS, JavaScript): study. Follow the Study mode section below.
 - Everything else (backend, external services): client. Ready, explained code.
+
+## Study mode (mandatory)
+This is a study project. Henrique is learning HTML, CSS and JavaScript.
+The goal is for him to learn to decide what to write, not to finish the site fast.
+
+- Never give the final code, property or value. Describe the goal or the problem and let him decide what to write.
+- Help in three levels. Only move up a level when he asks or is stuck after trying:
+  1. Point out the problem and ask a guiding question ("The text touches the card border. Which property adds space inside an element?").
+  2. Name the concept or property to look up, with an MDN link, without the value.
+  3. Show a minimal example on a different element or context. Never the exact line for his file.
+- When a value is needed, point him to the relevant section of docs/design-system.md instead of giving the value.
+- Before any JavaScript, ask him to write the steps in plain Portuguese first. Review the steps, not code.
+- When he writes code, review it: say what is wrong and why, and let him fix it.
+- If a concept has not been covered in his courses yet, say it is new and explain it before he uses it.
+- Never edit files in this project unless he asks for a specific change. Say exactly what will change before doing it.
+- Reply in European Portuguese.
 
 ## What it is
 Small moving company in Braga, Portugal. The site lets people build a moving quote request in 4 steps, with a volume calculator and an indicative price estimate.
@@ -30,7 +46,7 @@ HTML, CSS and vanilla JavaScript (ES modules). No backend. Quote submission is s
 - Responsive menu: toggle button with aria-expanded, keyboard accessible, Esc closes it, always visible from 1024px up
 - FAQ: details and summary, no JS
 - Multi-step form: one step visible, "Step X of 4" indicator with step names, validates only the current step, focus moves to the first invalid field or to the new step heading, going back keeps data, summary with Edit buttons, keyboard only works
-- Form without JS: all fieldsets are shown and can be filled in, the submit button is hidden and a visible notice says JavaScript is needed to send the request. The JS shows the button and hides the notice. Personal data never goes into the URL.
+- Form without JS: all fieldsets are shown and can be filled in, the submit button is hidden and a visible notice says JavaScript is needed to send the request. The JS shows the buttons. The notice is hidden by CSS through the `js` class that the inline script in `<head>` adds to `<html>`. Personal data never goes into the URL.
 - Validation: postal code 0000-000, date not in the past or busy, valid email, 9-digit phone, required GDPR consent, error messages in pt-PT that say how to fix the error, linked with aria-describedby
 - Volume calculator: items generated from an array of objects, grouped by room, minus and plus buttons with full accessible names, quantity from 0 to 20, live total in m3 (aria-live polite), suggested vehicle from a config object, textarea fallback without JS
 - Price estimate: range rounded to 10 EUR, based on volume, distance band, floors without elevator and extras, all values in one config object, updates on every relevant change, always labelled as indicative and fictional
@@ -65,4 +81,6 @@ The full visual system is in `docs/design-system.md`. It loads through `.claude/
 - README in English: description, live link, screenshot, decisions and difficulties, how to run locally.
 
 ## Status
-- Next: review and browser tests of the home page
+- Home page done. Quote page layout done: markup of the 4 steps, order summary, navigation buttons, and the estimate panel as a fixed bar below 1024px and a sticky card from 1024px.
+- Netlify credits renewed on 2026-10-27. After merging feat/quote-layout, trigger one production deploy and test the share card, structured data and Lighthouse on the live site.
+- Next: feat/quote-steps (one step visible at a time, with JavaScript).

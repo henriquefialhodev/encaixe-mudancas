@@ -514,9 +514,9 @@
                     </button>
                   </div>
                   <div class="site-quote-order-summary-location">
-                    <p id="site-quote-order-summary-origin">teste</p>
-                    <p id="site-quote-order-summary-destination">teste</p>
-                    <p id="site-quote-order-summary-distance">teste</p>
+                    <p id="site-quote-order-summary-origin"></p>
+                    <p id="site-quote-order-summary-destination"></p>
+                    <p id="site-quote-order-summary-distance"></p>
                   </div>
                 </li>
                 <li>
@@ -553,7 +553,53 @@
               </ul>
             </div>
           </section>
+          <div class="site-quote-navigation-buttons">
+            <button class="btn btn-secondary" type="button">
+              <svg width="24" height="24" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-arrow-left"></use></svg
+              >Anterior
+            </button>
+            <button class="btn btn-primary" type="button">
+              Seguinte
+              <svg width="24" height="24" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </button>
+            <button class="btn btn-primary" type="submit" hidden disabled>
+              Enviar pedido
+              <svg width="24" height="24" aria-hidden="true" focusable="false">
+                <use href="assets/icons/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
         </form>
+        <aside class="site-quote-estimate" aria-label="Volume e estimativa">
+          <div class="site-quote-estimate-top-bar" aria-hidden="true"></div>
+          <ul>
+            <li
+              class="site-quote-estimate-item site-quote-estimate-volume-item"
+            >
+              <span class="label">Volume</span>
+              <p
+                id="site-quote-estimate-volume"
+                class="site-quote-estimate-volume"
+              >
+                0,0 m³
+              </p>
+              <p class="site-quote-estimate-vehicle">
+                Adicione itens no passo 2.
+              </p>
+            </li>
+            <li class="site-quote-estimate-item site-quote-estimate-price-item">
+              <span class="label">Estimativa</span>
+              <p id="site-quote-estimate" class="site-quote-estimate-price">
+                Ainda sem estimativa
+              </p>
+              <p class="site-quote-estimate-sub">Estimativa indicativa</p>
+            </li>
+          </ul>
+        </aside>
+        <p class="visually-hidden site-quote-live" aria-live="polite"></p>
       </div>
     </main>
     <footer class="site-footer">
