@@ -15,7 +15,6 @@ function initSteps() {
       siteQuoteStep.hidden = true;
     }
   }
-  siteQuoteSummary.hidden = true;
 
   let currentStep = 0;
   // Hides the current step and shows the next one. Stops at the last step.
@@ -26,6 +25,7 @@ function initSteps() {
       siteQuoteSteps[currentStep].hidden = false;
     }
     togglePrevBtn();
+    updateFinalStep();
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
 
@@ -37,6 +37,7 @@ function initSteps() {
       siteQuoteSteps[currentStep].hidden = false;
     }
     togglePrevBtn();
+    updateFinalStep();
   }
   siteQuoteBtnPrev.addEventListener("click", prevStep);
 
@@ -49,6 +50,22 @@ function initSteps() {
     }
   }
   togglePrevBtn();
+
+  // On the last step, the submit button replaces the next button and the order summary appears.
+  function updateFinalStep() {
+    if (currentStep >= siteQuoteSteps.length - 1) {
+      siteQuoteBtnSubmit.hidden = false;
+      siteQuoteBtnSubmit.disabled = false;
+      siteQuoteSummary.hidden = false;
+      siteQuoteBtnNext.hidden = true;
+    } else {
+      siteQuoteBtnSubmit.hidden = true;
+      siteQuoteBtnSubmit.disabled = true;
+      siteQuoteSummary.hidden = true;
+      siteQuoteBtnNext.hidden = false;
+    }
+  }
+  updateFinalStep();
 }
 
 initSteps();
