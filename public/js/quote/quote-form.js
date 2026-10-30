@@ -17,14 +17,15 @@ function initSteps() {
   }
   siteQuoteSummary.hidden = true;
 
-  // Hides the current step and shows the next one. Stops at the last step.
   let currentStep = 0;
+  // Hides the current step and shows the next one. Stops at the last step.
   function nextStep() {
     if (currentStep < siteQuoteSteps.length - 1) {
       siteQuoteSteps[currentStep].hidden = true;
       currentStep++;
       siteQuoteSteps[currentStep].hidden = false;
     }
+    togglePrevBtn();
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
 
@@ -35,8 +36,19 @@ function initSteps() {
       currentStep--;
       siteQuoteSteps[currentStep].hidden = false;
     }
+    togglePrevBtn();
   }
   siteQuoteBtnPrev.addEventListener("click", prevStep);
+
+  // Hides the previous button on the first step and shows it on the others.
+  function togglePrevBtn() {
+    if (currentStep > 0) {
+      siteQuoteBtnPrev.hidden = false;
+    } else {
+      siteQuoteBtnPrev.hidden = true;
+    }
+  }
+  togglePrevBtn();
 }
 
 initSteps();
