@@ -6,6 +6,7 @@ function initSteps() {
   const siteQuoteBtnNext = document.querySelector(".site-quote-btn-next");
   const siteQuoteBtnPrev = document.querySelector(".site-quote-btn-prev");
   const siteQuoteBtnSubmit = document.querySelector(".site-quote-btn-submit");
+  const siteQuoteStepsList = document.querySelectorAll(".site-quote-steps li");
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -26,6 +27,7 @@ function initSteps() {
     }
     togglePrevBtn();
     updateFinalStep();
+    toggleStepsList();
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
 
@@ -38,6 +40,7 @@ function initSteps() {
     }
     togglePrevBtn();
     updateFinalStep();
+    toggleStepsList();
   }
   siteQuoteBtnPrev.addEventListener("click", prevStep);
 
@@ -66,6 +69,20 @@ function initSteps() {
     }
   }
   updateFinalStep();
+
+  // Marks the current step in the progress indicator with aria-current.
+  // The CSS reads that attribute to give the step its white background.
+  function toggleStepsList() {
+    for (let i = 0; i < siteQuoteStepsList.length; i++) {
+      const siteQuoteStepItemList = siteQuoteStepsList[i];
+      if (i === currentStep) {
+        siteQuoteStepItemList.setAttribute("aria-current", "step");
+      } else {
+        siteQuoteStepItemList.removeAttribute("aria-current");
+      }
+    }
+  }
+  toggleStepsList();
 }
 
 initSteps();
