@@ -82,6 +82,22 @@
   color: var(--color-ink);
 }
 
+.site-quote-steps .is-completed {
+  border: 2px solid var(--color-ink);
+  color: var(--color-paper);
+  background: var(--color-ink);
+}
+
+.site-quote-steps .is-completed .icon-checkup,
+.site-quote-steps .is-completed .site-quote-step-completed {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.site-quote-steps .is-completed .icon-checkup {
+  margin-left: auto;
+}
+
 .site-quote-step-number {
   font-family: var(--font-mono);
   font-weight: var(--font-weight-medium);
@@ -103,6 +119,11 @@
 
 [aria-current="step"] .site-quote-step-name {
   font-weight: var(--font-weight-semibold);
+}
+
+.icon-checkup,
+.site-quote-step-completed {
+  display: none;
 }
 
 /* TABLET STEP INDICATOR */
@@ -419,6 +440,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+}
+
+.site-quote-btn-next {
+  margin-left: auto;
 }
 
 /* ESTIMATE PANEL */

@@ -41,5 +41,11 @@
                   stroke-width="2"
                   stroke-linecap="square"
                   stroke-linejoin="miter"><path d="M6 9l6 6 6-6"/></symbol>
+<!-- ICON CHECKUP -->
+<symbol id="icon-checkup" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="square"
+                  stroke-linejoin="miter"><path d="M5 12l5 5 9-10"/></symbol>
 </svg>
 
