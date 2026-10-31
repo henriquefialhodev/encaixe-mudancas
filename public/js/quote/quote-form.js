@@ -7,6 +7,10 @@ function initSteps() {
   const siteQuoteBtnPrev = document.querySelector(".site-quote-btn-prev");
   const siteQuoteBtnSubmit = document.querySelector(".site-quote-btn-submit");
   const siteQuoteStepsList = document.querySelectorAll(".site-quote-steps li");
+  const siteQuoteStepLabel = document.querySelector(".site-quote-step-label");
+  const siteQuoteStepHiddenLabel = document.querySelector(
+    ".site-quote-step-hidden-label",
+  );
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -28,6 +32,7 @@ function initSteps() {
     togglePrevBtn();
     updateFinalStep();
     toggleStepsList();
+    updateStep();
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
 
@@ -41,6 +46,7 @@ function initSteps() {
     togglePrevBtn();
     updateFinalStep();
     toggleStepsList();
+    updateStep();
   }
   siteQuoteBtnPrev.addEventListener("click", prevStep);
 
@@ -83,6 +89,14 @@ function initSteps() {
     }
   }
   toggleStepsList();
+
+  // Updates the step text, both the visible label and the one for screen readers.
+  function updateStep() {
+    const stepNumber = currentStep + 1;
+    siteQuoteStepLabel.textContent = "Passo 0" + stepNumber + " / 04";
+    siteQuoteStepHiddenLabel.textContent = "Passo " + stepNumber + " de 4";
+  }
+  updateStep();
 }
 
 initSteps();
