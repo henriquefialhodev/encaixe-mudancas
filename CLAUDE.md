@@ -82,5 +82,6 @@ The full visual system is in `docs/design-system.md`. It loads through `.claude/
 
 ## Status
 - Home page done. Quote page layout done: markup of the 4 steps, order summary, navigation buttons, and the estimate panel as a fixed bar below 1024px and a sticky card from 1024px.
-- Netlify credits renewed on 2026-10-27. After merging feat/quote-layout, trigger one production deploy and test the share card, structured data and Lighthouse on the live site.
-- Next: feat/quote-steps (one step visible at a time, with JavaScript).
+- Quote steps done (feat/quote-steps): one step visible at a time, Next and Previous buttons, submit button and order summary on the last step, step indicator (current, completed, "Passo X de 4") and focus on the new step heading.
+- Live site checked on 2026-10-27 (share card and structured data). Lighthouse on the live site is left for when the whole site is complete.
+- Next: feat/quote-validation (validate only the current step before moving on).

@@ -545,11 +545,11 @@ Todos do sprite, 24px, menos onde se diz outro tamanho.
 |---|---|---|
 | Menu e fechar | Cabeçalho | Já tens |
 | Seta para a direita | "Seguinte" e "Enviar pedido" | Já tens (`icon-arrow-right.svg`) |
-| Seta para a esquerda | "Anterior" | Falta |
+| Seta para a esquerda | "Anterior" | Já tens (`icon-arrow-left.svg`) |
 | Mais e menos | Calculadora | Já tens |
-| Visto, 16px | Passos concluídos no indicador | Falta |
+| Visto, 16px | Passos concluídos no indicador | Já tens (`icon-check.svg`, no sprite com o id `icon-checkup`) |
 | Alerta, 16px | Mensagens de erro | Falta |
-| Seta para baixo | `<select>` (design system, secção 9) | Falta |
+| Seta para baixo | `<select>` (design system, secção 9) | Já tens (no sprite, `icon-chevron-down`) |
 
 - **A seta do `<select>` não pode vir do sprite pelo CSS.** Um `<use>` só funciona dentro de um `<svg>` no HTML, não num `background-image`. Fica um `<svg>` ao lado do `<select>`, dentro de um contentor, posicionado à direita e com `pointer-events: none` para o clique passar para o `<select>`. **Conceito novo:** o `<select>` precisa de `appearance: none` para o browser deixar de desenhar a seta dele.
 
