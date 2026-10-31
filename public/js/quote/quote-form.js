@@ -33,6 +33,7 @@ function initSteps() {
     updateFinalStep();
     toggleStepsList();
     updateStep();
+    focusStepHeading();
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
 
@@ -47,6 +48,7 @@ function initSteps() {
     updateFinalStep();
     toggleStepsList();
     updateStep();
+    focusStepHeading();
   }
   siteQuoteBtnPrev.addEventListener("click", prevStep);
 
@@ -102,6 +104,14 @@ function initSteps() {
     siteQuoteStepHiddenLabel.textContent = "Passo " + stepNumber + " de 4";
   }
   updateStep();
+
+    // Moves focus to the heading of the new step, so screen readers announce it
+  // and the next Tab goes into that step.
+  function focusStepHeading() {
+    const currentStepCard = siteQuoteSteps[currentStep];
+    const stepHeading = currentStepCard.querySelector("h2");
+    stepHeading.focus();
+  }
 }
 
 initSteps();
