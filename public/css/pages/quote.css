@@ -91,6 +91,7 @@
 .site-quote-steps .is-completed .icon-checkup,
 .site-quote-steps .is-completed .site-quote-step-completed {
   display: flex;
+  flex-shrink: 0;
 }
 
 .site-quote-steps .is-completed .icon-checkup {
