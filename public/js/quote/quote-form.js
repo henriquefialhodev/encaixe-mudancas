@@ -76,8 +76,8 @@ function initSteps() {
   }
   updateFinalStep();
 
-  // Marks the current step in the progress indicator with aria-current.
-  // The CSS reads that attribute to give the step its white background.
+  // Marks the current step with aria-current and the steps before it with is-completed.
+  // The CSS reads both to style each step.
   function toggleStepsList() {
     for (let i = 0; i < siteQuoteStepsList.length; i++) {
       const siteQuoteStepItemList = siteQuoteStepsList[i];
@@ -85,6 +85,11 @@ function initSteps() {
         siteQuoteStepItemList.setAttribute("aria-current", "step");
       } else {
         siteQuoteStepItemList.removeAttribute("aria-current");
+      }
+      if (i < currentStep) {
+        siteQuoteStepItemList.classList.add("is-completed");
+      } else {
+        siteQuoteStepItemList.classList.remove("is-completed");
       }
     }
   }
