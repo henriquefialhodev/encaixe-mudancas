@@ -272,7 +272,7 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 - **Zonas, Perguntas frequentes e Contactos:** uma coluna até 1023px. A partir de 1024px, duas colunas (`1fr 2fr`) com 64px entre elas: o título à esquerda e o conteúdo à direita. Nos Contactos, o texto de introdução fica na coluna da esquerda, por baixo do título.
 - **Orçamento em mobile:** uma coluna com o formulário e a barra fixa no fundo. A barra tapa o fim da página, por isso:
   - o `<body>` leva uma margem em baixo igual à altura da barra.
-  - o `<html>` leva `scroll-padding-bottom` com essa mesma altura (conceito novo: diz ao browser quanto espaço deixar livre ao fazer scroll até um elemento). Assim, quando o foco passa para um campo junto ao fundo, o campo não fica escondido debaixo da barra.
+  - o `<html>` leva `scroll-padding-bottom` com essa mesma altura (diz ao browser quanto espaço deixar livre ao fazer scroll até um elemento). Assim, quando o foco passa para um campo junto ao fundo, o campo não fica escondido debaixo da barra.
 - **Orçamento a partir de 1024px:** duas colunas. Formulário à esquerda (ocupa o espaço que sobra, até 640px) e painel da estimativa à direita (320px), com 48px entre eles. O painel fica preso ao topo enquanto se faz scroll (`position: sticky`).
 
 ---
@@ -298,7 +298,7 @@ Dois breakpoints, em px: tablet (768px) e desktop (1024px). As media queries sã
 - **Área mínima de toque: 44 × 44px.**
 - **As animações e transições do site são as da secção 12.**
 - **Desativar é a exceção.** A ficha já define que "Seguinte" e o envio validam ao clicar, em vez de ficarem desativados. Um botão desativado não diz porque está desativado e perde o foco. O estilo desativado existe para os botões − e + da calculadora e para casos futuros.
-- **`disabled` e `aria-disabled` não são a mesma coisa** (conceito novo). Um botão com `disabled` sai da ordem do Tab e, se tinha o foco, o foco perde-se para o início da página. Com `aria-disabled="true"`, o botão continua focável e o leitor de ecrã anuncia "indisponível", mas é o JavaScript que tem de ignorar o clique. Nos botões − e +, usa-se `aria-disabled`.
+- **`disabled` e `aria-disabled` não são a mesma coisa**. Um botão com `disabled` sai da ordem do Tab e, se tinha o foco, o foco perde-se para o início da página. Com `aria-disabled="true"`, o botão continua focável e o leitor de ecrã anuncia "indisponível", mas é o JavaScript que tem de ignorar o clique. Nos botões − e +, usa-se `aria-disabled`.
 
 ### Botão primário
 

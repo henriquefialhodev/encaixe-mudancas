@@ -1,36 +1,29 @@
 # Página de orçamento (orcamento.html)
 
-Tudo o que precisas para construir a página: textos, campos, mensagens de erro, dados da calculadora, valores do preço, formato do resumo, medidas do mockup e o que não deves copiar dele.
+Especificação da página de pedido de orçamento: textos, campos, mensagens de erro, dados da calculadora, valores do preço, formato do resumo e medidas.
 
-As regras de comportamento estão na ficha (F3 a F7) e as visuais no design system. Aqui ficam reunidas e, onde faltava um valor, proposto.
-
-**Marcas usadas neste ficheiro:**
-
-- **[NOVO]:** texto que não estava no mockup aprovado. Revê antes de usar.
-- **[A CONFIRMAR]:** decisão tua. Está proposta, mas não a uses sem dizeres que sim.
+As regras de comportamento estão na ficha (F3 a F7) e as visuais no design system. Este ficheiro reúne-as para esta página.
 
 Os nomes entre parênteses (h1, h2, etiqueta) dizem que papel cada texto tem na página. Os `id` e os valores estão em inglês, como o resto do código.
 
 ---
 
-## 0. Decisões tomadas
+## 0. Regras gerais
 
-Decididas a 17 de outubro de 2026. A ficha e o design system já estão atualizados.
-
-1. **Valores do preço e limites dos veículos:** os da secção 11. Dão o resultado do mockup (18,5 m³, camião, 350 € a 420 €).
-2. **Os itens da calculadora não têm ícones**, como no mockup. Só o nome e o volume.
-3. **O erro do passo 2 aparece por baixo do texto de introdução do passo**, dentro do cartão. O foco vai para o primeiro botão +, que leva a mensagem no `aria-describedby`. Os sofás e os roupeiros passam a tamanhos com intervalo, e o maior apanha tudo o que é maior (secção 6).
+1. **Valores do preço e limites dos veículos:** os da secção 11. O exemplo dessa secção dá 18,5 m³, camião e 350 € a 420 €.
+2. **Os itens da calculadora não têm ícones.** Só o nome e o volume.
+3. **O erro do passo 2 aparece por baixo do texto de introdução do passo**, dentro do cartão. O foco vai para o primeiro botão +, que leva a mensagem no `aria-describedby`. Os sofás e os roupeiros têm tamanhos com intervalo, e o maior apanha tudo o que é maior (secção 6).
 4. **Uma única mensagem escondida com `aria-live="polite"`** anuncia o que mudou: "Cadeira: 4. Volume: 18,7 m³." ao clicar em − ou +, e "Estimativa: 350 € a 420 €." quando muda outro campo que conta para o preço. O painel não tem `aria-live`.
 5. **Sem JavaScript, ficam escondidos o indicador de passos e o painel**, além dos botões de navegação.
-6. **A frase passa a ser só "Estimativa indicativa"** e aparece no painel do desktop e no resumo do passo 4. Na barra do telemóvel não aparece. Que o negócio é fictício já está na fita do topo e no rodapé.
+6. **A frase é "Estimativa indicativa"** e aparece no painel do desktop e no resumo do passo 4. Na barra do telemóvel não aparece. O aviso de negócio fictício fica na fita do topo e no rodapé.
 7. **O link da política de privacidade abre noutro separador**, com o aviso no próprio texto do link (secção 8).
 
 ---
 
 ## 1. Head
 
-- **title:** [NOVO] Pedir orçamento | Encaixe Mudanças
-- **meta description:** [NOVO] Peça um orçamento de mudança em Braga em 4 passos. Indique o recheio e veja o volume em m³ e uma estimativa de preço. Projeto fictício.
+- **title:** Pedir orçamento | Encaixe Mudanças
+- **meta description:** Peça um orçamento de mudança em Braga em 4 passos. Indique o recheio e veja o volume em m³ e uma estimativa de preço. Projeto fictício.
 
 - **canonical:** https://encaixe-mudancas.netlify.app/orcamento.html
 
@@ -62,7 +55,7 @@ As mesmas etiquetas da página inicial. Mudam só o título, a descrição e o e
 
 Iguais aos da página inicial (`home.md`), com duas diferenças:
 
-- **Links do menu:** apontam para as secções da página inicial, com `index.html#` antes do id (por exemplo `index.html#` + o id que deste à secção dos serviços). Só com `#`, o browser procurava a secção nesta página.
+- **Links do menu:** apontam para as secções da página inicial, com `index.html#` antes do id (por exemplo `index.html#` + o id da secção dos serviços). Só com `#`, o browser procurava a secção nesta página.
 - **"Pedir orçamento":** no cabeçalho e no rodapé, leva `aria-current="page"`. No cabeçalho mostra o sublinhado fixo de 3px (design system, secção 9, Navegação).
 
 ---
@@ -115,9 +108,9 @@ Iguais aos da página inicial (`home.md`), com duas diferenças:
 **Código postal:**
 
 - `pattern` para `0000-000`, `maxlength="8"`.
-- `autocomplete="section-origin postal-code"` na origem e `autocomplete="section-destination postal-code"` no destino. **Conceito novo:** o prefixo `section-` diz ao browser que são duas moradas diferentes. Sem ele, o preenchimento automático punha o mesmo código postal nos dois campos.
+- `autocomplete="section-origin postal-code"` na origem e `autocomplete="section-destination postal-code"` no destino. O prefixo `section-` diz ao browser que são duas moradas diferentes. Sem ele, o preenchimento automático punha o mesmo código postal nos dois campos.
 - **Hífen automático:** enquanto a pessoa escreve, o JavaScript tira tudo o que não seja algarismo e põe o hífen depois do quarto. Quem escreve `4700000` vê `4700-000`. Se a pessoa escrever o hífen, também funciona. Ao corrigir um algarismo a meio, o cursor não pode saltar para o fim. Entra na `feat/quote-validation`.
-- **`inputmode="numeric"` volta quando o hífen automático estiver feito.** O mockup tem-no, e tinha sido tirado porque o teclado numérico do telemóvel pode não ter o hífen. Com o hífen automático já não é preciso escrevê-lo. Sem JavaScript, a pessoa escreve o hífen à mão, como diz a ajuda.
+- **`inputmode="numeric"` entra com o hífen automático.** O teclado numérico do telemóvel pode não ter o hífen, e com o hífen automático já não é preciso escrevê-lo. Sem JavaScript, o hífen escreve-se à mão, como diz a ajuda.
 
 **Opções do andar:**
 
@@ -154,7 +147,7 @@ Iguais aos da página inicial (`home.md`), com duas diferenças:
 | Andar do destino | Escolha o andar do destino. |
 | Elevador na origem | Indique se há elevador na origem. |
 | Elevador no destino | Indique se há elevador no destino. |
-| Distância | [NOVO] Escolha a distância entre as duas moradas. |
+| Distância | Escolha a distância entre as duas moradas. |
 
 - No grupo do elevador, a mensagem fica por baixo das duas opções. O `aria-describedby` vai no `<fieldset>` do grupo e o foco vai para a primeira opção.
 
@@ -170,7 +163,7 @@ Iguais aos da página inicial (`home.md`), com duas diferenças:
 
 ### Itens da calculadora
 
-Todos começam com quantidade 0. As quantidades do mockup são só um exemplo.
+Todos começam com quantidade 0.
 
 Os sofás e os roupeiros têm tamanhos com intervalo, e o maior apanha tudo o que é maior. Assim, quem tem um sofá de 4 lugares ou de canto sabe o que escolher. O que não estiver na lista vai para as observações do passo 4.
 
@@ -230,12 +223,12 @@ Os sofás e os roupeiros têm tamanhos com intervalo, e o maior apanha tudo o qu
 A lista é gerada a partir do array, por isso sem JavaScript não existe. Em vez dela aparece uma caixa de texto (ficha F5), que o JavaScript esconde:
 
 - **Etiqueta:** Descreva o recheio
-- **Ajuda:** [NOVO] Por exemplo: um sofá de 3 lugares, duas camas de casal e 15 caixas.
+- **Ajuda:** Por exemplo: um sofá de 3 lugares, duas camas de casal e 15 caixas.
 - **`id`:** `inventory-description`. `<textarea>` com 6 linhas.
 
 ### Mensagem de erro
 
-- [NOVO] Adicione pelo menos um item com o botão +. Sem itens não conseguimos calcular o volume.
+- Adicione pelo menos um item com o botão +. Sem itens não conseguimos calcular o volume.
 - **Onde aparece:** por baixo do texto de introdução do passo, dentro do cartão. O foco vai para o primeiro botão +, que leva a mensagem no `aria-describedby`.
 
 ---
@@ -255,14 +248,14 @@ A lista é gerada a partir do array, por isso sem JavaScript não existe. Em vez
 
 | Situação | Mensagem |
 |---|---|
-| Sem data | [NOVO] Escolha a data da mudança. |
-| Data no passado | [NOVO] Escolha uma data a partir de hoje. |
-| Data ocupada | [NOVO] Esse dia já está ocupado. Escolha outra data. |
+| Sem data | Escolha a data da mudança. |
+| Data no passado | Escolha uma data a partir de hoje. |
+| Data ocupada | Esse dia já está ocupado. Escolha outra data. |
 
 ### Serviços extra
 
 - **h3 (dentro do `<legend>`):** Serviços extra (opcional)
-- Caixas de seleção. Nenhuma começa marcada (no mockup, a primeira aparece marcada só como exemplo).
+- Caixas de seleção. Nenhuma começa marcada.
 
 | Etiqueta | Ajuda | `id` | `value` | Texto no resumo |
 |---|---|---|---|---|
@@ -306,18 +299,18 @@ A lista é gerada a partir do array, por isso sem JavaScript não existe. Em vez
 
 | Campo | Situação | Mensagem |
 |---|---|---|
-| Nome | Vazio | [NOVO] Escreva o seu nome. |
-| Email | Vazio | [NOVO] Escreva o seu email. |
-| Email | Mal escrito | [NOVO] Escreva o email completo, por exemplo nome@example.com. |
-| Telefone | Vazio ou errado | [NOVO] Escreva o telefone com 9 dígitos, sem indicativo, por exemplo 253 000 000. |
-| Consentimento | Não marcado | [NOVO] Para enviar o pedido, tem de aceitar a política de privacidade. |
+| Nome | Vazio | Escreva o seu nome. |
+| Email | Vazio | Escreva o seu email. |
+| Email | Mal escrito | Escreva o email completo, por exemplo nome@example.com. |
+| Telefone | Vazio ou errado | Escreva o telefone com 9 dígitos, sem indicativo, por exemplo 253 000 000. |
+| Consentimento | Não marcado | Para enviar o pedido, tem de aceitar a política de privacidade. |
 
 ### Resumo do pedido
 
 - Fica por baixo dos campos, dentro do formulário, numa `<section>` com o título **h3: Resumo do pedido**.
 - Tem três blocos. Cada um tem uma etiqueta mono, um botão "Editar" com aspeto de link e as linhas de texto.
 
-| Etiqueta | Nome acessível do botão | Linhas (exemplo do mockup) |
+| Etiqueta | Nome acessível do botão | Linhas (exemplo) |
 |---|---|---|
 | Origem e destino | Editar origem e destino | Origem: 4700-000, 3.º andar, sem elevador · Destino: 4710-000, rés-do-chão, com elevador · Distância: até 25 km |
 | Recheio | Editar recheio | 36 itens, 18,5 m³ · Veículo sugerido: camião |
@@ -328,7 +321,7 @@ Regras das linhas:
 - **Andar:** o texto da opção com a primeira letra em minúscula ("rés-do-chão", "3.º andar", "6.º andar ou mais").
 - **Elevador:** "com elevador" ou "sem elevador".
 - **Itens:** a soma das quantidades. Com 1, "1 item". Com mais, "36 itens".
-- **Data:** dia da semana, dia, mês e ano, com a primeira letra em maiúscula. **Conceito novo:** `toLocaleDateString` com opções formata a data em pt-PT, mas devolve o dia da semana em minúscula ("sábado"). Para criar a data a partir do valor do campo, usa o ano, o mês e o dia separados, pela mesma razão do UTC da ficha (F4).
+- **Data:** dia da semana, dia, mês e ano, com a primeira letra em maiúscula. O `toLocaleDateString` com opções formata a data em pt-PT, mas devolve o dia da semana em minúscula ("sábado"). A data é criada a partir do valor do campo com o ano, o mês e o dia separados, pela mesma razão do UTC da ficha (F4).
 - **Extras:** "Extras: " e os textos da tabela do passo 3, separados por vírgula. Sem nenhum, "Extras: nenhum".
 - Por baixo dos três blocos, separado por uma linha de 2px em ink:
   - **Etiqueta:** Estimativa
@@ -366,7 +359,7 @@ Regras das linhas:
 | Preço | Ainda sem estimativa | 350 € a 420 € |
 | Frase | Estimativa indicativa | igual |
 
-- **Total sempre com uma casa decimal e vírgula.** O mockup mostra "0 m³" no início. Com uma regra só, fica "0,0 m³".
+- **Total sempre com uma casa decimal e vírgula**, também no início: "0,0 m³".
 - Antes de haver itens, o veículo e o preço ficam em muted. Com itens, em ink.
 - O total recebe o destaque kraft quando muda (design system, secção 12).
 - O painel não tem `aria-live`. O leitor de ecrã ouve uma única mensagem escondida com `aria-live="polite"`, fora do painel, que o JavaScript preenche só com o que mudou:
@@ -377,14 +370,14 @@ Regras das linhas:
 ### Na barra (abaixo de 1024px)
 
 - Mostra só a etiqueta "Volume", o total e o preço, numa linha. O veículo e a frase ficam escondidos.
-- No mockup a etiqueta aparece como "Vol.". Usa "Volume", porque é o mesmo texto do painel e não há espaço a ganhar com a abreviatura.
-- Sem itens, o preço na barra diz "Sem estimativa" (mais curto, para caber na linha). Isto obriga a ter os dois textos no HTML, um visível em cada tamanho. Se preferires simplificar, usa "Ainda sem estimativa" nos dois, mas confirma no browser, a 360px, que cabe na mesma linha que "VOLUME 0,0 M³".
+- A etiqueta é "Volume" e não "Vol.", porque é o mesmo texto do painel e não há espaço a ganhar com a abreviatura.
+- Sem itens, o preço na barra diz "Sem estimativa" (mais curto, para caber na linha). Os dois textos estão no HTML, um visível em cada tamanho.
 
 ---
 
 ## 11. Dados e configuração
 
-Todos os valores ficam em objetos de configuração (ficha F5 e F6). Pela tua convenção de nomes, os valores fixos ficam em `UPPER_SNAKE_CASE` (por exemplo `ITEMS`, `VEHICLES`, `PRICING`, `BUSY_DAY_OFFSETS`) e o que é calculado ao correr fica em camelCase (por exemplo as datas ocupadas, calculadas a partir de hoje).
+Todos os valores ficam em objetos de configuração (ficha F5 e F6). Pela convenção de nomes do projeto, os valores fixos ficam em `UPPER_SNAKE_CASE` (por exemplo `ITEMS`, `VEHICLES`, `PRICING`, `BUSY_DAY_OFFSETS`) e o que é calculado ao correr fica em camelCase (por exemplo as datas ocupadas, calculadas a partir de hoje).
 
 ### Veículo sugerido
 
@@ -423,7 +416,7 @@ Lê-se de cima para baixo e fica o primeiro cujo limite não é ultrapassado.
 - **Andares sem elevador:** o número do andar quando a resposta ao elevador é "Não". Com elevador, conta 0. Somam-se a origem e o destino.
 - **A estimativa só aparece com volume maior que 0.** A distância e os andares já estão escolhidos nessa altura, porque o passo 1 é validado antes.
 
-**Exemplo do mockup** (18,5 m³, origem num 3.º andar sem elevador, destino num rés-do-chão com elevador, até 25 km, com embalagem):
+**Exemplo** (18,5 m³, origem num 3.º andar sem elevador, destino num rés-do-chão com elevador, até 25 km, com embalagem):
 
 | Parcela | Valor |
 |---|---|
@@ -436,17 +429,17 @@ Lê-se de cima para baixo e fica o primeiro cujo limite não é ultrapassado.
 | Mínimo (arredondado a 10 €) | 350 € |
 | Máximo (352 € × 1,2 = 422,4 €, arredondado a 10 €) | 420 € |
 
-Resultado: **350 € a 420 €**, como no mockup.
+Resultado: **350 € a 420 €**.
 
-**Atenção às contas com decimais (conceito novo):** o JavaScript guarda os números em binário e alguns decimais não têm representação exata. 15 × 0,1 dá 1,5000000000000002, e um total que devia ser 6,0 pode passar ligeiramente de 6 e mudar o veículo. Arredonda o total a uma casa decimal antes de o comparar com os limites e de calcular o preço.
+**Contas com decimais:** o JavaScript guarda os números em binário e alguns decimais não têm representação exata. 15 × 0,1 dá 1,5000000000000002, e um total que devia ser 6,0 pode passar ligeiramente de 6 e mudar o veículo. O total é arredondado a uma casa decimal antes de ser comparado com os limites e de entrar no preço.
 
 ---
 
 ## 12. Envio simulado
 
-- **Referência:** `ENC-` + ano atual + `-` + 4 algarismos aleatórios, com zeros à esquerda quando o número é pequeno (por exemplo `ENC-2026-0482`). **Conceito novo:** `padStart` acrescenta os zeros à esquerda de um texto até ter o tamanho pedido.
+- **Referência:** `ENC-` + ano atual + `-` + 4 algarismos aleatórios, com zeros à esquerda quando o número é pequeno (por exemplo `ENC-2026-0482`). O `padStart` acrescenta os zeros à esquerda de um texto até ter o tamanho pedido.
 - **Chave no `sessionStorage`:** `quoteRequest`.
-- **O que guardar** (proposta, fecha-se quando fizermos os textos do `obrigado.html`):
+- **O que se guarda:**
 
 | Campo | Conteúdo |
 |---|---|
@@ -468,7 +461,7 @@ Resultado: **350 € a 420 €**, como no mockup.
 
 ## 13. Comportamento
 
-As regras completas estão na ficha. Esta é a lista para conferires no fim de cada tarefa:
+As regras completas estão na ficha. Lista de verificação:
 
 - [ ] Só se vê um passo de cada vez (F3).
 - [ ] "Seguinte" valida só o passo atual. Com erros: não avança, mostra as mensagens ligadas com `aria-describedby`, o campo leva `aria-invalid="true"` e o foco vai para o primeiro campo com erro (F3).
@@ -485,13 +478,13 @@ As regras completas estão na ficha. Esta é a lista para conferires no fim de c
 
 ---
 
-## 14. Layout e medidas do mockup
+## 14. Layout e medidas
 
-As regras gerais estão no design system (secções 6, 7 e 9). Estas são as medidas que o mockup usa e que não estão lá escritas. Os valores entre parênteses são a partir de 768px e a partir de 1024px.
+As regras gerais estão no design system (secções 6, 7 e 9). Estas são as medidas desta página que não estão lá. Os valores entre parênteses são a partir de 768px e a partir de 1024px.
 
 ### Página
 
-- Espaço em cima do `<main>`: 32px (48px, 64px). Em  baixo: 64px (64px, 96px), que é o `--section-space`. O mockup tem 40px em mobile, mas esse valor não está na escala de espaços do design system.
+- Espaço em cima do `<main>`: 32px (48px, 64px). Em  baixo: 64px (64px, 96px), que é o `--section-space`.
 - Do bloco do h1 até ao formulário: 32px. Entre o h1 e o texto de entrada: 12px.
 - Abaixo de 1024px, o `<body>` leva 64px de margem em baixo, a altura da barra, e o `<html>` o mesmo `scroll-padding-bottom` (design system, secção 7).
 - A partir de 1024px: formulário até 640px e painel de 320px, com 48px entre eles. O painel fica preso a 24px do topo.
@@ -541,39 +534,21 @@ As regras gerais estão no design system (secções 6, 7 e 9). Estas são as med
 
 Todos do sprite, 24px, menos onde se diz outro tamanho.
 
-| Ícone | Onde | Ficheiro |
+| Ícone | Onde | `id` no sprite |
 |---|---|---|
-| Menu e fechar | Cabeçalho | Já tens |
-| Seta para a direita | "Seguinte" e "Enviar pedido" | Já tens (`icon-arrow-right.svg`) |
-| Seta para a esquerda | "Anterior" | Já tens (`icon-arrow-left.svg`) |
-| Mais e menos | Calculadora | Já tens |
-| Visto, 16px | Passos concluídos no indicador | Já tens (`icon-check.svg`, no sprite com o id `icon-checkup`) |
-| Alerta, 16px | Mensagens de erro | Falta |
-| Seta para baixo | `<select>` (design system, secção 9) | Já tens (no sprite, `icon-chevron-down`) |
+| Menu e fechar | Cabeçalho | `icon-menu`, `icon-close` |
+| Seta para a direita | "Seguinte" e "Enviar pedido" | `icon-arrow-right` |
+| Seta para a esquerda | "Anterior" | `icon-arrow-left` |
+| Mais e menos | Calculadora | `icon-plus`, `icon-minus` |
+| Visto, 16px | Passos concluídos no indicador | `icon-checkup` |
+| Alerta, 16px | Mensagens de erro | `icon-alert` |
+| Seta para baixo | `<select>` (design system, secção 9) | `icon-chevron-down` |
 
-- **A seta do `<select>` não pode vir do sprite pelo CSS.** Um `<use>` só funciona dentro de um `<svg>` no HTML, não num `background-image`. Fica um `<svg>` ao lado do `<select>`, dentro de um contentor, posicionado à direita e com `pointer-events: none` para o clique passar para o `<select>`. **Conceito novo:** o `<select>` precisa de `appearance: none` para o browser deixar de desenhar a seta dele.
-
----
-
-## 16. O que não deves copiar do mockup
-
-O mockup é só referência visual. Estas diferenças são de propósito:
-
-1. **Os `id` do mockup estão em português** (`cp-origem`, `distancia`). Usa os desta página, em inglês.
-2. **O código postal tem `inputmode="numeric"`.** Só entra quando o hífen automático estiver feito (secção 5).
-3. **Os campos e as quantidades vêm preenchidos.** É um exemplo. A página começa vazia e com tudo a 0.
-4. **Os botões têm 20px de margem lateral.** O design system diz 24px. Segue o design system.
-5. **Os botões − e + estão a 8px da quantidade.** O design system diz 16px. Segue o design system.
-6. **No rodapé em mobile, a altura mínima de 44px está no `<li>`.** O design system põe-na no `<a>`, porque a área de toque é a caixa do link.
-7. **O rodapé em desktop usa colunas `2fr 1fr 1fr`.** O design system diz `3fr 2fr auto`.
-8. **As fontes vêm do Google Fonts.** No site ficam alojadas em `assets/fonts/`.
-9. **Os ícones estão escritos dentro de cada botão** e a seta para a direita tem a ponta antiga. Usa o sprite e o `icon-arrow-right.svg` atual.
-10. **"Vol." na barra e "0 m³" no painel.** Ficam "Volume" e "0,0 m³" (secção 10).
-11. **Os `<select>` mostram a seta do browser.** O design system pede a seta do sprite (secção 15).
+- **A seta do `<select>` não pode vir do sprite pelo CSS.** Um `<use>` só funciona dentro de um `<svg>` no HTML, não num `background-image`. Fica um `<svg>` ao lado do `<select>`, dentro de um contentor, posicionado à direita e com `pointer-events: none` para o clique passar para o `<select>`. O `<select>` leva `appearance: none` para o browser deixar de desenhar a seta dele.
 
 ---
 
-## 17. Ordem das tarefas
+## 16. Ordem das tarefas
 
 As tarefas 5 a 10 da ficha, com a parte deste ficheiro que cada uma usa:
 
