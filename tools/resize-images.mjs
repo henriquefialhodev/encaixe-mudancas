@@ -1,4 +1,4 @@
-// Generates the image widths listed in docs/design-system.md (section 11).
+// Generates the image widths listed in docs/design-system/brand.md (Images).
 // Reads the originals from src-images/ and writes WebP files to public/assets/images/.
 // Run from the tools folder: npm run images
 

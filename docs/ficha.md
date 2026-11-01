@@ -8,10 +8,9 @@
 - **O que faz:** mudanças de casa pequenas e médias, pequenos transportes, embalagem e guarda-móveis.
 - **Para quem:** quem vive num apartamento, estudantes e pequenos escritórios da região de Braga.
 
-## 2. Tipo de site, nível e estilo visual
+## 2. Tipo de site e estilo visual
 
 - **Tipo:** site multipágina pequeno, centrado num pedido de orçamento em vários passos com calculadora de volume.
-- **Nível:** desafiante.
 - **Estilo visual: "etiqueta de expedição".**
   - Fundo cor de papel e cartões brancos com cantos retos e rebordo a tinta de 2px.
   - Etiquetas em letra monoespaçada e maiúsculas, por exemplo "PASSO 02 / 04" e "VOL. 18,5 M³".
@@ -133,7 +132,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 
 ### Cores e contrastes
 
-A paleta, os contrastes e as combinações proibidas estão no `design-system.md` (secções 3 e 4).
+A paleta, os contrastes e as combinações proibidas estão em `design-system/tokens.md` (secções Colour e Contrast).
 
 ### Fontes
 
@@ -168,14 +167,7 @@ Sim. O site tem mais de uma página e recolhe dados, mesmo que simulados.
 
 A página de cookies diz que o site não usa cookies. Usa só `sessionStorage`, que é estritamente necessário para o pedido, por isso não precisa de aviso de cookies.
 
-## 9. Conceitos novos
-
-1. **Constraint Validation API** (`checkValidity`, `setCustomValidity`, `validity`), na validação por passo (F3 e F4). É a forma nativa do browser validar campos a partir de JavaScript.
-2. **`sessionStorage` com `JSON.stringify` e `JSON.parse`**, para passar o pedido do `orcamento.html` para o `obrigado.html` (F7).
-
-Também se usa o atributo `aria-live` (F5). Não é propriamente um conceito, explica-se quando lá se chegar.
-
-## 10. Referências reais
+## 9. Referências reais
 
 São só para inspiração, nunca para copiar.
 
@@ -183,9 +175,9 @@ São só para inspiração, nunca para copiar.
 - [Pedido de orçamento da Ok Mudanças](https://okmudancas.com/orcamento-mudancas/): formulário de orçamento.
 - [Orçamento online da TMI Mudanças](https://www.mudancas-internacionais.pt/orcamento-mudanca-internacional-online): pedido de orçamento online.
 
-## 11. Tarefas por ordem
+## 10. Tarefas por ordem
 
-| # | Branch | Tarefa | Blocos |
+| # | Branch | Tarefa | Tempo estimado |
 |---|---|---|---|
 | 1 | `feat/setup` | pastas, CLAUDE.md, `base.css` com tokens, fontes, sprite vazio | 2h |
 | 2 | `feat/header-footer` | cabeçalho, menu responsivo (F1), rodapé, aviso de projeto fictício | 2h + 1h |
@@ -203,22 +195,6 @@ São só para inspiração, nunca para copiar.
 | 14 | `fix/a11y-audit` | testes em Chrome, WebKit e telemóvel, Lighthouse, leitor de ecrã, correções | 4h + 2h |
 | 15 | `feat/readme-deploy` | README, publicação, capturas e cartão do portefólio | 2h |
 
-## 12. Tempo total estimado
-
-Cerca de 49h de tarefas. Contar com 55h a 60h, porque os dois conceitos novos e a acessibilidade do formulário vão levar mais tempo. Usando todos os blocos da semana só neste projeto, são 3 a 4 semanas.
-
-## 13. Nome do repositório e da pasta
+## 11. Repositório
 
 - **Repositório:** `encaixe-mudancas`
-- **Pasta:** `D:\0-projetos\2-projetos-pratica\encaixe-mudancas`
-
-## 14. Texto do cartão do portefólio
-
-- **Título:** Encaixe Mudanças
-- **Descrição:** Site de uma empresa de mudanças fictícia em Braga, com pedido de orçamento em 4 passos, calculadora de volume e estimativa de preço em JavaScript puro.
-
-### Linha para o backlog
-
-```
-| Encaixe Mudanças | automóvel e transportes | pedido de orçamento em vários passos com calculadora | desafiante | etiqueta de expedição: papel, kraft, tinta e laranja de sinalização, Barlow Condensed e mono | escolhida | Envio simulado. Treina formulário em vários passos, estado em JS e layout com painel fixo. |
-```
