@@ -132,7 +132,7 @@ A estimativa de preço e a calculadora não precisam de backend. São só JavaSc
 
 ### Cores e contrastes
 
-A paleta, os contrastes e as combinações proibidas estão no `design-system.md` (secções 3 e 4).
+A paleta, os contrastes e as combinações proibidas estão em `design-system/tokens.md` (secções Colour e Contrast).
 
 ### Fontes
 

@@ -17,8 +17,7 @@ HTML, CSS and vanilla JavaScript (ES modules). No backend. Quote submission is s
 
 ## Docs (read only when the task needs them)
 - `docs/features.md`: every feature with its acceptance criteria. Read before working on a feature or reviewing one.
-- `docs/design-system.md`: the visual system. Loads automatically through `.claude/rules/design-system.md` (see Brand).
-- `docs/components.md`: the shared components. Read before creating a component.
+- `docs/design-system/`: the visual system, in four files: `brand.md`, `tokens.md`, `components.md` and `pages.md`. `README.md` explains how they relate. Loads through `.claude/rules/design-system.md` (see Brand). Check `components.md` before creating a component.
 - `docs/content/`: page copy, one file per page. Read when writing or changing the text of a page.
 - `docs/ficha.md`: the original project sheet. Read only when the original brief matters.
 
@@ -30,10 +29,10 @@ HTML, CSS and vanilla JavaScript (ES modules). No backend. Quote submission is s
 - Footer on every page: fictional project notice and link to Livro de Reclamações Eletrónico
 
 ## Brand
-The full visual system is in `docs/design-system.md`. It loads through `.claude/rules/design-system.md` when working on HTML, CSS or the icon sprite.
-- I write tokens.css myself from the token table. Do not write it for me.
+The full visual system is in `docs/design-system/`. It loads through `.claude/rules/design-system.md` when working on HTML, CSS or the icon sprite.
+- I write tokens.css myself from `docs/design-system/tokens.md`. Do not write it for me.
 - `tokens.css` holds colours, font families, font weights, font sizes, `--gutter`, `--section-space` and `--ease-out`. No hardcoded values for these in other files.
-- Everything else (spacing, layout widths, shape, sizes, line-height, letter-spacing, durations) is written as plain values taken from `docs/design-system.md`. No value that is not in the design system.
+- Everything else (spacing, layout widths, shape, sizes, line-height, letter-spacing, durations) is written as plain values taken from `docs/design-system/tokens.md`. No value that is not in `tokens.md`.
 
 ## Rules
 - Mobile-first. WCAG 2.1 AA. Technical SEO.
