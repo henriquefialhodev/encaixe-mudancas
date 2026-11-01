@@ -86,7 +86,8 @@ A square drawn with a 2px stroke, with the top right corner missing. A smaller f
 - They live in the external SVG sprite and are used with `<use>`. The stroke attributes (`fill="none"`, `stroke="currentColor"`, `stroke-width="2"`) sit on each `<symbol>`, because they are read from the symbol and not from the `<svg>` where it is used.
 - Decorative icons next to text: `aria-hidden="true"` and `focusable="false"`.
 - Icon-only buttons (− and +): the accessible name comes from the button, for example "Adicionar sofá médio (3 lugares)".
-- Icons needed: menu, close, plus, minus, right arrow, left arrow, tick, alert, edit and the down arrow of the `<select>`.
+- Icons needed: menu, close, plus, minus, right arrow, left arrow, tick, alert and the down arrow of the `<select>`.
+- The "Editar" buttons in the step 4 summary have no icon. The word and the `aria-label` already say what they do, so an icon would only be decoration.
 - Sprite ids: `icon-menu`, `icon-close`, `icon-plus`, `icon-minus`, `icon-arrow-right`, `icon-arrow-left`, `icon-checkup` (tick), `icon-alert`, `icon-chevron-down`.
 - **The calculator items have no icons.** Each item shows only its name and volume, as in the quote page design. The list reads well this way, and it would be 25 icons to draw.
 
