@@ -507,6 +507,27 @@ html.js {
   line-height: 1.2;
 }
 
+/* ERROR MESSAGES */
+.site-quote-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  color: var(--color-error);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+}
+
+.site-quote-error-icon {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.site-quote-field select[aria-invalid="true"],
+.site-quote-field input[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
 /* TABLET FORM STEPS */
 @media (min-width: 768px) {
   .site-quote-step,
