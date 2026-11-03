@@ -11,6 +11,8 @@ function initSteps() {
   const siteQuoteStepHiddenLabel = document.querySelector(
     ".site-quote-step-hidden-label",
   );
+  const originPostcode = document.querySelector("#origin-postcode");
+  const originPostcodeError = document.querySelector("#origin-postcode-error");
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -22,18 +24,32 @@ function initSteps() {
   }
 
   let currentStep = 0;
-  // Hides the current step and shows the next one. Stops at the last step.
+  // Moves to the next step only when the origin postcode is valid.
+  // Otherwise shows its error message and moves focus to the field.
   function nextStep() {
-    if (currentStep < siteQuoteSteps.length - 1) {
-      siteQuoteSteps[currentStep].hidden = true;
-      currentStep++;
-      siteQuoteSteps[currentStep].hidden = false;
+    if (originPostcode.checkValidity()) {
+      originPostcode.removeAttribute("aria-invalid");
+      originPostcodeError.hidden = true;
+      originPostcode.setAttribute("aria-describedby", "origin-postcode-help");
+      if (currentStep < siteQuoteSteps.length - 1) {
+        siteQuoteSteps[currentStep].hidden = true;
+        currentStep++;
+        siteQuoteSteps[currentStep].hidden = false;
+      }
+      togglePrevBtn();
+      updateFinalStep();
+      toggleStepsList();
+      updateStep();
+      focusStepHeading();
+    } else {
+      originPostcode.setAttribute("aria-invalid", "true");
+      originPostcodeError.hidden = false;
+      originPostcode.setAttribute(
+        "aria-describedby",
+        "origin-postcode-help origin-postcode-error",
+      );
+      originPostcode.focus();
     }
-    togglePrevBtn();
-    updateFinalStep();
-    toggleStepsList();
-    updateStep();
-    focusStepHeading();
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
 
@@ -105,7 +121,7 @@ function initSteps() {
   }
   updateStep();
 
-    // Moves focus to the heading of the new step, so screen readers announce it
+  // Moves focus to the heading of the new step, so screen readers announce it
   // and the next Tab goes into that step.
   function focusStepHeading() {
     const currentStepCard = siteQuoteSteps[currentStep];
