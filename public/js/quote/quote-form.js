@@ -12,7 +12,6 @@ function initSteps() {
     ".site-quote-step-hidden-label",
   );
   const originPostcode = document.querySelector("#origin-postcode");
-  const originPostcodeError = document.querySelector("#origin-postcode-error");
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -24,13 +23,41 @@ function initSteps() {
   }
 
   let currentStep = 0;
+
+  // Checks one field and shows or hides its error message.
+  // Returns true when the field is valid and false when it is not.
+  function validateField(field) {
+    const fieldError = document.querySelector("#" + field.id + "-error");
+    const fieldHelp = document.querySelector("#" + field.id + "-help");
+    if (field.checkValidity()) {
+      field.removeAttribute("aria-invalid");
+      fieldError.hidden = true;
+      if (fieldHelp === null) {
+        field.removeAttribute("aria-describedby");
+      } else {
+        field.setAttribute("aria-describedby", field.id + "-help");
+      }
+      return true;
+    } else {
+      if (fieldHelp !== null) {
+        field.setAttribute(
+          "aria-describedby",
+          field.id + "-help " + field.id + "-error",
+        );
+      } else {
+        field.setAttribute("aria-describedby", field.id + "-error");
+      }
+      field.setAttribute("aria-invalid", "true");
+      fieldError.hidden = false;
+      field.focus();
+      return false;
+    }
+  }
+
   // Moves to the next step only when the origin postcode is valid.
   // Otherwise shows its error message and moves focus to the field.
   function nextStep() {
-    if (originPostcode.checkValidity()) {
-      originPostcode.removeAttribute("aria-invalid");
-      originPostcodeError.hidden = true;
-      originPostcode.setAttribute("aria-describedby", "origin-postcode-help");
+    if (validateField(originPostcode)) {
       if (currentStep < siteQuoteSteps.length - 1) {
         siteQuoteSteps[currentStep].hidden = true;
         currentStep++;
@@ -41,14 +68,6 @@ function initSteps() {
       toggleStepsList();
       updateStep();
       focusStepHeading();
-    } else {
-      originPostcode.setAttribute("aria-invalid", "true");
-      originPostcodeError.hidden = false;
-      originPostcode.setAttribute(
-        "aria-describedby",
-        "origin-postcode-help origin-postcode-error",
-      );
-      originPostcode.focus();
     }
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
