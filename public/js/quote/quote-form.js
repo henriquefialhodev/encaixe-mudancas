@@ -13,6 +13,9 @@ function initSteps() {
   );
   const originPostcode = document.querySelector("#origin-postcode");
   const destinationPostcode = document.querySelector("#destination-postcode");
+  const originFloor = document.querySelector("#origin-floor");
+  const destinationFloor = document.querySelector("#destination-floor");
+  const distance = document.querySelector("#distance");
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -59,7 +62,16 @@ function initSteps() {
   function nextStep() {
     const isOriginPostcodeValid = validateField(originPostcode);
     const isDestinationPostcodeValid = validateField(destinationPostcode);
-    if (isOriginPostcodeValid && isDestinationPostcodeValid) {
+    const isOriginFloorValid = validateField(originFloor);
+    const isDestinationFloorValid = validateField(destinationFloor);
+    const isDistanceValid = validateField(distance);
+    if (
+      isOriginPostcodeValid &&
+      isDestinationPostcodeValid &&
+      isOriginFloorValid &&
+      isDestinationFloorValid &&
+      isDistanceValid
+    ) {
       if (currentStep < siteQuoteSteps.length - 1) {
         siteQuoteSteps[currentStep].hidden = true;
         currentStep++;
@@ -73,8 +85,14 @@ function initSteps() {
     } else {
       if (!isOriginPostcodeValid) {
         originPostcode.focus();
+      } else if (!isOriginFloorValid) {
+        originFloor.focus();
       } else if (!isDestinationPostcodeValid) {
         destinationPostcode.focus();
+      } else if (!isDestinationFloorValid) {
+        destinationFloor.focus();
+      } else if (!isDistanceValid) {
+        distance.focus();
       }
     }
   }
