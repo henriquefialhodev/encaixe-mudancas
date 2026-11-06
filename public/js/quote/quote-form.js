@@ -12,6 +12,7 @@ function initSteps() {
     ".site-quote-step-hidden-label",
   );
   const originPostcode = document.querySelector("#origin-postcode");
+  const destinationPostcode = document.querySelector("#destination-postcode");
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -49,15 +50,16 @@ function initSteps() {
       }
       field.setAttribute("aria-invalid", "true");
       fieldError.hidden = false;
-      field.focus();
       return false;
     }
   }
 
-  // Moves to the next step only when the origin postcode is valid.
-  // Otherwise shows its error message and moves focus to the field.
+  // Moves to the next step only when every checked field is valid.
+  // Otherwise moves focus to the first field with an error.
   function nextStep() {
-    if (validateField(originPostcode)) {
+    const isOriginPostcodeValid = validateField(originPostcode);
+    const isDestinationPostcodeValid = validateField(destinationPostcode);
+    if (isOriginPostcodeValid && isDestinationPostcodeValid) {
       if (currentStep < siteQuoteSteps.length - 1) {
         siteQuoteSteps[currentStep].hidden = true;
         currentStep++;
@@ -68,6 +70,12 @@ function initSteps() {
       toggleStepsList();
       updateStep();
       focusStepHeading();
+    } else {
+      if (!isOriginPostcodeValid) {
+        originPostcode.focus();
+      } else if (!isDestinationPostcodeValid) {
+        destinationPostcode.focus();
+      }
     }
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
