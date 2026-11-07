@@ -55,4 +55,5 @@ The full visual system is in `docs/design-system/`. It loads through `.claude/ru
 - Home page done. Quote page layout done: markup of the 4 steps, order summary, navigation buttons, and the estimate panel as a fixed bar below 1024px and a sticky card from 1024px.
 - Quote steps done (feat/quote-steps): one step visible at a time, Next and Previous buttons, submit button and order summary on the last step, step indicator (current, completed, "Passo X de 4") and focus on the new step heading.
 - Live site checked on 2026-10-27 (share card and structured data). Lighthouse on the live site is left for when the whole site is complete.
-- Next: feat/quote-validation (validate only the current step before moving on).
+- Quote step 1 validation done (feat/quote-validation): Next checks the seven step 1 fields, shows every error at once with aria-invalid and aria-describedby, and moves focus to the first invalid field.
+- Next: feat/quote-validation-steps (validation of steps 3 and 4, postcode hyphen, phone spaces). Step 2 validation comes with feat/volume-calculator.

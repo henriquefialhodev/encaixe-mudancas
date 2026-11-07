@@ -102,14 +102,14 @@ Iguais aos da página inicial (`home.md`), com duas diferenças:
 |---|---|---|---|---|
 | Código postal | Formato 0000-000 | `origin-postcode` e `destination-postcode` | `text` | Sim |
 | Andar | | `origin-floor` e `destination-floor` | `select` | Sim |
-| Tem elevador? (é o `<legend>` do grupo) | | `name="origin-lift"` e `name="destination-lift"` | `radio` | Sim |
+| Tem elevador? (é o `<legend>` do grupo) | | `id="origin-lift"` e `id="destination-lift"` no `<fieldset>`, e `name` com o mesmo nome nos `radio` | `radio` | Sim |
 | Distância entre as duas moradas | Se não souber ao certo, escolha a mais próxima. | `distance` | `select` | Sim |
 
 **Código postal:**
 
 - `pattern` para `0000-000`, `maxlength="8"`.
 - `autocomplete="section-origin postal-code"` na origem e `autocomplete="section-destination postal-code"` no destino. O prefixo `section-` diz ao browser que são duas moradas diferentes. Sem ele, o preenchimento automático punha o mesmo código postal nos dois campos.
-- **Hífen automático:** enquanto a pessoa escreve, o JavaScript tira tudo o que não seja algarismo e põe o hífen depois do quarto. Quem escreve `4700000` vê `4700-000`. Se a pessoa escrever o hífen, também funciona. Ao corrigir um algarismo a meio, o cursor não pode saltar para o fim. Entra na `feat/quote-validation`.
+- **Hífen automático:** enquanto a pessoa escreve, o JavaScript tira tudo o que não seja algarismo e põe o hífen depois do quarto. Quem escreve `4700000` vê `4700-000`. Se a pessoa escrever o hífen, também funciona. Ao corrigir um algarismo a meio, o cursor não pode saltar para o fim. Entra na `feat/quote-validation-steps`.
 - **`inputmode="numeric"` entra com o hífen automático.** O teclado numérico do telemóvel pode não ter o hífen, e com o hífen automático já não é preciso escrevê-lo. Sem JavaScript, o hífen escreve-se à mão, como diz a ajuda.
 
 **Opções do andar:**
@@ -283,7 +283,7 @@ A lista é gerada a partir do array, por isso sem JavaScript não existe. Em vez
 
 - **Porque `full-name` e não `name`:** um campo com `name="name"` fica acessível como `form.name`, e isso tapa a propriedade `name` do próprio formulário. É um erro difícil de encontrar.
 - **Porque `tel-national`:** com `tel`, o browser pode preencher o número com o indicativo (+351 912...), e a regra dos 9 dígitos chumbava um número certo.
-- **Telefone com espaços automáticos:** enquanto a pessoa escreve, o JavaScript tira tudo o que não seja algarismo e põe um espaço depois do terceiro e do sexto. Quem escreve `910000000` vê `910 000 000`. Entra na `feat/quote-validation`.
+- **Telefone com espaços automáticos:** enquanto a pessoa escreve, o JavaScript tira tudo o que não seja algarismo e põe um espaço depois do terceiro e do sexto. Quem escreve `910000000` vê `910 000 000`. Entra na `feat/quote-validation-steps`.
   - A validação tira os espaços antes de contar, e depois exige exatamente 9 algarismos.
   - O `pattern` aceita o número com e sem espaços. O valor exato fica para essa tarefa.
   - `maxlength="11"`: 9 algarismos e 2 espaços.
@@ -556,7 +556,8 @@ As tarefas 5 a 10 da ficha, com a parte deste ficheiro que cada uma usa:
 |---|---|---|
 | 5 | `feat/quote-markup` | 1 a 10 (HTML e CSS), 14, 15 |
 | 6 | `feat/quote-steps` | 4, 9, 13 |
-| 7 | `feat/quote-validation` | as tabelas de mensagens de erro de 5 a 8, as datas da 7 |
-| 8 | `feat/volume-calculator` | 6, 10, a tabela dos veículos da 11 |
+| 7 | `feat/quote-validation` | a tabela de mensagens de erro da 5 |
+| 7 | `feat/quote-validation-steps` | as tabelas de mensagens de erro da 7 e da 8, as datas da 7, o hífen do código postal da 5 e os espaços do telefone da 8 |
+| 8 | `feat/volume-calculator` | 6 (com a mensagem de erro), 10, a tabela dos veículos da 11 |
 | 9 | `feat/price-estimate` | 11, o resumo da 8 |
 | 10 | `feat/quote-submit` | 12 |
