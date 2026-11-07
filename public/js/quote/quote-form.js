@@ -16,6 +16,8 @@ function initSteps() {
   const originFloor = document.querySelector("#origin-floor");
   const destinationFloor = document.querySelector("#destination-floor");
   const distance = document.querySelector("#distance");
+  const originLift = document.querySelector("#origin-lift");
+  const destinationLift = document.querySelector("#destination-lift");
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -57,6 +59,24 @@ function initSteps() {
     }
   }
 
+  // Checks a yes or no group and shows or hides its error message.
+  // Returns true when an option is chosen and false when none is.
+  function validateLiftField(fieldset) {
+    const fieldError = document.querySelector("#" + fieldset.id + "-error");
+    const firstOption = fieldset.querySelector("input[type='radio']");
+    if (firstOption.checkValidity()) {
+      fieldset.removeAttribute("aria-invalid");
+      fieldError.hidden = true;
+      fieldset.removeAttribute("aria-describedby");
+      return true;
+    } else {
+      fieldset.setAttribute("aria-describedby", fieldset.id + "-error");
+      fieldset.setAttribute("aria-invalid", "true");
+      fieldError.hidden = false;
+      return false;
+    }
+  }
+
   // Moves to the next step only when every checked field is valid.
   // Otherwise moves focus to the first field with an error.
   function nextStep() {
@@ -65,12 +85,16 @@ function initSteps() {
     const isOriginFloorValid = validateField(originFloor);
     const isDestinationFloorValid = validateField(destinationFloor);
     const isDistanceValid = validateField(distance);
+    const isOriginLiftValid = validateLiftField(originLift);
+    const isDestinationLiftValid = validateLiftField(destinationLift);
     if (
       isOriginPostcodeValid &&
       isDestinationPostcodeValid &&
       isOriginFloorValid &&
       isDestinationFloorValid &&
-      isDistanceValid
+      isDistanceValid &&
+      isOriginLiftValid &&
+      isDestinationLiftValid
     ) {
       if (currentStep < siteQuoteSteps.length - 1) {
         siteQuoteSteps[currentStep].hidden = true;
@@ -87,10 +111,14 @@ function initSteps() {
         originPostcode.focus();
       } else if (!isOriginFloorValid) {
         originFloor.focus();
+      } else if (!isOriginLiftValid) {
+        originLift.querySelector("input[type='radio']").focus();
       } else if (!isDestinationPostcodeValid) {
         destinationPostcode.focus();
       } else if (!isDestinationFloorValid) {
         destinationFloor.focus();
+      } else if (!isDestinationLiftValid) {
+        destinationLift.querySelector("input[type='radio']").focus();
       } else if (!isDistanceValid) {
         distance.focus();
       }
