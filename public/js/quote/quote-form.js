@@ -11,6 +11,13 @@ function initSteps() {
   const siteQuoteStepHiddenLabel = document.querySelector(
     ".site-quote-step-hidden-label",
   );
+  const originPostcode = document.querySelector("#origin-postcode");
+  const destinationPostcode = document.querySelector("#destination-postcode");
+  const originFloor = document.querySelector("#origin-floor");
+  const destinationFloor = document.querySelector("#destination-floor");
+  const distance = document.querySelector("#distance");
+  const originLift = document.querySelector("#origin-lift");
+  const destinationLift = document.querySelector("#destination-lift");
 
   for (let i = 0; i < siteQuoteSteps.length; i++) {
     const siteQuoteStep = siteQuoteSteps[i];
@@ -22,18 +29,100 @@ function initSteps() {
   }
 
   let currentStep = 0;
-  // Hides the current step and shows the next one. Stops at the last step.
-  function nextStep() {
-    if (currentStep < siteQuoteSteps.length - 1) {
-      siteQuoteSteps[currentStep].hidden = true;
-      currentStep++;
-      siteQuoteSteps[currentStep].hidden = false;
+
+  // Checks one field and shows or hides its error message.
+  // Returns true when the field is valid and false when it is not.
+  function validateField(field) {
+    const fieldError = document.querySelector("#" + field.id + "-error");
+    const fieldHelp = document.querySelector("#" + field.id + "-help");
+    if (field.checkValidity()) {
+      field.removeAttribute("aria-invalid");
+      fieldError.hidden = true;
+      if (fieldHelp === null) {
+        field.removeAttribute("aria-describedby");
+      } else {
+        field.setAttribute("aria-describedby", field.id + "-help");
+      }
+      return true;
+    } else {
+      if (fieldHelp !== null) {
+        field.setAttribute(
+          "aria-describedby",
+          field.id + "-help " + field.id + "-error",
+        );
+      } else {
+        field.setAttribute("aria-describedby", field.id + "-error");
+      }
+      field.setAttribute("aria-invalid", "true");
+      fieldError.hidden = false;
+      return false;
     }
-    togglePrevBtn();
-    updateFinalStep();
-    toggleStepsList();
-    updateStep();
-    focusStepHeading();
+  }
+
+  // Checks a yes or no group and shows or hides its error message.
+  // Returns true when an option is chosen and false when none is.
+  function validateLiftField(fieldset) {
+    const fieldError = document.querySelector("#" + fieldset.id + "-error");
+    const firstOption = fieldset.querySelector("input[type='radio']");
+    if (firstOption.checkValidity()) {
+      fieldset.removeAttribute("aria-invalid");
+      fieldError.hidden = true;
+      fieldset.removeAttribute("aria-describedby");
+      return true;
+    } else {
+      fieldset.setAttribute("aria-describedby", fieldset.id + "-error");
+      fieldset.setAttribute("aria-invalid", "true");
+      fieldError.hidden = false;
+      return false;
+    }
+  }
+
+  // Moves to the next step only when every checked field is valid.
+  // Otherwise moves focus to the first field with an error.
+  function nextStep() {
+    const isOriginPostcodeValid = validateField(originPostcode);
+    const isDestinationPostcodeValid = validateField(destinationPostcode);
+    const isOriginFloorValid = validateField(originFloor);
+    const isDestinationFloorValid = validateField(destinationFloor);
+    const isDistanceValid = validateField(distance);
+    const isOriginLiftValid = validateLiftField(originLift);
+    const isDestinationLiftValid = validateLiftField(destinationLift);
+    if (
+      isOriginPostcodeValid &&
+      isDestinationPostcodeValid &&
+      isOriginFloorValid &&
+      isDestinationFloorValid &&
+      isDistanceValid &&
+      isOriginLiftValid &&
+      isDestinationLiftValid
+    ) {
+      if (currentStep < siteQuoteSteps.length - 1) {
+        siteQuoteSteps[currentStep].hidden = true;
+        currentStep++;
+        siteQuoteSteps[currentStep].hidden = false;
+      }
+      togglePrevBtn();
+      updateFinalStep();
+      toggleStepsList();
+      updateStep();
+      focusStepHeading();
+    } else {
+      if (!isOriginPostcodeValid) {
+        originPostcode.focus();
+      } else if (!isOriginFloorValid) {
+        originFloor.focus();
+      } else if (!isOriginLiftValid) {
+        originLift.querySelector("input[type='radio']").focus();
+      } else if (!isDestinationPostcodeValid) {
+        destinationPostcode.focus();
+      } else if (!isDestinationFloorValid) {
+        destinationFloor.focus();
+      } else if (!isDestinationLiftValid) {
+        destinationLift.querySelector("input[type='radio']").focus();
+      } else if (!isDistanceValid) {
+        distance.focus();
+      }
+    }
   }
   siteQuoteBtnNext.addEventListener("click", nextStep);
 
@@ -105,7 +194,7 @@ function initSteps() {
   }
   updateStep();
 
-    // Moves focus to the heading of the new step, so screen readers announce it
+  // Moves focus to the heading of the new step, so screen readers announce it
   // and the next Tab goes into that step.
   function focusStepHeading() {
     const currentStepCard = siteQuoteSteps[currentStep];
